@@ -22,7 +22,7 @@ export interface ScheduleAutopayData {
 })
 export class ScheduleAutopayModalComponent implements OnInit {
   private store = inject(Store);
-  
+
   autopayForm: FormGroup;
   loading = false;
   paymentMethods$ = this.store.select(selectAllPaymentMethods);
@@ -41,7 +41,7 @@ export class ScheduleAutopayModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.dispatch(PaymentMethodsActions.loadMethods());
+    this.store.dispatch(PaymentMethodsActions.loadMethods({ page: 1, pageSize: 10 }));
 
     // Validator logic for custom amount
     this.autopayForm.get('amountPreference')?.valueChanges.subscribe(val => {
@@ -68,7 +68,7 @@ export class ScheduleAutopayModalComponent implements OnInit {
     }
 
     this.loading = true;
-    
+
     // Simulate API call to save autopay preference
     setTimeout(() => {
       this.loading = false;

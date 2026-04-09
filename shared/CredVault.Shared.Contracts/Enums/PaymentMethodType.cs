@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,6 +9,7 @@ namespace CredVault.Shared.Contracts.Enums
         UPI = 0,
         BankTransfer = 1,
         DebitCard = 2,
-        NetBanking = 3
+        NetBanking = 3,
+        CreditCard = 4
     }
 }

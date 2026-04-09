@@ -1,124 +1,72 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, delay } from 'rxjs';
-import { map } from 'rxjs/operators';
-
-export type CardStatus = 'Active' | 'Locked' | 'Blocked' | 'Expired';
-export type CardNetwork = 'Visa' | 'Mastercard' | 'Amex' | 'Discover';
-
-export interface CreditCard {
-  id: string;
-  cardholderName: string;
-  last4Digits: string;
-  network: CardNetwork;
-  expiryMonth: number;
-  expiryYear: number;
-  creditLimit: number;
-  currentBalance: number;
-  status: CardStatus;
-  isVirtual: boolean;
-  isDefault: boolean;
-  isVerified: boolean;
-}
-
-export interface RequestCardPayload {
-  cardType: 'Physical' | 'Virtual';
-  deliveryAddress?: string;
-}
-
-export interface AddCardPayload {
-  cardNumber: string;
-  cardHolderName: string;
-  expiryMonth: number;
-  expiryYear: number;
-  issuer: string;
-  creditLimit: number;
-  billingCycleStartDay: number;
-  nickname: string;
-}
+import { HttpParams } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
+import { ApiService } from '../../../core/services/api.service';
+import { CardResponse, CardSummaryResponse, AddCardRequest, UpdateCardLimitRequest } from '../../../core/models/card.model';
+import { PaginatedResponse } from '../../../core/models/api-response.model';
 
 @Injectable({ providedIn: 'root' })
 export class CardsService {
 
-  getCards(): Observable<CreditCard[]> {
-    const mockCards: CreditCard[] = [
-      {
-        id: 'card-001',
-        cardholderName: 'Rajan Mehta',
-        last4Digits: '4242',
-        network: 'Visa',
-        expiryMonth: 12,
-        expiryYear: 2027,
-        creditLimit: 15000,
-        currentBalance: 3250.75,
-        status: 'Active',
-        isVirtual: false,
-        isDefault: true,
-        isVerified: true,
-      },
-      {
-        id: 'card-002',
-        cardholderName: 'Rajan Mehta',
-        last4Digits: '8888',
-        network: 'Mastercard',
-        expiryMonth: 6,
-        expiryYear: 2026,
-        creditLimit: 10000,
-        currentBalance: 1000,
-        status: 'Locked',
-        isVirtual: false,
-        isDefault: false,
-        isVerified: true,
-      },
-      {
-        id: 'card-003',
-        cardholderName: 'Rajan Mehta',
-        last4Digits: '0099',
-        network: 'Visa',
-        expiryMonth: 3,
-        expiryYear: 2028,
-        creditLimit: 5000,
-        currentBalance: 0,
-        status: 'Active',
-        isVirtual: true,
-        isDefault: false,
-        isVerified: false,
-      },
-    ];
-    return of(mockCards).pipe(delay(500));
+  constructor(private api: ApiService) { }
+
+  getCards(page: number = 1, pageSize: number = 10): Observable<PaginatedResponse<CardResponse>> {
+    const params = new HttpParams()
+      .set('page', page.toString())
+      .set('pageSize', pageSize.toString());
+
+    return this.api.get<PaginatedResponse<CardResponse>>('/api/cards', params)
+      .pipe(
+        map(res => res.data!)
+      );
   }
 
-  getCardById(id: string): Observable<CreditCard | undefined> {
-    return this.getCards().pipe(
-      map(cards => cards.find(c => c.id === id)),
-      delay(200),
-    );
+  getCardById(id: string): Observable<CardResponse> {
+    return this.api.get<CardResponse>(`/api/cards/${id}`)
+      .pipe(
+        map(res => res.data!)
+      );
   }
 
-  lockCard(id: string): Observable<{ success: boolean }> {
-    return of({ success: true }).pipe(delay(400));
+  getCardUtilization(): Observable<CardSummaryResponse> {
+    return this.api.get<CardSummaryResponse>('/api/cards/utilization')
+      .pipe(
+        map(res => res.data!)
+      );
   }
 
-  unlockCard(id: string): Observable<{ success: boolean }> {
-    return of({ success: true }).pipe(delay(400));
+  addCard(payload: AddCardRequest): Observable<CardResponse> {
+    return this.api.post<CardResponse>('/api/cards', payload)
+      .pipe(
+        map(res => res.data!)
+      );
   }
 
-  setDefault(id: string): Observable<{ success: boolean }> {
-    return of({ success: true }).pipe(delay(400));
+  setDefaultCard(id: string): Observable<void> {
+    return this.api.put<void>(`/api/cards/${id}/default`, {})
+      .pipe(
+        map(res => res.data!)
+      );
   }
 
-  verifyCard(id: string): Observable<{ success: boolean }> {
-    return of({ success: true }).pipe(delay(400));
+  verifyCard(id: string): Observable<void> {
+    return this.api.put<void>(`/api/cards/${id}/verify`, {})
+      .pipe(
+        map(res => res.data!)
+      );
   }
 
-  deleteCard(id: string): Observable<{ success: boolean }> {
-    return of({ success: true }).pipe(delay(500));
+  updateCardLimit(id: string, payload: UpdateCardLimitRequest): Observable<void> {
+    return this.api.put<void>(`/api/cards/${id}/limit`, payload)
+      .pipe(
+        map(res => res.data!)
+      );
   }
 
-  addCard(payload: AddCardPayload): Observable<{ success: boolean; message: string }> {
-    return of({ success: true, message: 'Card added successfully.' }).pipe(delay(600));
-  }
-
-  requestNewCard(payload: RequestCardPayload): Observable<{ success: boolean; message: string }> {
-    return of({ success: true, message: 'Your card request has been submitted.' }).pipe(delay(600));
+  deleteCard(id: string): Observable<void> {
+    return this.api.delete<void>(`/api/cards/${id}`)
+      .pipe(
+        map(res => res.data!)
+      );
   }
 }

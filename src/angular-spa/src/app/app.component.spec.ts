@@ -14,16 +14,17 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'credvault-spa' title`, () => {
+  it(`should render the app component`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('credvault-spa');
+    expect(app).toBeTruthy();
   });
 
-  it('should render title', () => {
+  it('should render sidebar and navbar', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, credvault-spa');
+    expect(compiled.querySelector('app-sidebar')).toBeTruthy();
+    expect(compiled.querySelector('app-navbar')).toBeTruthy();
   });
 });

@@ -71,7 +71,7 @@
                 </div>
                 <div class="activity-details">
                   <p>{{ item.description }}</p>
-                  <span>{{ item.date | date:'MMM dd' }} • {{ item.category }}</span>
+                  <span>{{ item.date | date:'MMM dd' }}</span>
                 </div>
               </div>
               <div class="activity-amount" [ngClass]="item.type === 'payment' ? 'amount-payment' : 'amount-charge'">

@@ -37,7 +37,7 @@ export class NotificationsListComponent implements OnInit {
   unreadCount = toSignal(this.store.select(selectUnreadCount), { initialValue: 0 });
 
   ngOnInit(): void {
-    this.store.dispatch(NotificationsActions.loadNotifications());
+    this.store.dispatch(NotificationsActions.loadNotifications({ page: 1, pageSize: 20 }));
   }
 
   markAsRead(id: string): void {

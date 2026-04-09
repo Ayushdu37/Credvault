@@ -1,23 +1,27 @@
 import { createReducer, on } from '@ngrx/store';
-import { RewardAccount, RewardTier, RewardTransaction } from '../../features/rewards/services/rewards.service';
+import { RewardAccount, RewardTransaction } from '../../core/models/billing.model';
 import { RewardsActions } from './rewards.actions';
 
 export interface RewardsState {
   account: RewardAccount | null;
-  tiers: RewardTier[];
   transactions: RewardTransaction[];
   loading: boolean;
   redeeming: boolean;
   error: string | null;
+  page: number;
+  pageSize: number;
+  totalCount: number;
 }
 
 export const initialState: RewardsState = {
   account: null,
-  tiers: [],
   transactions: [],
   loading: false,
   redeeming: false,
   error: null,
+  page: 1,
+  pageSize: 10,
+  totalCount: 0,
 };
 
 export const rewardsReducer = createReducer(
@@ -26,9 +30,12 @@ export const rewardsReducer = createReducer(
   on(RewardsActions.loadAccountSuccess, (state, { account }) => ({ ...state, account, loading: false })),
   on(RewardsActions.loadAccountFailure, (state, { error }) => ({ ...state, loading: false, error })),
 
-  on(RewardsActions.loadTiersSuccess, (state, { tiers }) => ({ ...state, tiers })),
-
-  on(RewardsActions.loadTransactionsSuccess, (state, { transactions }) => ({ ...state, transactions })),
+  on(RewardsActions.loadTransactions, (state, { page, pageSize }) =>
+    ({ ...state, page, pageSize })
+  ),
+  on(RewardsActions.loadTransactionsSuccess, (state, { transactions, totalCount }) =>
+    ({ ...state, transactions, totalCount })
+  ),
   on(RewardsActions.loadTransactionsFailure, (state, { error }) => ({ ...state, error })),
 
   on(RewardsActions.redeemPoints, (state) => ({ ...state, redeeming: true })),

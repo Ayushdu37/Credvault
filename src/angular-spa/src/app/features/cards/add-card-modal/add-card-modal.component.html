@@ -46,7 +46,7 @@
         <label class="form-label">Issuer / Network</label>
         <select formControlName="issuer" class="form-input">
           <option value="" disabled>Select issuer</option>
-          <option *ngFor="let iss of issuers" [value]="iss">{{ iss }}</option>
+          <option *ngFor="let iss of issuers" [ngValue]="iss.value">{{ iss.label }}</option>
         </select>
         <span class="field-error" *ngIf="cardForm.get('issuer')?.invalid && cardForm.get('issuer')?.touched">
           Please select an issuer.

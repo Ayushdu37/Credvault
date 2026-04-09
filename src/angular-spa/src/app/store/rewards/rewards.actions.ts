@@ -1,5 +1,5 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { RewardAccount, RewardTier, RewardTransaction } from '../../features/rewards/services/rewards.service';
+import { RewardAccount, RewardTransaction, RedeemRewardsRequest } from '../../core/models/billing.model';
 
 export const RewardsActions = createActionGroup({
   source: 'Rewards',
@@ -8,14 +8,11 @@ export const RewardsActions = createActionGroup({
     'Load Account Success': props<{ account: RewardAccount }>(),
     'Load Account Failure': props<{ error: string }>(),
 
-    'Load Tiers': emptyProps(),
-    'Load Tiers Success': props<{ tiers: RewardTier[] }>(),
-
-    'Load Transactions': emptyProps(),
-    'Load Transactions Success': props<{ transactions: RewardTransaction[] }>(),
+    'Load Transactions': props<{ page: number; pageSize: number }>(),
+    'Load Transactions Success': props<{ transactions: RewardTransaction[]; totalCount: number }>(),
     'Load Transactions Failure': props<{ error: string }>(),
 
-    'Redeem Points': props<{ points: number }>(),
+    'Redeem Points': props<{ payload: RedeemRewardsRequest }>(),
     'Redeem Points Success': props<{ account: RewardAccount }>(),
     'Redeem Points Failure': props<{ error: string }>(),
   },

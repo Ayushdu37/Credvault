@@ -1,15 +1,15 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { Payment, SubmitPaymentPayload } from '../../features/payments/services/payments.service';
+import { Payment, MakePaymentRequest } from '../../core/models/payment.model';
 
 export const PaymentsActions = createActionGroup({
   source: 'Payments',
   events: {
-    'Load Payment History': emptyProps(),
-    'Load Payment History Success': props<{ payments: Payment[] }>(),
+    'Load Payment History': props<{ page: number; pageSize: number }>(),
+    'Load Payment History Success': props<{ payments: Payment[]; totalCount: number }>(),
     'Load Payment History Failure': props<{ error: string }>(),
 
-    'Submit Payment': props<{ payload: SubmitPaymentPayload }>(),
-    'Submit Payment Success': props<{ referenceNumber: string; message: string }>(),
+    'Submit Payment': props<{ payload: MakePaymentRequest }>(),
+    'Submit Payment Success': props<{ payment: Payment }>(),
     'Submit Payment Failure': props<{ error: string }>(),
 
     'Clear Payment Result': emptyProps(),

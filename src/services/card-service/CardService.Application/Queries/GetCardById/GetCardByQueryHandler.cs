@@ -1,4 +1,4 @@
-﻿using CardService.Domain.Interfaces;
+using CardService.Domain.Interfaces;
 using CredVault.Shared.Contracts.Card.Responses;
 using CredVault.Shared.Contracts.Common;
 using MediatR;
@@ -29,7 +29,7 @@ namespace CardService.Application.Queries.GetCardById
                 CardHolderName = card.CardHolderName,
                 Issuer = (CredVault.Shared.Contracts.Enums.CardIssuer)
                 Enum.Parse(typeof(CredVault.Shared.Contracts.Enums.CardIssuer),
-                card.Issuer.Name),
+                card.Issuer.Name, ignoreCase: true),
                 IssuerName = card.Issuer.Name,
                 ExpiryMonth = card.ExpiryMonth,
                 ExpiryYear = card.ExpiryYear,

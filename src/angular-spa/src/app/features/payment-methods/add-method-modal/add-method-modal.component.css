@@ -144,3 +144,41 @@
   color: var(--danger);
   margin-top: 0.25rem;
 }
+
+/* Sub-toggle Styles */
+.sub-toggle-group {
+  margin-bottom: var(--space-4);
+}
+
+.sub-toggle {
+  display: flex;
+  gap: var(--space-1);
+  background: var(--bg-body);
+  padding: var(--space-1);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+.sub-toggle-btn {
+  flex: 1;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.sub-toggle-btn:hover {
+  background: var(--bg-hover);
+}
+
+.sub-toggle-btn.active {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+}

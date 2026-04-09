@@ -10,4 +10,3 @@ export const selectPaymentsLoading = createSelector(selectPaymentsState, s => s.
 export const selectPaymentsSubmitting = createSelector(selectPaymentsState, s => s.submitting);
 export const selectPaymentsError = createSelector(selectPaymentsState, s => s.error);
 export const selectPaymentSuccessMessage = createSelector(selectPaymentsState, s => s.successMessage);
-export const selectLastReferenceNumber = createSelector(selectPaymentsState, s => s.lastReferenceNumber);

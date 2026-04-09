@@ -1,5 +1,5 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { DashboardSummary } from '../../features/dashboard/dashboard.service';
+import { DashboardSummary } from '../../core/models/dashboard.model';
 
 export const DashboardActions = createActionGroup({
   source: 'Dashboard',

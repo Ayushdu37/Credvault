@@ -5,7 +5,7 @@ import { AsyncPipe, CurrencyPipe, DatePipe, NgClass, NgFor, NgIf } from '@angula
 import { map, switchMap } from 'rxjs';
 import { BillingActions } from '../../../store/billing/billing.actions';
 import { selectBillById, selectBillingLoading } from '../../../store/billing/billing.selectors';
-import { BillingStatement, BillStatus } from '../services/billing.service';
+import { BillingStatement, BillStatusLabel, PaymentScheduleResponse } from '../../../core/models/billing.model';
 import { CardComponent } from '../../../shared/components/card/card.component';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { SpinnerComponent } from '../../../shared/components/spinner/spinner.component';
@@ -53,56 +53,45 @@ export class BillDetailComponent implements OnInit {
     const dialogRef = this.modalService.openCustom<ScheduleAutopayModalComponent, ScheduleAutopayData>(
       ScheduleAutopayModalComponent,
       {
-        cardId: 'card-1', // Mock ID as it's not present on BillingStatement
+        cardId: 'card-1',
         cardLast4: bill.cardLast4
       }
     );
 
     dialogRef.closed.subscribe((result: any) => {
       if (result?.success) {
-        // Here we would typically dispatch an action like:
-        // this.store.dispatch(BillingActions.configureAutopay({ payload: result.autopayConfig }));
-        // Mocking refresh to sync parity
         this.store.dispatch(BillingActions.loadBillDetail({ id: bill.id }));
       }
     });
   }
 
-  // Mock scheduled payment for this bill
-  scheduledPayment = {
-    id: 'sched-001',
-    amount: 85.00,
-    scheduledDate: '2026-04-15',
-    method: 'HDFC Bank Account (••4521)',
-  };
+  scheduledPayment: PaymentScheduleResponse | null = null;
 
-  // Mock payments made against this bill
-  billPayments = [
-    { id: 'pay-001', date: '2026-03-20', amount: 2000.00, method: 'Bank Account', status: 'Completed', reference: 'TXN-20260320-001' },
-    { id: 'pay-002', date: '2026-03-28', amount: 1500.00, method: 'UPI', status: 'Completed', reference: 'TXN-20260328-002' },
-  ];
+  billPayments: any[] = [];
 
   cancelScheduledPayment(): void {
+    if (!this.scheduledPayment) return;
     const dialogRef = this.modalService.openConfirm({
       title: 'Cancel Scheduled Payment',
-      content: `Are you sure you want to cancel the scheduled payment of $${this.scheduledPayment.amount.toFixed(2)} on ${this.scheduledPayment.scheduledDate}?`,
+      content: `Are you sure you want to cancel the scheduled payment?`,
       confirmText: 'Cancel Payment',
       cancelText: 'Keep It',
       danger: true
     });
     dialogRef.subscribe(confirmed => {
       if (confirmed) {
-        this.scheduledPayment = null as any;
+        this.store.dispatch(BillingActions.cancelScheduledPayment({ scheduleId: this.scheduledPayment!.id }));
+        this.scheduledPayment = null;
       }
     });
   }
 
-  getStatusClass(status: BillStatus): string {
-    const map: Record<BillStatus, string> = {
-      Paid: 'badge--paid',
-      Due: 'badge--due',
-      Overdue: 'badge--overdue',
-      Pending: 'badge--pending',
+  getStatusClass(status: BillStatusLabel): string {
+    const map: Record<BillStatusLabel, string> = {
+      'Paid': 'badge--paid',
+      'Pending': 'badge--pending',
+      'Overdue': 'badge--overdue',
+      'Due': 'badge--partially-paid',
     };
     return map[status];
   }

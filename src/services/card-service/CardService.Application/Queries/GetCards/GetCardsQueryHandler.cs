@@ -33,7 +33,7 @@ namespace CardService.Application.Queries.GetCards
                     CardHolderName = c.CardHolderName,
                     Issuer = (CredVault.Shared.Contracts.Enums.CardIssuer)
                         Enum.Parse(typeof(CredVault.Shared.Contracts.Enums.CardIssuer),
-                        c.Issuer.Name),
+                        c.Issuer.Name, ignoreCase: true),
                     IssuerName = c.Issuer.Name,
                     Nickname = c.MaskedNumber,
                     ExpiryMonth = c.ExpiryMonth,

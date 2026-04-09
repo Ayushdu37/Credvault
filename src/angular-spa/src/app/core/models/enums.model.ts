@@ -1,4 +1,5 @@
 // === Mirrors: CredVault.Shared.Contracts.Enums ===
+// All enums exactly match backend definitions
 
 export enum UserRole {
   User = 0,
@@ -40,4 +41,40 @@ export enum PaymentMethodType {
   BankTransfer = 1,
   DebitCard = 2,
   NetBanking = 3,
+  CreditCard = 4
+}
+
+export enum RewardTierName {
+  Silver = 0,
+  Gold = 1,
+  Platinum = 2,
+}
+
+export enum RewardTransactionType {
+  Earned = 0,
+  Redeemed = 1,
+  Expired = 2,
+}
+
+export enum NotificationType {
+  PaymentSuccess = 0,
+  PaymentFailed = 1,
+  BillGenerated = 2,
+  BillOverdue = 3,
+  RewardEarned = 4,
+  RewardRedeemed = 5,
+  General = 6,
+}
+
+export enum PaymentScheduleStatus {
+  Pending = 0,
+  Executed = 1,
+  Cancelled = 2,
+  Failed = 3,
+}
+
+export enum OTPPurpose {
+  Login = 0,
+  Payment = 1,
+  PasswordReset = 2,
 }

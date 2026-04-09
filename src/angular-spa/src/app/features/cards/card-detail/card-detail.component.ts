@@ -5,11 +5,11 @@ import { AsyncPipe, CurrencyPipe, DecimalPipe, NgClass, NgIf, PercentPipe, NgFor
 import { map, switchMap } from 'rxjs';
 import { CardsActions } from '../../../store/cards/cards.actions';
 import { selectCardById, selectCardsActionLoading, selectCardsLoading } from '../../../store/cards/cards.selectors';
+import { CreditCard, CardNetwork } from '../../../core/models/card.model';
 import { CardComponent } from '../../../shared/components/card/card.component';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { SpinnerComponent } from '../../../shared/components/spinner/spinner.component';
 import { LucideAngularModule } from 'lucide-angular';
-import { CreditCard } from '../services/cards.service';
 import { ModalService } from '../../../shared/components/modal/modal.service';
 import { ManageLimitModalComponent, ManageLimitData } from '../manage-limit-modal/manage-limit-modal.component';
 
@@ -37,32 +37,40 @@ export class CardDetailComponent implements OnInit {
     switchMap(id => this.store.select(selectCardById(id)))
   );
 
+  /** Billing history for this card — populated from store or API */
+  cardBills: { id: string; date: string; dueDate: string; minimumDue: number; amount: number; status: string }[] = [];
+
   ngOnInit(): void {
-    this.store.dispatch(CardsActions.loadCards());
+    const id = this.route.snapshot.paramMap.get('id') || '';
+    this.store.dispatch(CardsActions.selectCard({ id }));
   }
 
   goBack(): void {
     this.router.navigate(['/cards']);
   }
 
-  toggleLock(card: CreditCard): void {
-    if (card.status === 'Locked') {
-      this.store.dispatch(CardsActions.unlockCard({ id: card.id }));
-    } else {
-      this.store.dispatch(CardsActions.lockCard({ id: card.id }));
-    }
-  }
-
   getUtilization(card: CreditCard): number {
     return card.creditLimit > 0 ? card.currentBalance / card.creditLimit : 0;
   }
 
-  // Mock billing history for this card
-  cardBills = [
-    { id: 'stmt-001', date: '2026-03-01', amount: 3250.75, minimumDue: 150.00, dueDate: '2026-03-20', status: 'Paid' },
-    { id: 'stmt-002', date: '2026-02-01', amount: 2840.50, minimumDue: 125.00, dueDate: '2026-02-20', status: 'Paid' },
-    { id: 'stmt-003', date: '2026-01-01', amount: 4120.00, minimumDue: 206.00, dueDate: '2026-01-20', status: 'Paid' },
-  ];
+  toggleLock(card: CreditCard): void {
+    // TODO: Add lock/unlock action to CardsActions and wire to backend
+    // For now, show a confirmation dialog as a placeholder
+    const action = card.status === 'Locked' ? 'unlock' : 'lock';
+    const dialogRef = this.modalService.openConfirm({
+      title: `${action === 'lock' ? 'Lock' : 'Unlock'} Card`,
+      content: `Are you sure you want to ${action} your card ending in ${card.last4Digits}?`,
+      confirmText: action === 'lock' ? 'Lock Card' : 'Unlock Card',
+      cancelText: 'Cancel',
+      danger: action === 'lock',
+    });
+    dialogRef.subscribe(confirmed => {
+      if (confirmed) {
+        // TODO: dispatch CardsActions.toggleLock({ id: card.id })
+        console.log(`Card ${action} requested for ${card.id}`);
+      }
+    });
+  }
 
   manageLimit(card: CreditCard): void {
     const dialogRef = this.modalService.openCustom<ManageLimitModalComponent, ManageLimitData>(
@@ -77,7 +85,10 @@ export class CardDetailComponent implements OnInit {
 
     dialogRef.closed.subscribe((result: any) => {
       if (result?.success) {
-        this.store.dispatch(CardsActions.loadCards());
+        this.store.dispatch(CardsActions.updateCardLimit({
+          id: card.id,
+          newLimit: result.newLimit,
+        }));
       }
     });
   }

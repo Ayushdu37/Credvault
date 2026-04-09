@@ -2,8 +2,9 @@ import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { RewardsService } from '../../features/rewards/services/rewards.service';
 import { RewardsActions } from './rewards.actions';
-import { map, exhaustMap, catchError } from 'rxjs/operators';
+import { map, exhaustMap, catchError, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { mapRewardAccountResponse, mapRewardTransactionResponse } from '../../core/models/billing.model';
 
 export const loadAccount = createEffect(
   (actions$ = inject(Actions), svc = inject(RewardsService)) =>
@@ -11,21 +12,11 @@ export const loadAccount = createEffect(
       ofType(RewardsActions.loadAccount),
       exhaustMap(() =>
         svc.getRewardAccount().pipe(
-          map((account) => RewardsActions.loadAccountSuccess({ account })),
+          map(account => {
+            const mapped = mapRewardAccountResponse(account);
+            return RewardsActions.loadAccountSuccess({ account: mapped });
+          }),
           catchError((err) => of(RewardsActions.loadAccountFailure({ error: err.message })))
-        )
-      )
-    ),
-  { functional: true }
-);
-
-export const loadTiers = createEffect(
-  (actions$ = inject(Actions), svc = inject(RewardsService)) =>
-    actions$.pipe(
-      ofType(RewardsActions.loadTiers),
-      exhaustMap(() =>
-        svc.getTiers().pipe(
-          map((tiers) => RewardsActions.loadTiersSuccess({ tiers }))
         )
       )
     ),
@@ -36,9 +27,15 @@ export const loadTransactions = createEffect(
   (actions$ = inject(Actions), svc = inject(RewardsService)) =>
     actions$.pipe(
       ofType(RewardsActions.loadTransactions),
-      exhaustMap(() =>
-        svc.getTransactions().pipe(
-          map((transactions) => RewardsActions.loadTransactionsSuccess({ transactions })),
+      switchMap(({ page, pageSize }) =>
+        svc.getTransactions(page, pageSize).pipe(
+          map(res => {
+            const transactions = res.items.map(mapRewardTransactionResponse);
+            return RewardsActions.loadTransactionsSuccess({
+              transactions,
+              totalCount: res.totalCount,
+            });
+          }),
           catchError((err) => of(RewardsActions.loadTransactionsFailure({ error: err.message })))
         )
       )
@@ -50,9 +47,12 @@ export const redeemPoints = createEffect(
   (actions$ = inject(Actions), svc = inject(RewardsService)) =>
     actions$.pipe(
       ofType(RewardsActions.redeemPoints),
-      exhaustMap(({ points }) =>
-        svc.redeemPoints(points).pipe(
-          map((account) => RewardsActions.redeemPointsSuccess({ account })),
+      exhaustMap(({ payload }) =>
+        svc.redeemPoints(payload).pipe(
+          map(account => {
+            const mapped = mapRewardAccountResponse(account);
+            return RewardsActions.redeemPointsSuccess({ account: mapped });
+          }),
           catchError((err) => of(RewardsActions.redeemPointsFailure({ error: err.message })))
         )
       )

@@ -1,4 +1,4 @@
-﻿using CardService.Domain.Entities;
+using CardService.Domain.Entities;
 using CardService.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -19,7 +19,7 @@ namespace CardService.Infrastructure.Persistence.Repositories
         public async Task<CardIssuer?> GetByNameAsync(
             string name, CancellationToken ct = default)
             => await _context.CardIssuers
-                .FirstOrDefaultAsync(i => i.Name == name, ct);
+                .FirstOrDefaultAsync(i => i.Name.ToLower() == name.ToLower(), ct);
 
         public async Task<List<CardIssuer>> GetAllAsync(CancellationToken ct = default)
             => await _context.CardIssuers.ToListAsync(ct);

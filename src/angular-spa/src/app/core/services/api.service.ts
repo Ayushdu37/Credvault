@@ -6,14 +6,15 @@ import { ApiResponse } from '../models/api-response.model';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-    private readonly baseUrl = environment.apiGatewayUrl;
-    
-    constructor(private http: HttpClient) {}
+  private readonly baseUrl = environment.apiGatewayUrl;
 
-    get<T>(path: string, params?: HttpParams): Observable<ApiResponse<T>> {
-    return this.http.get<ApiResponse<T>>(`${this.baseUrl}${path}`, { params });
+  constructor(private http: HttpClient) { }
+
+  get<T>(path: string, params?: HttpParams): Observable<ApiResponse<T>> {
+    const options = params ? { params } : {};
+    return this.http.get<ApiResponse<T>>(`${this.baseUrl}${path}`, options);
   }
-  
+
   post<T>(path: string, body: unknown): Observable<ApiResponse<T>> {
     return this.http.post<ApiResponse<T>>(`${this.baseUrl}${path}`, body);
   }

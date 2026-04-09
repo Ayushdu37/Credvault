@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { DashboardActions } from './dashboard.actions';
-import { DashboardSummary } from '../../features/dashboard/dashboard.service';
+import { DashboardSummary } from '../../core/models/dashboard.model';
 
 export interface DashboardState {
   summary: DashboardSummary | null;

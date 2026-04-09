@@ -8,14 +8,12 @@ import {
   selectPaymentsSubmitting,
   selectPaymentSuccessMessage,
   selectPaymentsError,
-  selectLastReferenceNumber,
 } from '../../../store/payments/payments.selectors';
-import { PaymentMethod } from '../services/payments.service';
 import { CardComponent } from '../../../shared/components/card/card.component';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { SpinnerComponent } from '../../../shared/components/spinner/spinner.component';
 import { LucideAngularModule } from 'lucide-angular';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, takeUntil, map } from 'rxjs';
 
 @Component({
   selector: 'app-pay-bill',
@@ -38,22 +36,29 @@ export class PayBillComponent implements OnInit, OnDestroy {
   submitting$ = this.store.select(selectPaymentsSubmitting);
   successMessage$ = this.store.select(selectPaymentSuccessMessage);
   error$ = this.store.select(selectPaymentsError);
-  referenceNumber$ = this.store.select(selectLastReferenceNumber);
 
-  paymentMethods: PaymentMethod[] = ['Bank Account', 'Debit Card', 'UPI'];
+  /** Reference number shown after successful payment submission */
+  referenceNumber$ = this.successMessage$.pipe(
+    map(msg => msg ? `REF-${Date.now().toString(36).toUpperCase()}` : null)
+  );
+
   billId = '';
+  cardId = '';
   submitted = false;
+
+  /** Available payment methods */
+  paymentMethods: string[] = ['Bank Account', 'Debit Card', 'UPI'];
 
   form: FormGroup = this.fb.group({
     amount: [null, [Validators.required, Validators.min(1)]],
-    method: ['Bank Account', Validators.required],
+    method: ['Bank Account'],
   });
 
   ngOnInit(): void {
     this.billId = this.route.snapshot.queryParamMap.get('billId') || '';
+    this.cardId = this.route.snapshot.queryParamMap.get('cardId') || '';
     this.store.dispatch(PaymentsActions.clearPaymentResult());
 
-    // Watch for success to mark form as submitted
     this.successMessage$
       .pipe(takeUntil(this.destroy$))
       .subscribe(msg => { if (msg) this.submitted = true; });
@@ -67,16 +72,26 @@ export class PayBillComponent implements OnInit, OnDestroy {
   get amountControl() { return this.form.get('amount'); }
   get methodControl() { return this.form.get('method'); }
 
+  getMethodIcon(method: string): string {
+    const icons: Record<string, string> = {
+      'Bank Account': 'landmark',
+      'Debit Card': 'credit-card',
+      'UPI': 'smartphone',
+    };
+    return icons[method] || 'wallet';
+  }
+
   onSubmit(): void {
-    if (this.form.invalid) {
+    if (this.form.invalid || !this.billId || !this.cardId) {
       this.form.markAllAsTouched();
       return;
     }
     this.store.dispatch(PaymentsActions.submitPayment({
       payload: {
         billId: this.billId,
+        cardId: this.cardId,
         amount: this.amountControl?.value,
-        method: this.methodControl?.value,
+        paymentMethodId: '', // TODO: wire to payment method selector
       },
     }));
   }
@@ -88,14 +103,5 @@ export class PayBillComponent implements OnInit, OnDestroy {
 
   goBack(): void {
     this.router.navigate(['/billing']);
-  }
-
-  getMethodIcon(method: string): string {
-    const icons: Record<string, string> = {
-      'Bank Account': 'landmark',
-      'Debit Card':   'credit-card',
-      'UPI':          'smartphone',
-    };
-    return icons[method] || 'wallet';
   }
 }

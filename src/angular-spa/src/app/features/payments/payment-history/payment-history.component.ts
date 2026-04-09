@@ -4,7 +4,7 @@ import { AsyncPipe, CurrencyPipe, DatePipe, NgClass, NgFor, NgIf } from '@angula
 import { Router } from '@angular/router';
 import { PaymentsActions } from '../../../store/payments/payments.actions';
 import { selectAllPayments, selectPaymentsLoading } from '../../../store/payments/payments.selectors';
-import { Payment, PaymentStatus } from '../services/payments.service';
+import { Payment, PaymentStatusLabel, PaymentMethodLabel } from '../../../core/models/payment.model';
 import { CardComponent } from '../../../shared/components/card/card.component';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { SpinnerComponent } from '../../../shared/components/spinner/spinner.component';
@@ -30,7 +30,7 @@ export class PaymentHistoryComponent implements OnInit {
   loading$ = this.store.select(selectPaymentsLoading);
 
   ngOnInit(): void {
-    this.store.dispatch(PaymentsActions.loadPaymentHistory());
+    this.store.dispatch(PaymentsActions.loadPaymentHistory({ page: 1, pageSize: 10 }));
   }
 
   makePayment(): void {
@@ -41,20 +41,21 @@ export class PaymentHistoryComponent implements OnInit {
     this.router.navigate(['/payments', payment.id]);
   }
 
-  getStatusClass(status: PaymentStatus): string {
-    const map: Record<PaymentStatus, string> = {
-      Completed: 'badge--completed',
-      Pending:   'badge--pending',
-      Failed:    'badge--failed',
+  getStatusClass(status: PaymentStatusLabel): string {
+    const map: Record<PaymentStatusLabel, string> = {
+      'Completed': 'badge--completed',
+      'Pending': 'badge--processing',
+      'Failed': 'badge--failed',
     };
-    return map[status];
+    return map[status] || 'badge--processing';
   }
 
-  getMethodIcon(method: string): string {
-    const icons: Record<string, string> = {
+  getMethodIcon(method: PaymentMethodLabel): string {
+    const icons: Record<PaymentMethodLabel, string> = {
       'Bank Account': 'landmark',
-      'Debit Card':   'credit-card',
-      'UPI':          'smartphone',
+      'Debit Card': 'credit-card',
+      'Credit Card': 'credit-card',
+      'UPI': 'smartphone',
     };
     return icons[method] || 'wallet';
   }

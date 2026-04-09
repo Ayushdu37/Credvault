@@ -1,42 +1,69 @@
 import { Injectable } from '@angular/core';
-import { delay, Observable, of } from 'rxjs';
-
-export interface DashboardSummary {
-  totalCreditLimit: number;
-  totalBalance: number;
-  availableCredit: number;
-  recentActivity: ActivityItem[];
-  creditUtilizationData: number[]; // e.g., last 6 months
-  balanceTrendData: number[];
-  months: string[];
-}
-
-export interface ActivityItem {
-  id: string;
-  description: string;
-  amount: number;
-  date: string;
-  category: string;
-  type: 'charge' | 'payment';
-}
+import { Observable, forkJoin, map } from 'rxjs';
+import { ApiService } from '../../core/services/api.service';
+import { CardSummaryResponse } from '../../core/models/card.model';
+import { BillResponse } from '../../core/models/billing.model';
+import { PaymentResponse } from '../../core/models/payment.model';
+import { RewardAccountResponse } from '../../core/models/billing.model';
+import { PaginatedResponse } from '../../core/models/api-response.model';
+import { DashboardSummary, ActivityItem } from '../../core/models/dashboard.model';
 
 @Injectable({ providedIn: 'root' })
 export class DashboardService {
+
+  constructor(private api: ApiService) { }
+
   getSummary(): Observable<DashboardSummary> {
-    const mockData: DashboardSummary = {
-      totalCreditLimit: 25000,
-      totalBalance: 4250.75,
-      availableCredit: 20749.25,
-      months: ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'],
-      creditUtilizationData: [15, 18, 22, 19, 16, 17], // percentage mapped later
-      balanceTrendData: [3200, 3800, 4800, 4100, 3950, 4250.75],
-      recentActivity: [
-        { id: '1', description: 'Apple Payment', amount: -150.0, date: '2026-04-02T14:32:00Z', category: 'Payment', type: 'payment' },
-        { id: '2', description: 'Amazon Web Services', amount: 84.5, date: '2026-04-01T09:12:00Z', category: 'Software', type: 'charge' },
-        { id: '3', description: 'Uber Eats', amount: 32.14, date: '2026-03-31T20:45:00Z', category: 'Dining', type: 'charge' },
-        { id: '4', description: 'Starbucks', amount: 6.5, date: '2026-03-31T08:15:00Z', category: 'Coffee', type: 'charge' }
-      ]
-    };
-    return of(mockData).pipe(delay(600)); // Simulate network latency
+    // Fetch all dashboard data in parallel
+    const cardSummary$ = this.api.get<CardSummaryResponse>('/api/cards/utilization')
+      .pipe(map(res => res.data!));
+
+    const recentBills$ = this.api.get<PaginatedResponse<BillResponse>>('/api/bills')
+      .pipe(map(res => res.data?.items ?? []));
+
+    const recentPayments$ = this.api.get<PaginatedResponse<PaymentResponse>>('/api/payments')
+      .pipe(map(res => res.data?.items ?? []));
+
+    const rewards$ = this.api.get<RewardAccountResponse>('/api/rewards')
+      .pipe(map(res => res.data!));
+
+    return forkJoin({
+      cardSummary: cardSummary$,
+      recentBills: recentBills$,
+      recentPayments: recentPayments$,
+      rewards: rewards$,
+    }).pipe(
+      map(({ cardSummary, recentBills, recentPayments, rewards }) => {
+        // Build recent activity from bills and payments
+        const activity: ActivityItem[] = [
+          ...recentBills.slice(0, 3).map(b => ({
+            id: b.id,
+            description: `Bill for ${b.billingMonth}`,
+            amount: b.totalAmount,
+            date: b.dueDate,
+            type: 'charge' as const,
+          })),
+          ...recentPayments.slice(0, 3).map(p => ({
+            id: p.id,
+            description: `Payment — ${p.transactionReference || p.id.slice(0, 8)}`,
+            amount: p.amount,
+            date: p.createdAt,
+            type: 'payment' as const,
+          })),
+        ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+        return {
+          cardSummary,
+          recentBills: recentBills.slice(0, 5),
+          recentPayments: recentPayments.slice(0, 5),
+          rewardPoints: rewards.availablePoints,
+          // Convenience fields for dashboard template
+          totalBalance: cardSummary.totalOutstandingBalance,
+          availableCredit: cardSummary.totalAvailableCredit,
+          totalCreditLimit: cardSummary.totalCreditLimit,
+          recentActivity: activity,
+        };
+      })
+    );
   }
 }

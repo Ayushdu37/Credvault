@@ -1,17 +1,19 @@
-import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { PaymentMethod } from '../../features/payment-methods/services/payment-methods.service';
+import { createActionGroup, props, emptyProps } from '@ngrx/store';
+import { PaymentMethod, AddPaymentMethodRequest } from '../../core/models/payment.model';
 
 export const PaymentMethodsActions = createActionGroup({
   source: 'PaymentMethods',
   events: {
-    'Load Methods': emptyProps(),
-    'Load Methods Success': props<{ methods: PaymentMethod[] }>(),
+    'Load Methods': props<{ page: number; pageSize: number }>(),
+    'Load Methods Success': props<{ methods: PaymentMethod[]; totalCount: number }>(),
     'Load Methods Failure': props<{ error: string }>(),
+
+    'Add Method': props<{ payload: AddPaymentMethodRequest }>(),
+    'Add Method Success': emptyProps(),
+    'Add Method Failure': props<{ error: string }>(),
 
     'Delete Method': props<{ id: string }>(),
     'Delete Method Success': props<{ id: string }>(),
-
-    'Set Default': props<{ id: string }>(),
-    'Set Default Success': props<{ methods: PaymentMethod[] }>(),
+    'Delete Method Failure': props<{ error: string }>(),
   },
 });

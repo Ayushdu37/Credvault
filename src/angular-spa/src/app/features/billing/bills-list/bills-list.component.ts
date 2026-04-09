@@ -4,7 +4,7 @@ import { AsyncPipe, CurrencyPipe, DatePipe, NgClass, NgFor, NgIf } from '@angula
 import { Router } from '@angular/router';
 import { BillingActions } from '../../../store/billing/billing.actions';
 import { selectAllBills, selectBillingLoading } from '../../../store/billing/billing.selectors';
-import { BillingStatement, BillStatus } from '../services/billing.service';
+import { BillingStatement, BillStatusLabel } from '../../../core/models/billing.model';
 import { CardComponent } from '../../../shared/components/card/card.component';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { SpinnerComponent } from '../../../shared/components/spinner/spinner.component';
@@ -30,7 +30,7 @@ export class BillsListComponent implements OnInit {
   loading$ = this.store.select(selectBillingLoading);
 
   ngOnInit(): void {
-    this.store.dispatch(BillingActions.loadBills());
+    this.store.dispatch(BillingActions.loadBills({ page: 1, pageSize: 10 }));
   }
 
   viewBill(bill: BillingStatement): void {
@@ -42,12 +42,12 @@ export class BillsListComponent implements OnInit {
     this.router.navigate(['/payments/pay'], { queryParams: { billId: bill.id } });
   }
 
-  getStatusClass(status: BillStatus): string {
-    const statusMap: Record<BillStatus, string> = {
-      Paid: 'badge--paid',
-      Due: 'badge--due',
-      Overdue: 'badge--overdue',
-      Pending: 'badge--pending',
+  getStatusClass(status: BillStatusLabel): string {
+    const statusMap: Record<BillStatusLabel, string> = {
+      'Paid': 'badge--paid',
+      'Pending': 'badge--pending',
+      'Overdue': 'badge--overdue',
+      'Due': 'badge--partially-paid',
     };
     return statusMap[status];
   }

@@ -4,6 +4,9 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { LucideAngularModule } from 'lucide-angular';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { Store } from '@ngrx/store';
+import { PaymentMethodsActions } from '../../../store/payment-methods/payment-methods.actions';
+import { AddPaymentMethodRequest, PaymentMethodType } from '../../../core/models/payment.model';
 
 @Component({
   selector: 'app-add-method-modal',
@@ -16,11 +19,13 @@ export class AddMethodModalComponent {
   methodForm: FormGroup;
   loading = false;
   methodType: 'Card' | 'Bank' = 'Card';
+  cardSubType: 'Debit' | 'Credit' = 'Debit';
 
   constructor(
     public dialogRef: DialogRef<any>,
     @Inject(DIALOG_DATA) public data: any,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private store: Store
   ) {
     this.methodForm = this.fb.group({
       cardName: ['', [Validators.required]],
@@ -48,6 +53,15 @@ export class AddMethodModalComponent {
     }
   }
 
+  getCardNetwork(number: string): string {
+    if (!number) return 'Card';
+    if (number.startsWith('4')) return 'Visa';
+    if (number.startsWith('5')) return 'Mastercard';
+    if (number.startsWith('3')) return 'Amex';
+    if (number.startsWith('6')) return 'Discover';
+    return 'Card';
+  }
+
   close() {
     this.dialogRef.close();
   }
@@ -58,16 +72,34 @@ export class AddMethodModalComponent {
       return;
     }
 
+    const formVal = this.methodForm.value;
+    let payload: AddPaymentMethodRequest;
+
+    if (this.methodType === 'Card') {
+      const last4 = formVal.cardNumber.slice(-4);
+      const network = this.getCardNetwork(formVal.cardNumber);
+      const isCredit = this.cardSubType === 'Credit';
+      
+      payload = {
+        methodType: isCredit ? PaymentMethodType.CreditCard : PaymentMethodType.DebitCard,
+        displayName: formVal.cardName,
+        details: `${network} ${this.cardSubType} •••• ${last4}`
+      };
+    } else {
+      const last4 = formVal.accountNumber.slice(-4);
+      payload = {
+        methodType: PaymentMethodType.BankTransfer,
+        displayName: formVal.accountName,
+        details: `Bank Account •••• ${last4}`
+      };
+    }
+
     this.loading = true;
+    this.store.dispatch(PaymentMethodsActions.addMethod({ payload }));
     
-    // TODO: Wire API call [HttpPost] PaymentMethodsController
     setTimeout(() => {
       this.loading = false;
-      this.dialogRef.close({
-        success: true,
-        type: this.methodType,
-        details: this.methodForm.value
-      });
-    }, 1500);
+      this.dialogRef.close({ success: true });
+    }, 1000);
   }
 }

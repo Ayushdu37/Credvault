@@ -17,12 +17,12 @@ import { ThemeService } from '../../core/services/theme.service';
   standalone: true,
   selector: 'app-dashboard',
   imports: [
-    AsyncPipe, 
-    CurrencyPipe, 
-    DatePipe, 
+    AsyncPipe,
+    CurrencyPipe,
+    DatePipe,
     PercentPipe,
-    NgClass, 
-    NgFor, 
+    NgClass,
+    NgFor,
     NgIf,
     NgxEchartsDirective,
     CardComponent,
@@ -40,7 +40,7 @@ import { ThemeService } from '../../core/services/theme.service';
 export class DashboardComponent implements OnInit {
   private store = inject(Store);
   private themeService = inject(ThemeService);
-  
+
   summary$ = this.store.select(selectDashboardSummary);
   loading$ = this.store.select(selectDashboardLoading);
 
@@ -53,7 +53,12 @@ export class DashboardComponent implements OnInit {
 
     this.summary$.subscribe(summary => {
       if (summary) {
-        this.initCharts(summary.months, summary.creditUtilizationData, summary.balanceTrendData);
+        const months = ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'];
+        const utilData = summary.recentBills.map(b =>
+          b.totalAmount > 0 ? Math.round((b.amountPaid / b.totalAmount) * 100) : 0
+        );
+        const balanceData = summary.recentBills.map(b => b.remaining);
+        this.initCharts(months, utilData, balanceData);
       }
     });
   }
@@ -64,11 +69,11 @@ export class DashboardComponent implements OnInit {
   }
 
   private initCharts(months: string[], utilData: number[], balanceData: number[]): void {
-    const textMuted     = this.cssVar('--text-muted');
-    const borderColor   = this.cssVar('--border-light');
-    const bgCard        = this.cssVar('--bg-card');
-    const textPrimary   = this.cssVar('--text-primary');
-    const accent        = this.cssVar('--accent');
+    const textMuted = this.cssVar('--text-muted');
+    const borderColor = this.cssVar('--border-light');
+    const bgCard = this.cssVar('--bg-card');
+    const textPrimary = this.cssVar('--text-primary');
+    const accent = this.cssVar('--accent');
 
     // Shared grid line style — very faint
     const gridLineStyle = { color: borderColor, type: 'dashed' as const, opacity: 0.6 };

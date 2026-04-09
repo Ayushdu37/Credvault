@@ -34,6 +34,26 @@
           <input type="text" formControlName="cardName" class="form-input" placeholder="John Doe">
           <span class="field-error" *ngIf="methodForm.get('cardName')?.invalid && methodForm.get('cardName')?.touched">Name is required.</span>
         </div>
+
+        <div class="form-group full-width sub-toggle-group">
+          <label class="form-label">Card Type</label>
+          <div class="sub-toggle">
+            <button 
+              type="button" 
+              class="sub-toggle-btn" 
+              [class.active]="cardSubType === 'Debit'" 
+              (click)="cardSubType = 'Debit'">
+              Debit Card
+            </button>
+            <button 
+              type="button" 
+              class="sub-toggle-btn" 
+              [class.active]="cardSubType === 'Credit'" 
+              (click)="cardSubType = 'Credit'">
+              Credit Card
+            </button>
+          </div>
+        </div>
         
         <div class="form-group full-width">
           <label class="form-label">Card Number</label>

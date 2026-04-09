@@ -4,7 +4,7 @@ import { AsyncPipe, CurrencyPipe, DecimalPipe, NgClass, NgFor, NgIf, PercentPipe
 import { Router } from '@angular/router';
 import { CardsActions } from '../../../store/cards/cards.actions';
 import { selectAllCards, selectCardsActionLoading, selectCardsLoading } from '../../../store/cards/cards.selectors';
-import { CreditCard } from '../services/cards.service';
+import { CreditCard, CardNetwork } from '../../../core/models/card.model';
 import { CardComponent } from '../../../shared/components/card/card.component';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { SpinnerComponent } from '../../../shared/components/spinner/spinner.component';
@@ -34,19 +34,12 @@ export class CardListComponent implements OnInit {
   actionLoading$ = this.store.select(selectCardsActionLoading);
 
   ngOnInit(): void {
-    this.store.dispatch(CardsActions.loadCards());
+    this.store.dispatch(CardsActions.loadCards({ page: 1, pageSize: 10 }));
   }
 
   viewCard(card: CreditCard): void {
+    this.store.dispatch(CardsActions.selectCard({ id: card.id }));
     this.router.navigate(['/cards', card.id]);
-  }
-
-  toggleLock(card: CreditCard): void {
-    if (card.status === 'Locked') {
-      this.store.dispatch(CardsActions.unlockCard({ id: card.id }));
-    } else {
-      this.store.dispatch(CardsActions.lockCard({ id: card.id }));
-    }
   }
 
   requestNewCard(): void {
@@ -58,7 +51,6 @@ export class CardListComponent implements OnInit {
     dialogRef.closed.subscribe((result: any) => {
       if (result?.success) {
         this.store.dispatch(CardsActions.addCard({ payload: result.payload }));
-        this.store.dispatch(CardsActions.loadCards());
       }
     });
   }
@@ -67,13 +59,19 @@ export class CardListComponent implements OnInit {
     return card.creditLimit > 0 ? card.currentBalance / card.creditLimit : 0;
   }
 
-  getNetworkColor(network: string): string {
-    const colors: Record<string, string> = {
+  getNetworkColor(network: CardNetwork): string {
+    const colors: Record<CardNetwork, string> = {
       Visa: '#1A1F71',
       Mastercard: '#EB001B',
       Amex: '#007BC1',
       Discover: '#FF6000',
     };
     return colors[network] || '#555';
+  }
+
+  toggleLock(card: CreditCard): void {
+    // TODO: Add lock/unlock action to CardsActions and wire to backend
+    const action = card.status === 'Locked' ? 'unlock' : 'lock';
+    console.log(`Card ${action} requested for ${card.id}`);
   }
 }

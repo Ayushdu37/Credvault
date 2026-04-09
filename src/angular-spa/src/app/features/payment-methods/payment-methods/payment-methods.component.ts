@@ -39,7 +39,7 @@ export class PaymentMethodsComponent implements OnInit {
   loading = toSignal(this.store.select(selectPaymentMethodsLoading), { initialValue: false });
 
   ngOnInit(): void {
-    this.store.dispatch(PaymentMethodsActions.loadMethods());
+    this.store.dispatch(PaymentMethodsActions.loadMethods({ page: 1, pageSize: 10 }));
   }
 
   private modalService = inject(ModalService);
@@ -49,10 +49,7 @@ export class PaymentMethodsComponent implements OnInit {
 
     dialogRef.closed.subscribe((result: any) => {
       if (result?.success) {
-        // Here we would typically dispatch an action like:
-        // this.store.dispatch(PaymentMethodsActions.addMethod({ payload: result.details }));
-        // Since we are mocking parity for UI right now, we can just trigger a reload or show toast
-        this.store.dispatch(PaymentMethodsActions.loadMethods());
+        this.store.dispatch(PaymentMethodsActions.loadMethods({ page: 1, pageSize: 10 }));
       }
     });
   }
@@ -62,7 +59,8 @@ export class PaymentMethodsComponent implements OnInit {
   }
 
   setDefault(id: string): void {
-    this.store.dispatch(PaymentMethodsActions.setDefault({ id }));
+    // TODO: Backend doesn't expose setDefault for payment methods yet
+    console.log('setDefault not implemented', id);
   }
 
   getTypeLabel(type: string): string {
