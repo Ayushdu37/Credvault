@@ -1,0 +1,14 @@
+# .NET
+bin/
+obj/
+
+# Python
+venv/
+__pycache__/
+
+# Others
+node_modules/
+dist/
+build/
+.vs/
+.env

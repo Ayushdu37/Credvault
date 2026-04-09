@@ -1,0 +1,125 @@
+<div class="cards-page">
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div>
+      <h1>My Cards</h1>
+      <p>Manage your credit and debit cards</p>
+    </div>
+    <app-button variant="primary" (click)="requestNewCard()">
+      <lucide-icon name="credit-card" [size]="18"></lucide-icon>
+      Request New Card
+    </app-button>
+  </header>
+
+  <!-- LOADING STATE -->
+  <ng-container *ngIf="loading$ | async; else cardContent">
+    <div class="loading-overlay">
+      <app-spinner size="lg"></app-spinner>
+      <p>Loading your cards...</p>
+    </div>
+  </ng-container>
+
+  <!-- CARD GRID -->
+  <ng-template #cardContent>
+    <ng-container *ngIf="cards$ | async as cards">
+
+      <ng-container *ngIf="cards.length > 0; else emptyCards">
+        <div class="cards-grid">
+          <div class="credit-card-widget" 
+               *ngFor="let card of cards"
+               [class.credit-card-widget--locked]="card.status === 'Locked'"
+               (click)="viewCard(card)">
+
+            <!-- Card Visual -->
+            <div class="card-visual">
+              <div class="card-visual__top">
+                <div class="card-chip"></div>
+                <div class="card-network" [style.color]="getNetworkColor(card.network)">
+                  {{ card.network }}
+                </div>
+              </div>
+
+              <div class="card-number">
+                <span>••••</span><span>••••</span><span>••••</span>
+                <span>{{ card.last4Digits }}</span>
+              </div>
+
+              <div class="card-visual__bottom">
+                <div>
+                  <div class="card-label">CARDHOLDER</div>
+                  <div class="card-name">{{ card.cardholderName }}</div>
+                </div>
+                <div>
+                  <div class="card-label">EXPIRES</div>
+                  <div class="card-name">{{ card.expiryMonth | number:'2.0' }}/{{ card.expiryYear }}</div>
+                </div>
+                <div *ngIf="card.isVirtual" class="card-badge-virtual">Virtual</div>
+              </div>
+
+              <div class="card-status-overlay" *ngIf="card.status === 'Locked'">
+                <lucide-icon name="lock" [size]="32"></lucide-icon>
+                <span>Card Locked</span>
+              </div>
+            </div>
+
+            <!-- Card Info Panel -->
+            <app-card [compact]="true">
+              <div class="card-info-row">
+                <div>
+                  <div class="info-label">Balance</div>
+                  <div class="info-value">{{ card.currentBalance | currency }}</div>
+                </div>
+                <div>
+                  <div class="info-label">Limit</div>
+                  <div class="info-value">{{ card.creditLimit | currency }}</div>
+                </div>
+                <div>
+                  <div class="info-label">Utilization</div>
+                  <div class="info-value" [ngClass]="getUtilization(card) > 0.3 ? 'text-warning' : 'text-success'">
+                    {{ getUtilization(card) | percent:'1.0-0' }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="utilization-bar">
+                <div class="utilization-bar__fill" 
+                     [style.width.%]="getUtilization(card) * 100"
+                     [ngClass]="getUtilization(card) > 0.3 ? 'utilization-bar__fill--warning' : 'utilization-bar__fill--ok'">
+                </div>
+              </div>
+
+              <div class="card-actions" (click)="$event.stopPropagation()">
+                <app-button 
+                  [variant]="card.status === 'Locked' ? 'primary' : 'secondary'" 
+                  (click)="toggleLock(card)"
+                  [disabled]="(actionLoading$ | async) === true">
+                  <lucide-icon [name]="card.status === 'Locked' ? 'lock-open' : 'lock'" [size]="16"></lucide-icon>
+                  {{ card.status === 'Locked' ? 'Unlock Card' : 'Lock Card' }}
+                </app-button>
+                <app-button variant="ghost" (click)="viewCard(card)">
+                  View Details
+                  <lucide-icon name="arrow-right" [size]="16"></lucide-icon>
+                </app-button>
+              </div>
+            </app-card>
+
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #emptyCards>
+        <app-empty-state
+          icon="cards"
+          title="No cards yet"
+          message="You don't have any cards added to your account. Request your first card to get started.">
+          <app-button variant="primary" (click)="requestNewCard()">
+            Request a Card
+          </app-button>
+        </app-empty-state>
+      </ng-template>
+
+    </ng-container>
+  </ng-template>
+
+</div>

@@ -1,0 +1,52 @@
+<header class="navbar" id="app-navbar">
+  <div class="navbar__left">
+    <!-- Mobile menu toggle -->
+    <button class="navbar__menu-btn" (click)="menuToggle.emit()" id="menu-toggle"
+            aria-label="Toggle menu">
+      <lucide-icon name="menu" [strokeWidth]="2" [size]="20"></lucide-icon>
+    </button>
+
+    <div class="navbar__greeting">
+      <h2 class="navbar__title">
+        @if (user(); as u) {
+          Welcome back, {{ u.fullName.split(' ')[0] }}
+        } @else {
+          Welcome
+        }
+      </h2>
+    </div>
+  </div>
+
+  <div class="navbar__right">
+    <!-- User avatar & dropdown -->
+    <div class="navbar__user" (click)="toggleDropdown()" id="user-menu-trigger">
+      <div class="navbar__avatar" [attr.title]="user()?.fullName || 'User'">
+        {{ userInitials }}
+      </div>
+
+      @if (dropdownOpen) {
+        <div class="navbar__dropdown animate-fadeIn" id="user-dropdown">
+          <div class="navbar__dropdown-header">
+            <span class="navbar__dropdown-name">{{ user()?.fullName }}</span>
+            <span class="navbar__dropdown-email">{{ user()?.email }}</span>
+          </div>
+          <div class="navbar__dropdown-divider"></div>
+          <button class="navbar__dropdown-item" (click)="goToProfile()" id="nav-profile">
+            <lucide-icon name="user" [size]="16"></lucide-icon>
+            <span>Profile</span>
+          </button>
+          <button class="navbar__dropdown-item navbar__dropdown-item--danger"
+                  (click)="logout()" id="nav-logout">
+            <lucide-icon name="log-out" [size]="16"></lucide-icon>
+            <span>Log out</span>
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+</header>
+
+<!-- Backdrop to close dropdown -->
+@if (dropdownOpen) {
+  <div class="navbar__backdrop" (click)="closeDropdown()"></div>
+}

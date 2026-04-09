@@ -1,0 +1,58 @@
+<div class="notifications-container">
+  <div class="page-header">
+    <div>
+      <h1>Notifications</h1>
+      <p class="subtitle">Stay informed about your account activity</p>
+    </div>
+    @if (unreadCount() > 0) {
+      <app-button variant="secondary" (click)="markAllAsRead()">
+        <lucide-icon name="check-circle" [size]="16"></lucide-icon>
+        Mark All as Read ({{ unreadCount() }})
+      </app-button>
+    }
+  </div>
+
+  @if (loading()) {
+    <app-spinner />
+  } @else if (notifications().length === 0) {
+    <app-empty-state
+      title="No Notifications"
+      message="You're all caught up! No new notifications at this time."
+      icon="notifications"
+    />
+  } @else {
+    <div class="notifications-timeline">
+      @for (notif of notifications(); track notif.id) {
+        <app-card class="notif-card" [class.unread]="!notif.read">
+          <div class="notif-row">
+            <div class="notif-icon-wrapper" [ngClass]="getTypeClass(notif.type)">
+              <lucide-icon [name]="notif.icon" [size]="20"></lucide-icon>
+            </div>
+            <div class="notif-content">
+              <div class="notif-header">
+                <span class="notif-title">{{ notif.title }}</span>
+                <span class="notif-badge" [ngClass]="getTypeClass(notif.type)">{{ getTypeLabel(notif.type) }}</span>
+              </div>
+              <p class="notif-message">{{ notif.message }}</p>
+              <span class="notif-time">
+                <lucide-icon name="clock" [size]="12"></lucide-icon>
+                {{ notif.timestamp | date:'MMM d, yyyy · h:mm a' }}
+              </span>
+            </div>
+            <div class="notif-actions">
+              @if (!notif.read) {
+                <button class="mark-read-btn" (click)="markAsRead(notif.id)" title="Mark as read">
+                  <lucide-icon name="check" [size]="16"></lucide-icon>
+                </button>
+              } @else {
+                <span class="read-indicator">
+                  <lucide-icon name="check-circle" [size]="16"></lucide-icon>
+                </span>
+              }
+            </div>
+          </div>
+        </app-card>
+      }
+    </div>
+  }
+</div>

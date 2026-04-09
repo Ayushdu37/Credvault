@@ -1,0 +1,82 @@
+<div class="modal-surface">
+  
+  <div class="modal-header">
+    <h2 class="modal-title">Add Payment Method</h2>
+    <button class="modal-close" (click)="close()">
+      <lucide-icon name="x" [size]="18"></lucide-icon>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <div class="method-toggle">
+      <button 
+        type="button" 
+        class="toggle-btn" 
+        [class.active]="methodType === 'Card'" 
+        (click)="setMethodType('Card')">
+        <lucide-icon name="credit-card" [size]="16"></lucide-icon> Debit / Credit Card
+      </button>
+      <button 
+        type="button" 
+        class="toggle-btn" 
+        [class.active]="methodType === 'Bank'" 
+        (click)="setMethodType('Bank')">
+        <lucide-icon name="landmark" [size]="16"></lucide-icon> Bank Account
+      </button>
+    </div>
+
+    <form [formGroup]="methodForm" (ngSubmit)="onSubmit()" class="form-grid">
+      
+      <!-- Card Form -->
+      <ng-container *ngIf="methodType === 'Card'">
+        <div class="form-group full-width">
+          <label class="form-label">Name on Card</label>
+          <input type="text" formControlName="cardName" class="form-input" placeholder="John Doe">
+          <span class="field-error" *ngIf="methodForm.get('cardName')?.invalid && methodForm.get('cardName')?.touched">Name is required.</span>
+        </div>
+        
+        <div class="form-group full-width">
+          <label class="form-label">Card Number</label>
+          <input type="text" formControlName="cardNumber" class="form-input" placeholder="0000 0000 0000 0000" maxlength="16">
+          <span class="field-error" *ngIf="methodForm.get('cardNumber')?.invalid && methodForm.get('cardNumber')?.touched">Enter a valid 16-digit card number.</span>
+        </div>
+        
+        <div class="form-group half-width">
+          <label class="form-label">Expiry (MM/YY)</label>
+          <input type="text" formControlName="expiry" class="form-input" placeholder="MM/YY" maxlength="5">
+        </div>
+        
+        <div class="form-group half-width">
+          <label class="form-label">CVV</label>
+          <input type="password" formControlName="cvv" class="form-input" placeholder="123" maxlength="4">
+        </div>
+      </ng-container>
+
+      <!-- Bank Form -->
+      <ng-container *ngIf="methodType === 'Bank'">
+        <div class="form-group full-width">
+          <label class="form-label">Account Holder Name</label>
+          <input type="text" formControlName="accountName" class="form-input" placeholder="John Doe">
+          <span class="field-error" *ngIf="methodForm.get('accountName')?.invalid && methodForm.get('accountName')?.touched">Account name is required.</span>
+        </div>
+        <div class="form-group full-width">
+          <label class="form-label">Routing Number</label>
+          <input type="text" formControlName="routingNumber" class="form-input" placeholder="9 digits" maxlength="9">
+          <span class="field-error" *ngIf="methodForm.get('routingNumber')?.invalid && methodForm.get('routingNumber')?.touched">Enter a valid 9-digit routing number.</span>
+        </div>
+        <div class="form-group full-width">
+          <label class="form-label">Account Number</label>
+          <input type="text" formControlName="accountNumber" class="form-input" placeholder="8-12 digits" maxlength="12">
+          <span class="field-error" *ngIf="methodForm.get('accountNumber')?.invalid && methodForm.get('accountNumber')?.touched">Enter a valid account number.</span>
+        </div>
+      </ng-container>
+
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <app-button variant="secondary" (click)="close()">Cancel</app-button>
+    <app-button variant="primary" [loading]="loading" (click)="onSubmit()">Save Method</app-button>
+  </div>
+  
+</div>

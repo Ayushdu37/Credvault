@@ -1,0 +1,174 @@
+<div class="detail-page">
+
+  <ng-container *ngIf="loading$ | async; else detailContent">
+    <div class="loading-overlay">
+      <app-spinner size="lg"></app-spinner>
+    </div>
+  </ng-container>
+
+  <ng-template #detailContent>
+    <ng-container *ngIf="bill$ | async as bill; else notFound">
+
+      <!-- HEADER -->
+      <div class="detail-header">
+        <button class="back-btn" (click)="goBack()">
+          <lucide-icon name="arrow-left" [size]="18"></lucide-icon>
+          Back to Billing
+        </button>
+        <div class="header-row">
+          <div>
+            <h1>Statement — {{ bill.statementDate | date:'MMMM yyyy' }}</h1>
+            <p class="header-sub">Card ending in {{ bill.cardLast4 }} · Due {{ bill.dueDate | date:'MMM dd, yyyy' }}</p>
+          </div>
+          <div class="header-actions">
+            <span class="status-badge" [ngClass]="getStatusClass(bill.status)">{{ bill.status }}</span>
+            <app-button
+              variant="secondary"
+              (click)="scheduleAutopay(bill)">
+              <lucide-icon name="calendar-clock" [size]="16"></lucide-icon>
+              Auto-Pay
+            </app-button>
+            <app-button
+              variant="primary"
+              [disabled]="bill.status === 'Paid'"
+              (click)="payBill(bill)">
+              <lucide-icon name="wallet" [size]="16"></lucide-icon>
+              Pay Now
+            </app-button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUMMARY CARDS -->
+      <div class="summary-grid">
+        <app-card [compact]="true">
+          <div class="summary-stat">
+            <div class="stat-label">Closing Balance</div>
+            <div class="stat-value">{{ bill.closingBalance | currency }}</div>
+          </div>
+        </app-card>
+        <app-card [compact]="true">
+          <div class="summary-stat">
+            <div class="stat-label">Minimum Due</div>
+            <div class="stat-value text-warning">{{ bill.minimumDue | currency }}</div>
+          </div>
+        </app-card>
+        <app-card [compact]="true">
+          <div class="summary-stat">
+            <div class="stat-label">Statement Date</div>
+            <div class="stat-value">{{ bill.statementDate | date:'dd MMM yyyy' }}</div>
+          </div>
+        </app-card>
+        <app-card [compact]="true">
+          <div class="summary-stat">
+            <div class="stat-label">Line Items</div>
+            <div class="stat-value">{{ bill.lineItems.length }}</div>
+          </div>
+        </app-card>
+      </div>
+
+      <!-- LINE ITEMS TABLE -->
+      <app-card title="Transaction Breakdown">
+        <div class="table-wrapper">
+          <table class="items-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th class="text-right">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of bill.lineItems">
+                <td class="date-cell">{{ item.date | date:'MMM dd' }}</td>
+                <td>
+                  <div class="desc-cell">
+                    <div class="category-icon-wrap">
+                      <lucide-icon [name]="getCategoryIcon(item.category)" [size]="15"></lucide-icon>
+                    </div>
+                    {{ item.description }}
+                  </div>
+                </td>
+                <td>
+                  <span class="category-badge">{{ item.category }}</span>
+                </td>
+                <td class="amount-cell text-right">{{ item.amount | currency }}</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr class="total-row">
+                <td colspan="3" class="total-label">Total Charges</td>
+                <td class="text-right total-value">{{ bill.closingBalance | currency }}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </app-card>
+
+      <!-- SCHEDULED PAYMENT -->
+      <app-card title="Scheduled Payment" *ngIf="scheduledPayment">
+        <div class="scheduled-payment-info">
+          <div class="sched-row">
+            <div class="sched-item">
+              <span class="sched-label">Amount</span>
+              <span class="sched-value">{{ scheduledPayment.amount | currency }}</span>
+            </div>
+            <div class="sched-item">
+              <span class="sched-label">Date</span>
+              <span class="sched-value">{{ scheduledPayment.scheduledDate | date:'MMM dd, yyyy' }}</span>
+            </div>
+            <div class="sched-item">
+              <span class="sched-label">Method</span>
+              <span class="sched-value">{{ scheduledPayment.method }}</span>
+            </div>
+          </div>
+          <app-button variant="danger" (click)="cancelScheduledPayment()">
+            <lucide-icon name="x-circle" [size]="16"></lucide-icon>
+            Cancel Scheduled Payment
+          </app-button>
+        </div>
+      </app-card>
+
+      <!-- PAYMENTS FOR THIS BILL -->
+      <app-card title="Payments Made">
+        <div class="table-wrapper" *ngIf="billPayments.length > 0; else noPayments">
+          <table class="items-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Method</th>
+                <th>Reference</th>
+                <th class="text-right">Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pay of billPayments">
+                <td class="date-cell">{{ pay.date | date:'MMM dd, yyyy' }}</td>
+                <td>{{ pay.method }}</td>
+                <td style="font-family: monospace; font-size: 0.85rem; color: var(--text-secondary);">{{ pay.reference }}</td>
+                <td class="amount-cell text-right">{{ pay.amount | currency }}</td>
+                <td>
+                  <span class="status-badge badge--paid">{{ pay.status }}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ng-template #noPayments>
+          <p style="color: var(--text-secondary); text-align: center; padding: 1.5rem 0;">No payments recorded for this statement yet.</p>
+        </ng-template>
+      </app-card>
+
+    </ng-container>
+
+    <ng-template #notFound>
+      <div class="loading-overlay">
+        <p style="color: var(--text-secondary)">Statement not found.</p>
+        <app-button variant="secondary" (click)="goBack()">Go back</app-button>
+      </div>
+    </ng-template>
+  </ng-template>
+
+</div>

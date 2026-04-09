@@ -1,0 +1,17 @@
+.input-prefix-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-prefix {
+  position: absolute;
+  left: 1rem;
+  color: var(--text-secondary);
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.form-input.with-prefix {
+  padding-left: 2rem;
+}

@@ -1,0 +1,132 @@
+<div class="pay-page">
+
+  <button class="back-btn" (click)="goBack()">
+    <lucide-icon name="arrow-left" [size]="18"></lucide-icon>
+    Back to Billing
+  </button>
+
+  <!-- SUCCESS STATE -->
+  <ng-container *ngIf="submitted && (successMessage$ | async) as successMsg">
+    <div class="success-panel">
+      <div class="success-icon">
+        <lucide-icon name="check-circle" [size]="56"></lucide-icon>
+      </div>
+      <h2>Payment Submitted!</h2>
+      <p>{{ successMsg }}</p>
+      <div class="ref-box" *ngIf="referenceNumber$ | async as ref">
+        <span class="ref-label">Reference Number</span>
+        <span class="ref-value">{{ ref }}</span>
+      </div>
+      <app-button variant="primary" (click)="goToHistory()">
+        View Payment History
+      </app-button>
+    </div>
+  </ng-container>
+
+  <!-- PAYMENT FORM -->
+  <ng-container *ngIf="!submitted">
+    <div class="pay-layout">
+
+      <!-- Form Card -->
+      <app-card title="Make a Payment">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="pay-form">
+
+          <!-- Bill ID display -->
+          <div class="bill-info" *ngIf="billId">
+            <lucide-icon name="file-text" [size]="18"></lucide-icon>
+            <span>Paying for statement: <strong>{{ billId }}</strong></span>
+          </div>
+
+          <!-- Amount -->
+          <div class="form-field">
+            <label for="amount">Payment Amount</label>
+            <div class="input-wrapper" [ngClass]="{ 'input-wrapper--error': amountControl?.invalid && amountControl?.touched }">
+              <span class="currency-prefix">₹</span>
+              <input
+                id="amount"
+                type="number"
+                formControlName="amount"
+                placeholder="0.00"
+                min="1"
+                step="0.01"
+              />
+            </div>
+            <div class="field-error" *ngIf="amountControl?.invalid && amountControl?.touched">
+              <ng-container *ngIf="amountControl?.errors?.['required']">Amount is required.</ng-container>
+              <ng-container *ngIf="amountControl?.errors?.['min']">Amount must be at least ₹1.</ng-container>
+            </div>
+          </div>
+
+          <!-- Payment Method -->
+          <div class="form-field">
+            <label>Payment Method</label>
+            <div class="method-options">
+              <button
+                type="button"
+                class="method-btn"
+                *ngFor="let method of paymentMethods"
+                [ngClass]="{ 'method-btn--active': methodControl?.value === method }"
+                (click)="methodControl?.setValue(method)">
+                <lucide-icon [name]="getMethodIcon(method)" [size]="20"></lucide-icon>
+                <span>{{ method }}</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Error from store -->
+          <div class="error-box" *ngIf="error$ | async as err">
+            <lucide-icon name="alert-circle" [size]="16"></lucide-icon>
+            {{ err }}
+          </div>
+
+          <!-- Submit -->
+          <div class="form-actions">
+            <app-button
+              type="submit"
+              variant="primary"
+              [disabled]="(submitting$ | async) === true">
+              <ng-container *ngIf="(submitting$ | async); else submitLabel">
+                <app-spinner size="sm"></app-spinner>
+                Processing...
+              </ng-container>
+              <ng-template #submitLabel>
+                <lucide-icon name="send" [size]="16"></lucide-icon>
+                Confirm Payment
+              </ng-template>
+            </app-button>
+          </div>
+
+        </form>
+      </app-card>
+
+      <!-- Info Card -->
+      <app-card title="Payment Info">
+        <div class="info-list">
+          <div class="info-item">
+            <lucide-icon name="shield-check" [size]="18" class="info-icon"></lucide-icon>
+            <div>
+              <div class="info-title">Secure & Encrypted</div>
+              <div class="info-desc">All payments are processed through a secure, encrypted channel.</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <lucide-icon name="clock" [size]="18" class="info-icon"></lucide-icon>
+            <div>
+              <div class="info-title">Instant Processing</div>
+              <div class="info-desc">Payments reflect on your account within 1–2 business days.</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <lucide-icon name="receipt" [size]="18" class="info-icon"></lucide-icon>
+            <div>
+              <div class="info-title">Reference Number</div>
+              <div class="info-desc">You'll receive a unique reference number upon successful submission.</div>
+            </div>
+          </div>
+        </div>
+      </app-card>
+
+    </div>
+  </ng-container>
+
+</div>

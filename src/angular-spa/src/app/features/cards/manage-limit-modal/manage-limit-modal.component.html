@@ -1,0 +1,54 @@
+<div class="modal-surface">
+  
+  <div class="modal-header">
+    <h2 class="modal-title">Manage Credit Limit</h2>
+    <button class="modal-close" (click)="close()">
+      <lucide-icon name="x" [size]="18"></lucide-icon>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <div style="margin-bottom: 2rem;">
+      <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem;">
+        You are requesting a limit change for your <strong style="color: var(--text-primary);">{{ data.cardName }}</strong> (•••• {{ data.cardLast4 }}).
+      </p>
+      <div style="margin-top: 1rem; padding: 1rem; background: var(--bg-body); border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+        <span style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.25rem;">Current Limit</span>
+        <span style="font-size: 1.5rem; font-weight: bold; color: var(--text-primary);">{{ data.currentLimit | currency }}</span>
+      </div>
+    </div>
+
+    <form [formGroup]="limitForm" (ngSubmit)="onSubmit()" class="form-grid">
+      <div class="form-group full-width">
+        <label class="form-label">New Requested Limit</label>
+        <div style="position: relative; display: flex; align-items: center;">
+          <span style="position: absolute; left: 1rem; color: var(--text-secondary); font-weight: bold;">$</span>
+          <input type="number" formControlName="newLimit" class="form-input" style="padding-left: 2rem;" placeholder="0.00">
+        </div>
+        
+        @if (newLimitControl?.invalid && newLimitControl?.touched) {
+          @if (newLimitControl?.errors?.['required']) {
+            <span class="field-error">A limit is required.</span>
+          }
+          @if (newLimitControl?.errors?.['min']) {
+            <span class="field-error">Limit must be at least $500.</span>
+          }
+          @if (newLimitControl?.errors?.['max']) {
+            <span class="field-error">Maximum limit request is $500,000.</span>
+          }
+        }
+      </div>
+    </form>
+    
+    <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted);">
+      <lucide-icon name="info" [size]="14" style="vertical-align: middle; margin-right: 4px;"></lucide-icon>
+      Requests for credit limit increases are subject to automated credit review.
+    </p>
+  </div>
+
+  <div class="modal-footer">
+    <app-button variant="secondary" (click)="close()">Cancel</app-button>
+    <app-button variant="primary" [loading]="loading" (click)="onSubmit()">Submit Request</app-button>
+  </div>
+  
+</div>

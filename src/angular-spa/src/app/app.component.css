@@ -1,0 +1,48 @@
+/* ═══════════════════════════════════════════════════════════
+   Shell Layout
+   ═══════════════════════════════════════════════════════════ */
+
+.shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-body);
+}
+
+.shell__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+  transition: margin-left var(--transition-normal);
+}
+
+.shell--collapsed .shell__main {
+  margin-left: var(--sidebar-collapsed);
+}
+
+.shell__content {
+  flex: 1;
+  padding: var(--space-10);
+  padding-top: calc(var(--navbar-height) + var(--space-10));
+  max-width: var(--content-max-width);
+  width: 100%;
+  margin: 0 auto;
+  animation: fadeIn 0.25s ease-out;
+}
+
+/* ─── Responsive ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .shell__main {
+    margin-left: 0;
+  }
+
+  .shell--collapsed .shell__main {
+    margin-left: 0;
+  }
+
+  .shell__content {
+    padding: var(--space-4);
+    padding-top: calc(var(--navbar-height) + var(--space-4));
+  }
+}

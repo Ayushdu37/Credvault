@@ -1,0 +1,12 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace CredVault.Shared.Contracts.Identity.Requests
+{
+    public class VerifyEmailRequest
+    {
+        public string Email { get; set; } = string.Empty;
+        public string OTPCode { get; set; } = string.Empty;
+    }
+}

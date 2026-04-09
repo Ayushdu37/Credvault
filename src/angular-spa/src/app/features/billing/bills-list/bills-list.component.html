@@ -1,0 +1,114 @@
+<div class="billing-page">
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <div>
+      <h1>Billing</h1>
+      <p>View and manage your statement history</p>
+    </div>
+  </header>
+
+  <!-- LOADING -->
+  <ng-container *ngIf="loading$ | async; else billsContent">
+    <div class="loading-overlay">
+      <app-spinner size="lg"></app-spinner>
+      <p>Loading statements...</p>
+    </div>
+  </ng-container>
+
+  <ng-template #billsContent>
+    <ng-container *ngIf="bills$ | async as bills">
+
+      <ng-container *ngIf="bills.length > 0; else emptyBills">
+
+        <!-- SUMMARY ROW -->
+        <div class="summary-row">
+          <app-card [compact]="true">
+            <div class="summary-stat">
+              <lucide-icon name="file-text" [size]="20" class="summary-icon"></lucide-icon>
+              <div>
+                <div class="summary-label">Total Statements</div>
+                <div class="summary-value">{{ bills.length }}</div>
+              </div>
+            </div>
+          </app-card>
+          <app-card [compact]="true">
+            <div class="summary-stat">
+              <lucide-icon name="alert-circle" [size]="20" class="summary-icon summary-icon--warning"></lucide-icon>
+              <div>
+                <div class="summary-label">Unpaid Statements</div>
+                <div class="summary-value">{{ getUnpaidCount(bills) }}</div>
+              </div>
+            </div>
+          </app-card>
+        </div>
+
+        <!-- STATEMENTS TABLE -->
+        <app-card title="Statement History">
+          <div class="table-wrapper">
+            <table class="bills-table">
+              <thead>
+                <tr>
+                  <th>Statement Period</th>
+                  <th>Card</th>
+                  <th>Closing Balance</th>
+                  <th>Minimum Due</th>
+                  <th>Due Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bill-row"
+                    *ngFor="let bill of bills"
+                    (click)="viewBill(bill)">
+                  <td>
+                    <div class="period-cell">
+                      <lucide-icon name="file-text" [size]="16"></lucide-icon>
+                      {{ bill.statementDate | date:'MMMM yyyy' }}
+                    </div>
+                  </td>
+                  <td>
+                    <span class="card-chip-label">•••• {{ bill.cardLast4 }}</span>
+                  </td>
+                  <td class="amount-cell">{{ bill.closingBalance | currency }}</td>
+                  <td class="amount-cell">{{ bill.minimumDue | currency }}</td>
+                  <td>{{ bill.dueDate | date:'MMM dd, yyyy' }}</td>
+                  <td>
+                    <span class="status-badge" [ngClass]="getStatusClass(bill.status)">
+                      {{ bill.status }}
+                    </span>
+                  </td>
+                  <td (click)="$event.stopPropagation()">
+                    <div class="row-actions">
+                      <app-button variant="ghost" (click)="viewBill(bill)">
+                        View
+                      </app-button>
+                      <app-button
+                        variant="primary"
+                        [disabled]="bill.status === 'Paid'"
+                        (click)="payBill(bill, $event)">
+                        Pay
+                      </app-button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </app-card>
+
+      </ng-container>
+
+      <ng-template #emptyBills>
+        <app-empty-state
+          icon="bills"
+          title="No statements yet"
+          message="Your billing statements will appear here once your first billing cycle closes.">
+        </app-empty-state>
+      </ng-template>
+
+    </ng-container>
+  </ng-template>
+
+</div>

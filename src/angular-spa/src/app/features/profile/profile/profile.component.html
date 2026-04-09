@@ -1,0 +1,191 @@
+<div class="profile-container">
+  <div class="page-header">
+    <h1>Profile & Settings</h1>
+    <p class="subtitle">Manage your personal information and preferences</p>
+  </div>
+
+  <!-- Profile Hero -->
+  <app-card class="profile-hero-card">
+    <div class="profile-hero">
+      <div class="avatar-large">{{ userInitials }}</div>
+      <div class="hero-info">
+        <h2>{{ user()?.fullName || 'User' }}</h2>
+        <span class="hero-email">
+          <lucide-icon name="mail" [size]="14"></lucide-icon>
+          {{ user()?.email || 'user@credvault.com' }}
+        </span>
+        <div class="hero-badges">
+          <span class="account-badge premium">
+            <lucide-icon name="crown" [size]="12"></lucide-icon>
+            {{ profileDetails.accountType }}
+          </span>
+          <span class="member-since">
+            <lucide-icon name="calendar" [size]="12"></lucide-icon>
+            Member since {{ profileDetails.memberSince | date:'MMM yyyy' }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </app-card>
+
+  <div class="profile-grid">
+    <!-- Personal Information -->
+    <app-card>
+      <div class="section">
+        <div class="section-header">
+          <lucide-icon name="user" [size]="18"></lucide-icon>
+          <h3>Personal Information</h3>
+        </div>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Full Name</span>
+            <span class="info-value">{{ user()?.fullName || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Email</span>
+            <span class="info-value">{{ user()?.email || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Phone</span>
+            <span class="info-value">{{ profileDetails.phone }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Date of Birth</span>
+            <span class="info-value">{{ profileDetails.dateOfBirth | date:'MMM d, yyyy' }}</span>
+          </div>
+          <div class="info-item full-width">
+            <span class="info-label">Address</span>
+            <span class="info-value">{{ profileDetails.address }}</span>
+          </div>
+        </div>
+      </div>
+    </app-card>
+
+    <!-- Identity Verification -->
+    <app-card>
+      <div class="section">
+        <div class="section-header">
+          <lucide-icon name="shield-check" [size]="18"></lucide-icon>
+          <h3>Identity Verification</h3>
+        </div>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">PAN Number</span>
+            <span class="info-value mono">{{ profileDetails.panNumber }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Aadhaar</span>
+            <span class="info-value mono">{{ profileDetails.aadhaar }}</span>
+          </div>
+        </div>
+        <div class="verified-banner">
+          <lucide-icon name="check-circle" [size]="16"></lucide-icon>
+          KYC Verified
+        </div>
+      </div>
+    </app-card>
+
+    <!-- Security Settings -->
+    <app-card>
+      <div class="section">
+        <div class="section-header">
+          <lucide-icon name="lock" [size]="18"></lucide-icon>
+          <h3>Security</h3>
+        </div>
+        <div class="setting-rows">
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-name">Two-Factor Authentication</span>
+              <span class="setting-desc">Extra security layer for your account</span>
+            </div>
+            <span class="toggle-indicator" [class.active]="profileDetails.twoFactorEnabled">
+              {{ profileDetails.twoFactorEnabled ? 'Enabled' : 'Disabled' }}
+            </span>
+          </div>
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-name">Password</span>
+              <span class="setting-desc">Last changed 30 days ago</span>
+            </div>
+            <app-button variant="secondary">Change</app-button>
+          </div>
+        </div>
+        
+        <div class="section-header" style="margin-top: 2rem;">
+          <lucide-icon name="laptop" [size]="18"></lucide-icon>
+          <h3>Active Sessions</h3>
+        </div>
+        <div class="sessions-list">
+          <div class="session-card" *ngFor="let session of activeSessions">
+            <div class="session-icon">
+              <lucide-icon [name]="session.deviceType === 'laptop' ? 'laptop' : session.deviceType === 'smartphone' ? 'smartphone' : 'monitor'" [size]="20"></lucide-icon>
+            </div>
+            <div class="session-details">
+              <div class="session-name">
+                {{ session.deviceName }}
+                <span *ngIf="session.isCurrent" class="current-badge">Current</span>
+              </div>
+              <div class="session-meta">
+                {{ session.browser }} · {{ session.ipAddress }}
+              </div>
+              <div class="session-meta" style="color: var(--text-secondary); margin-top: 2px;">
+                Last active: {{ session.lastActive | date:'MMM dd, h:mm a' }}
+              </div>
+            </div>
+            <div class="session-actions" *ngIf="!session.isCurrent">
+               <app-button variant="danger" (click)="revokeSession(session.id)">Revoke</app-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-card>
+
+    <!-- Notification Preferences -->
+    <app-card>
+      <div class="section">
+        <div class="section-header">
+          <lucide-icon name="bell" [size]="18"></lucide-icon>
+          <h3>Notification Preferences</h3>
+        </div>
+        <div class="setting-rows">
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-name">Email Notifications</span>
+              <span class="setting-desc">Receive updates via email</span>
+            </div>
+            <button class="switch-btn" [class.active]="notificationPrefs.emailEnabled" (click)="togglePref('emailEnabled')">
+              <div class="switch-knob"></div>
+            </button>
+          </div>
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-name">Payment Alerts</span>
+              <span class="setting-desc">Get notified for all payments</span>
+            </div>
+            <button class="switch-btn" [class.active]="notificationPrefs.paymentAlerts" (click)="togglePref('paymentAlerts')">
+              <div class="switch-knob"></div>
+            </button>
+          </div>
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-name">Bill Reminders</span>
+              <span class="setting-desc">Reminders before statements are due</span>
+            </div>
+            <button class="switch-btn" [class.active]="notificationPrefs.billReminders" (click)="togglePref('billReminders')">
+              <div class="switch-knob"></div>
+            </button>
+          </div>
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-name">Reward Updates</span>
+              <span class="setting-desc">Updates on points and new offers</span>
+            </div>
+            <button class="switch-btn" [class.active]="notificationPrefs.rewardUpdates" (click)="togglePref('rewardUpdates')">
+              <div class="switch-knob"></div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

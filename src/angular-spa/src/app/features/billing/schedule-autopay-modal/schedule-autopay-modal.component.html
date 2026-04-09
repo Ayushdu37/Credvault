@@ -1,0 +1,101 @@
+<div class="modal-surface">
+  
+  <div class="modal-header">
+    <h2 class="modal-title">Schedule Auto-Pay</h2>
+    <button class="modal-close" (click)="close()">
+      <lucide-icon name="x" [size]="18"></lucide-icon>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <div style="margin-bottom: 1.5rem;">
+      <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem;">
+        Configure automatic payments for your card ending in <strong>•••• {{ data.cardLast4 }}</strong>.
+      </p>
+    </div>
+
+    <form [formGroup]="autopayForm" (ngSubmit)="onSubmit()" class="form-grid">
+      
+      <!-- Payment Method Selection -->
+      <div class="form-group full-width">
+        <label class="form-label">Pay From</label>
+        <select formControlName="paymentMethodId" class="form-input custom-select">
+          <option value="" disabled selected>Select a bank account or card</option>
+          <ng-container *ngIf="paymentMethods$ | async as methods">
+            <option *ngFor="let method of methods" [value]="method.id">
+              {{ method.label }} (•••• {{ method.details.slice(-4) }})
+            </option>
+          </ng-container>
+        </select>
+        <span class="field-error" *ngIf="autopayForm.get('paymentMethodId')?.invalid && autopayForm.get('paymentMethodId')?.touched">
+          Please select a payment method.
+        </span>
+      </div>
+
+      <!-- Amount Preference -->
+      <div class="form-group full-width">
+        <label class="form-label">Amount to Pay</label>
+        <div class="method-toggle" style="margin-bottom: 0;">
+          <button 
+            type="button" 
+            class="toggle-btn" 
+            [class.active]="amountPreferenceControl?.value === 'full'" 
+            (click)="amountPreferenceControl?.setValue('full')">
+            Statement Balance
+          </button>
+          <button 
+            type="button" 
+            class="toggle-btn" 
+            [class.active]="amountPreferenceControl?.value === 'minimum'" 
+            (click)="amountPreferenceControl?.setValue('minimum')">
+            Minimum Due
+          </button>
+          <button 
+            type="button" 
+            class="toggle-btn" 
+            [class.active]="amountPreferenceControl?.value === 'custom'" 
+            (click)="amountPreferenceControl?.setValue('custom')">
+            Custom Amount
+          </button>
+        </div>
+      </div>
+
+      <!-- Custom Amount Input -->
+      <div class="form-group full-width" *ngIf="amountPreferenceControl?.value === 'custom'">
+        <div style="position: relative; display: flex; align-items: center; margin-top: 0.5rem;">
+          <span style="position: absolute; left: 1rem; color: var(--text-secondary); font-weight: bold;">$</span>
+          <input type="number" formControlName="customAmount" class="form-input" style="padding-left: 2rem;" placeholder="0.00">
+        </div>
+        <span class="field-error" *ngIf="autopayForm.get('customAmount')?.invalid && autopayForm.get('customAmount')?.touched">
+          Enter a valid amount of at least $10.
+        </span>
+      </div>
+
+      <!-- Payment Date -->
+      <div class="form-group full-width">
+        <label class="form-label">Payment Date (Day of Month)</label>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <input type="number" formControlName="paymentDate" class="form-input" style="width: 80px;" min="1" max="28">
+          <span style="color: var(--text-secondary); font-size: 0.9rem;">of every month</span>
+        </div>
+        <span class="field-error" *ngIf="autopayForm.get('paymentDate')?.invalid && autopayForm.get('paymentDate')?.touched">
+          Date must be between 1 and 28.
+        </span>
+      </div>
+
+    </form>
+    
+    <div style="margin-top: 1.5rem; padding: 1rem; border-radius: var(--radius-md); background: var(--bg-hover); border: 1px solid var(--border-light); display: flex; gap: 0.75rem;">
+      <lucide-icon name="shield-check" [size]="20" style="color: var(--success); flex-shrink: 0;"></lucide-icon>
+      <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">
+        By establishing Auto-Pay, you authorize CredVault to automatically debit your selected method on the scheduled date.
+      </p>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <app-button variant="secondary" (click)="close()">Cancel</app-button>
+    <app-button variant="primary" [loading]="loading" (click)="onSubmit()">Save Autopay Config</app-button>
+  </div>
+  
+</div>

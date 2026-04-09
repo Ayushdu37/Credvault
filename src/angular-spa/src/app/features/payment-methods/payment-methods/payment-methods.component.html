@@ -1,0 +1,70 @@
+<div class="methods-container">
+  <div class="page-header">
+    <div>
+      <h1>Payment Methods</h1>
+      <p class="subtitle">Manage your linked bank accounts and cards</p>
+    </div>
+    <div class="header-actions">
+      <app-button variant="primary" (click)="openAddModal()">
+        <lucide-icon name="plus" [size]="16"></lucide-icon>
+        Add Method
+      </app-button>
+    </div>
+  </div>
+
+  @if (loading()) {
+    <app-spinner />
+  } @else if (methods().length === 0) {
+    <app-empty-state
+      title="No Payment Methods"
+      message="You haven't linked any payment methods yet. Add a bank account, debit card, or UPI to get started."
+      icon="wallet"
+    />
+  } @else {
+    <div class="methods-grid">
+      @for (method of methods(); track method.id) {
+        <app-card class="method-card">
+          <div class="method-body">
+            <div class="method-top">
+              <div class="method-icon" [ngClass]="getTypeClass(method.type)">
+                <lucide-icon [name]="method.icon" [size]="24"></lucide-icon>
+              </div>
+              @if (method.isDefault) {
+                <span class="default-badge">
+                  <lucide-icon name="check-circle" [size]="12"></lucide-icon>
+                  Default
+                </span>
+              }
+            </div>
+
+            <div class="method-info">
+              <h3 class="method-label">{{ method.label }}</h3>
+              <span class="method-details">{{ method.details }}</span>
+              <span class="method-type-badge" [ngClass]="getTypeClass(method.type)">{{ getTypeLabel(method.type) }}</span>
+            </div>
+
+            <div class="method-meta">
+              <span class="added-date">
+                <lucide-icon name="calendar" [size]="12"></lucide-icon>
+                Added {{ method.addedOn | date:'MMM d, yyyy' }}
+              </span>
+            </div>
+
+            <div class="method-actions">
+              @if (!method.isDefault) {
+                <button class="action-btn set-default-btn" (click)="setDefault(method.id)">
+                  <lucide-icon name="check" [size]="14"></lucide-icon>
+                  Set Default
+                </button>
+              }
+              <button class="action-btn remove-btn" (click)="deleteMethod(method.id)">
+                <lucide-icon name="trash-2" [size]="14"></lucide-icon>
+                Remove
+              </button>
+            </div>
+          </div>
+        </app-card>
+      }
+    </div>
+  }
+</div>

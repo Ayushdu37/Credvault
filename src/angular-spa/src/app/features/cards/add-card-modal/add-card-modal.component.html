@@ -1,0 +1,88 @@
+<div class="modal-surface">
+  
+  <div class="modal-header">
+    <h2 class="modal-title">Add New Card</h2>
+    <button class="modal-close" (click)="close()">
+      <lucide-icon name="x" [size]="18"></lucide-icon>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form [formGroup]="cardForm" (ngSubmit)="onSubmit()" class="form-grid">
+      
+      <div class="form-group full-width">
+        <label class="form-label">Card Number</label>
+        <input type="text" formControlName="cardNumber" class="form-input" placeholder="1234567890123456" maxlength="16">
+        <span class="field-error" *ngIf="cardForm.get('cardNumber')?.invalid && cardForm.get('cardNumber')?.touched">
+          Enter a valid 16-digit card number.
+        </span>
+      </div>
+
+      <div class="form-group full-width">
+        <label class="form-label">Cardholder Name</label>
+        <input type="text" formControlName="cardHolderName" class="form-input" placeholder="JOHN DOE">
+        <span class="field-error" *ngIf="cardForm.get('cardHolderName')?.invalid && cardForm.get('cardHolderName')?.touched">
+          Cardholder name is required.
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Expiry Month</label>
+        <input type="number" formControlName="expiryMonth" class="form-input" placeholder="MM" min="1" max="12">
+        <span class="field-error" *ngIf="cardForm.get('expiryMonth')?.invalid && cardForm.get('expiryMonth')?.touched">
+          1–12 required.
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Expiry Year</label>
+        <input type="number" formControlName="expiryYear" class="form-input" placeholder="YYYY" min="2025" max="2040">
+        <span class="field-error" *ngIf="cardForm.get('expiryYear')?.invalid && cardForm.get('expiryYear')?.touched">
+          Valid year required.
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Issuer / Network</label>
+        <select formControlName="issuer" class="form-input">
+          <option value="" disabled>Select issuer</option>
+          <option *ngFor="let iss of issuers" [value]="iss">{{ iss }}</option>
+        </select>
+        <span class="field-error" *ngIf="cardForm.get('issuer')?.invalid && cardForm.get('issuer')?.touched">
+          Please select an issuer.
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Credit Limit</label>
+        <div class="input-prefix-wrap">
+          <span class="input-prefix">$</span>
+          <input type="number" formControlName="creditLimit" class="form-input with-prefix" placeholder="10000" min="1000">
+        </div>
+        <span class="field-error" *ngIf="cardForm.get('creditLimit')?.invalid && cardForm.get('creditLimit')?.touched">
+          Minimum $1,000.
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Billing Cycle Start</label>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <input type="number" formControlName="billingCycleStartDay" class="form-input" style="width: 80px;" min="1" max="28">
+          <span style="color: var(--text-secondary); font-size: 0.85rem;">of every month</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Nickname (Optional)</label>
+        <input type="text" formControlName="nickname" class="form-input" placeholder="e.g. Travel Card">
+      </div>
+
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <app-button variant="secondary" (click)="close()">Cancel</app-button>
+    <app-button variant="primary" [loading]="loading" (click)="onSubmit()">Add Card</app-button>
+  </div>
+  
+</div>

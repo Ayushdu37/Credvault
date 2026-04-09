@@ -1,0 +1,297 @@
+.rewards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.page-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin: 0.25rem 0 0;
+}
+
+/* Stats Row */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.stat-body {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.points-icon {
+  background: rgba(234, 179, 8, 0.15);
+  color: #eab308;
+}
+
+.earned-icon {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+.cashback-icon {
+  background: rgba(99, 102, 241, 0.15);
+  color: #6366f1;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-card.highlight {
+  border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+/* Tier Progress */
+.tier-card {
+  overflow: visible;
+}
+
+.tier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.375rem 0.875rem;
+  border-radius: 999px;
+  border: 2px solid;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.tier-next {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.tier-next strong {
+  color: var(--text-primary);
+}
+
+.max-tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.tier-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+}
+
+.tier-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.8s ease;
+}
+
+.tiers-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tier-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+}
+
+.tier-marker.achieved {
+  opacity: 0.7;
+}
+
+.tier-marker.active {
+  opacity: 1;
+}
+
+.tier-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-color);
+}
+
+.tier-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.tier-points {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.tier-cashback {
+  font-size: 0.65rem;
+  color: var(--text-muted, #64748b);
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.section-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Transaction Table */
+.tx-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.tx-header-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 100px 100px;
+  gap: 1rem;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted, #64748b);
+}
+
+.tx-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 100px 100px;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  align-items: center;
+  transition: background 0.15s ease;
+}
+
+.tx-row:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.tx-row:last-child {
+  border-bottom: none;
+}
+
+.tx-date {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.tx-desc {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.tx-type {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.type-earned {
+  background: rgba(34, 197, 94, 0.12);
+  color: #22c55e;
+}
+
+.type-redeemed {
+  background: rgba(234, 179, 8, 0.12);
+  color: #eab308;
+}
+
+.tx-points-col {
+  text-align: right;
+}
+
+.tx-points {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+.points-positive {
+  color: #22c55e;
+}
+
+.points-negative {
+  color: #eab308;
+}
+
+@media (max-width: 768px) {
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .tiers-row {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .tx-header-row,
+  .tx-row {
+    grid-template-columns: 90px 1fr 80px 80px;
+    gap: 0.5rem;
+  }
+}

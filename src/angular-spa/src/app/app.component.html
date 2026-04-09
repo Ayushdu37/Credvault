@@ -1,0 +1,22 @@
+<!-- Toast notifications (always visible) -->
+<app-toast />
+
+@if (isLoggedIn()) {
+  <!-- Authenticated shell: sidebar + navbar + content -->
+  <div class="shell" [class.shell--collapsed]="sidebarCollapsed">
+    <app-sidebar
+      [collapsed]="sidebarCollapsed"
+      (toggle)="toggleSidebar()" />
+
+    <div class="shell__main">
+      <app-navbar (menuToggle)="toggleSidebar()" />
+
+      <main class="shell__content">
+        <router-outlet />
+      </main>
+    </div>
+  </div>
+} @else {
+  <!-- Guest: auth pages render full-screen -->
+  <router-outlet />
+}

@@ -1,0 +1,214 @@
+<div class="detail-page">
+
+  <ng-container *ngIf="loading$ | async; else detailContent">
+    <div class="loading-overlay">
+      <app-spinner size="lg"></app-spinner>
+    </div>
+  </ng-container>
+
+  <ng-template #detailContent>
+    <ng-container *ngIf="card$ | async as card; else notFound">
+
+      <!-- BACK + HEADER -->
+      <div class="detail-header">
+        <button class="back-btn" (click)="goBack()">
+          <lucide-icon name="arrow-left" [size]="18"></lucide-icon>
+          Back to Cards
+        </button>
+        <div class="detail-title">
+          <h1>Card ending in {{ card.last4Digits }}</h1>
+          <span class="status-badge" [ngClass]="'status-badge--' + card.status.toLowerCase()">
+            {{ card.status }}
+          </span>
+        </div>
+      </div>
+
+      <div class="detail-grid">
+        <!-- Card Visual Column -->
+        <div class="card-col">
+          <div class="card-visual-large" [class.card-visual-large--locked]="card.status === 'Locked'">
+            <div class="cv-top">
+              <div class="card-chip"></div>
+              <span class="card-network">{{ card.network }}</span>
+            </div>
+            <div class="card-number">
+              <span>••••</span><span>••••</span><span>••••</span><span>{{ card.last4Digits }}</span>
+            </div>
+            <div class="cv-bottom">
+              <div>
+                <div class="card-label">CARDHOLDER</div>
+                <div class="card-name">{{ card.cardholderName }}</div>
+              </div>
+              <div>
+                <div class="card-label">EXPIRES</div>
+                <div class="card-name">{{ card.expiryMonth | number:'2.0' }}/{{ card.expiryYear }}</div>
+                <div *ngIf="card.isVirtual" class="card-badge-virtual">Virtual</div>
+              </div>
+            </div>
+            <div class="locked-overlay" *ngIf="card.status === 'Locked'">
+              <lucide-icon name="lock" [size]="40"></lucide-icon>
+              <span>Card Locked</span>
+            </div>
+          </div>
+
+          <!-- Verified / Unverified Badge -->
+          <div class="verification-badge" [class.verified]="card.isVerified">
+            <lucide-icon [name]="card.isVerified ? 'shield-check' : 'shield-alert'" [size]="16"></lucide-icon>
+            {{ card.isVerified ? 'Verified' : 'Unverified' }}
+          </div>
+
+          <div class="card-actions" style="display: flex; gap: 0.5rem; width: 100%; flex-wrap: wrap;">
+            <app-button 
+              [variant]="card.status === 'Locked' ? 'primary' : 'danger'"
+              (click)="toggleLock(card)"
+              [disabled]="(actionLoading$ | async) === true"
+              style="flex: 1;">
+              <lucide-icon [name]="card.status === 'Locked' ? 'lock-open' : 'lock'" [size]="16"></lucide-icon>
+              {{ card.status === 'Locked' ? 'Unlock' : 'Lock' }}
+            </app-button>
+
+            <app-button 
+              variant="secondary"
+              (click)="manageLimit(card)"
+              style="flex: 1;">
+              <lucide-icon name="sliders" [size]="16"></lucide-icon>
+              Limit
+            </app-button>
+
+            <app-button 
+              variant="ghost"
+              (click)="setDefault(card)"
+              [disabled]="card.isDefault || (actionLoading$ | async) === true"
+              style="flex: 1;">
+              <lucide-icon [name]="card.isDefault ? 'star' : 'star'" [size]="16"></lucide-icon>
+              {{ card.isDefault ? 'Default' : 'Set Default' }}
+            </app-button>
+          </div>
+
+          <div class="card-actions-secondary" style="display: flex; gap: 0.5rem; width: 100%; margin-top: 0.5rem;">
+            <app-button 
+              *ngIf="!card.isVerified"
+              variant="primary"
+              (click)="verifyCard(card)"
+              [disabled]="(actionLoading$ | async) === true"
+              style="flex: 1;">
+              <lucide-icon name="shield-check" [size]="16"></lucide-icon>
+              Verify Card
+            </app-button>
+
+            <app-button 
+              variant="danger"
+              (click)="deleteCard(card)"
+              [disabled]="(actionLoading$ | async) === true"
+              style="flex: 1;">
+              <lucide-icon name="trash-2" [size]="16"></lucide-icon>
+              Remove Card
+            </app-button>
+          </div>
+        </div>
+
+        <!-- Card Stats Column -->
+        <div class="stats-col">
+          <app-card title="Balance & Limits">
+            <div class="stat-row">
+              <div class="stat">
+                <div class="stat-label">Current Balance</div>
+                <div class="stat-value">{{ card.currentBalance | currency }}</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Credit Limit</div>
+                <div class="stat-value">{{ card.creditLimit | currency }}</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Available Credit</div>
+                <div class="stat-value text-success">{{ (card.creditLimit - card.currentBalance) | currency }}</div>
+              </div>
+            </div>
+
+            <div class="util-section">
+              <div class="util-header">
+                <span>Credit Utilization</span>
+                <span [ngClass]="getUtilization(card) > 0.3 ? 'text-warning' : 'text-success'">
+                  {{ getUtilization(card) | percent:'1.1-1' }}
+                </span>
+              </div>
+              <div class="utilization-bar">
+                <div class="utilization-bar__fill"
+                     [style.width.%]="getUtilization(card) * 100"
+                     [ngClass]="getUtilization(card) > 0.3 ? 'fill-warning' : 'fill-ok'">
+                </div>
+              </div>
+              <p class="util-tip" *ngIf="getUtilization(card) > 0.3">
+                ⚠️ High utilization can lower your credit score. Try to keep it below 30%.
+              </p>
+            </div>
+          </app-card>
+
+          <app-card title="Card Details">
+            <div class="details-list">
+              <div class="detail-row">
+                <span class="dl-label">Card Type</span>
+                <span class="dl-value">{{ card.isVirtual ? 'Virtual' : 'Physical' }}</span>
+              </div>
+              <div class="detail-row">
+                <span class="dl-label">Network</span>
+                <span class="dl-value">{{ card.network }}</span>
+              </div>
+              <div class="detail-row">
+                <span class="dl-label">Status</span>
+                <span class="dl-value status-badge" [ngClass]="'status-badge--' + card.status.toLowerCase()">{{ card.status }}</span>
+              </div>
+              <div class="detail-row">
+                <span class="dl-label">Card Number</span>
+                <span class="dl-value">•••• •••• •••• {{ card.last4Digits }}</span>
+              </div>
+              <div class="detail-row">
+                <span class="dl-label">Expiry</span>
+                <span class="dl-value">{{ card.expiryMonth | number:'2.0' }}/{{ card.expiryYear }}</span>
+              </div>
+            </div>
+          </app-card>
+        </div>
+
+        <!-- Billing History Full Width -->
+        <div class="billing-history-section" style="grid-column: 1 / -1; margin-top: 1rem;">
+          <app-card title="Billing History">
+             <div class="table-wrapper">
+               <table class="items-table">
+                 <thead>
+                   <tr>
+                     <th>Statement Date</th>
+                     <th>Due Date</th>
+                     <th class="text-right">Minimum Due</th>
+                     <th class="text-right">Statement Balance</th>
+                     <th>Status</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr *ngFor="let bill of cardBills" (click)="viewBill(bill.id)" style="cursor: pointer;">
+                     <td class="date-cell">{{ bill.date | date:'MMM dd, yyyy' }}</td>
+                     <td class="date-cell" [ngClass]="{'text-warning': bill.status === 'Due'}">{{ bill.dueDate | date:'MMM dd, yyyy' }}</td>
+                     <td class="text-right" style="color: var(--text-secondary);">{{ bill.minimumDue | currency }}</td>
+                     <td class="amount-cell text-right">{{ bill.amount | currency }}</td>
+                     <td>
+                       <span class="status-badge" [ngClass]="'status-badge--' + bill.status.toLowerCase()">{{ bill.status }}</span>
+                     </td>
+                   </tr>
+                 </tbody>
+               </table>
+             </div>
+          </app-card>
+        </div>
+      </div>
+
+    </ng-container>
+
+    <ng-template #notFound>
+      <div class="loading-overlay">
+        <p style="color: var(--text-secondary)">Card not found.</p>
+        <app-button variant="secondary" (click)="goBack()">Go back</app-button>
+      </div>
+    </ng-template>
+  </ng-template>
+
+</div>

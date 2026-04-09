@@ -1,0 +1,31 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "src\\services\\identity-service\\IdentityService.API\\IdentityService.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "src\\services\\ocelot-gateway\\OcelotGateway.API\\OcelotGateway.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "src\\services\\billing-services\\BillingService.API\\BillingService.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "src\\services\\card-service\\CardService.API\\CardService.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "src\\services\\notification-service\\NotificationService.API\\NotificationService.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "src\\services\\payment-service\\PaymentService.API\\PaymentService.API.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

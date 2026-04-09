@@ -1,0 +1,47 @@
+<div class="auth-wrapper">
+  <div class="auth-box" style="text-align: center; padding: 3rem 2rem;">
+    
+    <div class="brand-logo" style="justify-content: center; margin-bottom: 2rem;">
+      <lucide-icon name="box" [size]="28" class="logo-icon"></lucide-icon>
+      <span class="logo-text" style="font-size: 1.5rem;">CredVault</span>
+    </div>
+
+    @if (status === 'verifying') {
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+        <lucide-icon name="loader-2" [size]="48" class="spin-icon" style="color: var(--accent)"></lucide-icon>
+        <h3 style="margin: 0; color: var(--text-primary);">Verifying your email...</h3>
+        <p style="color: var(--text-secondary); margin: 0;">Please wait while we confirm your email address.</p>
+      </div>
+    }
+
+    @if (status === 'success') {
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+        <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--success-light); display: flex; align-items: center; justify-content: center;">
+          <lucide-icon name="check" [size]="32" style="color: var(--success);"></lucide-icon>
+        </div>
+        <h3 style="margin: 0; color: var(--text-primary);">Email Verified!</h3>
+        <p style="color: var(--text-secondary); margin: 0; max-width: 300px;">
+          Your email address has been successfully verified. You can now access your account.
+        </p>
+        <button class="auth-btn submit-btn" style="margin-top: 1.5rem;" routerLink="/login">Continue to Login</button>
+      </div>
+    }
+
+    @if (status === 'error') {
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+        <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--danger-light); display: flex; align-items: center; justify-content: center;">
+          <lucide-icon name="x" [size]="32" style="color: var(--danger);"></lucide-icon>
+        </div>
+        <h3 style="margin: 0; color: var(--text-primary);">Verification Failed</h3>
+        <p style="color: var(--danger); margin: 0; max-width: 300px;">
+          {{ errorMessage }}
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; width: 100%; margin-top: 1.5rem;">
+          <button class="auth-btn submit-btn" routerLink="/login">Go to Login</button>
+          <a routerLink="/register" class="auth-btn" style="background: var(--bg-body); border: 1px solid var(--border-primary); color: var(--text-primary);">Back to Registration</a>
+        </div>
+      </div>
+    }
+
+  </div>
+</div>

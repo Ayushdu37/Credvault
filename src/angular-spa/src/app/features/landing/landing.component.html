@@ -1,0 +1,92 @@
+<div class="landing-wrapper">
+  <!-- Navbar -->
+  <nav class="public-navbar">
+    <div class="brand">
+      <lucide-icon name="box" [size]="24" class="logo-icon"></lucide-icon>
+      <span class="logo-text">CredVault</span>
+    </div>
+    <div class="nav-links">
+      <a href="#features">Platform</a>
+      <a href="#security">Security</a>
+      <a href="#company">Company</a>
+    </div>
+    <div class="nav-actions">
+      <a routerLink="/login" class="nav-login">Sign In</a>
+      <a routerLink="/register" class="nav-register">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <main class="hero-section">
+    <div class="hero-content">
+      <span class="eyebrow">ENTERPRISE CARD ISSUANCE</span>
+      <h1>Financial control,<br>structurally secured.</h1>
+      <p>Consolidate banking, card issuance, and high-volume billing into a single, aggressively clean platform.</p>
+      <div class="hero-actions">
+        <a routerLink="/register" class="btn-primary">Build your vault</a>
+        <a href="#platform" class="btn-secondary">Explore platform</a>
+      </div>
+    </div>
+    
+    <!-- 3D Card Canvas -->
+    <div class="hero-3d" (mousemove)="onMouseMove($event)" (mouseleave)="onMouseLeave()">
+      <div #threejsContainer class="three-container"></div>
+    </div>
+  </main>
+
+  <!-- Platform Features Section -->
+  <section id="platform" class="features-section">
+    <div class="section-header">
+      <span class="eyebrow">PLATFORM CAPABILITIES</span>
+      <h2>Engineered for scale.</h2>
+      <p>Everything you need to run high-volume financial operations without the bloat of traditional banking.</p>
+    </div>
+    
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><lucide-icon name="credit-card"></lucide-icon></div>
+        <h3>Corporate Cards</h3>
+        <p>Issue virtual and physical cards instantly. Set granular spending limits and multi-currency rules.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><lucide-icon name="zap"></lucide-icon></div>
+        <h3>Real-time Billing</h3>
+        <p>Process thousands of invoices securely. Automate reconciliations and dynamic tax logic effortlessly.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><lucide-icon name="bar-chart-2"></lucide-icon></div>
+        <h3>Deep Analytics</h3>
+        <p>Visual ledger with real-time treasury tracking. Know exactly where capital is moving at any second.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><lucide-icon name="shield"></lucide-icon></div>
+        <h3>Bank-grade Security</h3>
+        <p>SOC 2 Type II certified. AES-256 encryption at rest and TLS 1.3 in transit to keep funds safe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2>Ready to take control?</h2>
+      <p>Join thousands of modern enterprises scaling on CredVault's infrastructure.</p>
+      <a routerLink="/register" class="btn-primary cta-btn">Open your account →</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="public-footer">
+    <div class="footer-content">
+      <div class="brand">
+        <lucide-icon name="box" [size]="20" class="logo-icon"></lucide-icon>
+        <span class="logo-text">CredVault</span>
+      </div>
+      <div class="footer-links">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">System Status</a>
+      </div>
+    </div>
+  </footer>
+</div>

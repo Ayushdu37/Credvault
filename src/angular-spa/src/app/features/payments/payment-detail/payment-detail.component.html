@@ -1,0 +1,64 @@
+<div class="receipt-page">
+  <div class="receipt-header">
+    <button class="back-btn" (click)="goBack()">
+      <lucide-icon name="arrow-left" [size]="18"></lucide-icon>
+      Back to Payments
+    </button>
+  </div>
+
+  <div class="receipt-container" *ngIf="payment">
+    <app-card class="receipt-card">
+      
+      <!-- Receipt Header -->
+      <div class="receipt-top">
+        <div class="status-circle" [ngClass]="getStatusClass(payment.status)">
+          <lucide-icon [name]="payment.status === 'Completed' ? 'check' : payment.status === 'Failed' ? 'x' : 'clock'" [size]="32"></lucide-icon>
+        </div>
+        <h1 class="amount">{{ payment.amount | currency }}</h1>
+        <p class="status-text" [ngClass]="getStatusClass(payment.status)">{{ payment.status }}</p>
+        <p class="date">{{ payment.date | date:'MMMM dd, yyyy · h:mm a' }}</p>
+      </div>
+
+      <div class="receipt-divider"></div>
+
+      <!-- Receipt Details -->
+      <div class="receipt-details">
+        <div class="detail-row">
+          <span class="detail-label">Reference Number</span>
+          <span class="detail-value mono">{{ payment.referenceNumber }}</span>
+        </div>
+        
+        <div class="detail-row">
+          <span class="detail-label">Description</span>
+          <span class="detail-value">{{ payment.description }}</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">Paid From</span>
+          <div class="detail-value with-icon">
+            <lucide-icon [name]="getMethodIcon(payment.method)" [size]="16"></lucide-icon>
+            {{ payment.paidFrom }}
+          </div>
+        </div>
+
+        <div class="detail-row">
+          <span class="detail-label">Applied To</span>
+          <span class="detail-value">Card ending in {{ payment.cardLast4 }} ({{ payment.billMonth }} Statement)</span>
+        </div>
+      </div>
+
+      <!-- Receipt Actions -->
+      <div class="receipt-actions">
+        <app-button variant="secondary" style="width: 100%;">
+          <lucide-icon name="download" [size]="16"></lucide-icon>
+          Download Receipt
+        </app-button>
+        <app-button variant="ghost" style="width: 100%;">
+          <lucide-icon name="help-circle" [size]="16"></lucide-icon>
+          Report an Issue
+        </app-button>
+      </div>
+
+    </app-card>
+  </div>
+</div>

@@ -1,0 +1,105 @@
+<div class="dashboard-container">
+  
+  <ng-container *ngIf="(loading$ | async) === false; else loadingTpl">
+    <ng-container *ngIf="summary$ | async as summary">
+      
+      <!-- HEADER -->
+      <header class="dashboard-header">
+        <div>
+          <h1>Dashboard</h1>
+          <p>Here's an overview of your Credit Vault accounts.</p>
+        </div>
+        <div class="dashboard-actions">
+          <app-button variant="secondary">
+            <lucide-icon name="receipt" [size]="18"></lucide-icon>
+            Statements
+          </app-button>
+          <app-button variant="primary">
+            <lucide-icon name="wallet" [size]="18"></lucide-icon>
+            Make a Payment
+          </app-button>
+        </div>
+      </header>
+
+      <!-- METRICS GRID -->
+      <section class="metrics-grid">
+        <app-card>
+          <div class="metric-label">Total Balance</div>
+          <div class="metric-value">{{ summary.totalBalance | currency }}</div>
+          <p class="text-secondary" style="font-size: 0.85rem; margin:0;">
+            Next payment due in 14 days
+          </p>
+        </app-card>
+
+        <app-card>
+          <div class="metric-label">Available Credit</div>
+          <div class="metric-value">{{ summary.availableCredit | currency }}</div>
+          <p class="text-secondary" style="font-size: 0.85rem; margin:0;">
+            out of {{ summary.totalCreditLimit | currency }}
+          </p>
+        </app-card>
+
+        <app-card>
+          <div class="metric-label">Credit Utilization</div>
+          <div class="metric-value">
+            {{ (summary.totalBalance / summary.totalCreditLimit) | percent:'1.1-2' }}
+          </div>
+          <p class="text-secondary" style="font-size: 0.85rem; margin:0;">
+            Keeping this below 30% helps your score
+          </p>
+        </app-card>
+      </section>
+
+      <!-- CHARTS AND ACTIVITY GRID -->
+      <section class="charts-grid">
+        <!-- Main Chart -->
+        <app-card title="Credit Utilization Trend">
+          <div class="chart-container" echarts [options]="utilizationChartOptions"></div>
+        </app-card>
+
+        <!-- Recent Activity -->
+        <app-card title="Recent Activity">
+          <div *ngIf="summary.recentActivity.length > 0; else noActivity" class="activity-list">
+            
+            <div class="activity-item" *ngFor="let item of summary.recentActivity">
+              <div class="activity-info">
+                <div class="activity-icon">
+                  <lucide-icon 
+                    [name]="item.type === 'payment' ? 'arrow-right-left' : 'credit-card'" 
+                    [size]="20">
+                  </lucide-icon>
+                </div>
+                <div class="activity-details">
+                  <p>{{ item.description }}</p>
+                  <span>{{ item.date | date:'MMM dd' }} • {{ item.category }}</span>
+                </div>
+              </div>
+              <div class="activity-amount" [ngClass]="item.type === 'payment' ? 'amount-payment' : 'amount-charge'">
+                {{ item.type === 'payment' ? '+' : '' }}{{ item.amount | currency }}
+              </div>
+            </div>
+
+          </div>
+          
+          <ng-template #noActivity>
+            <app-empty-state 
+              icon="default" 
+              title="No recent activity" 
+              message="Your recent transactions will appear here.">
+            </app-empty-state>
+          </ng-template>
+        </app-card>
+
+      </section>
+
+    </ng-container>
+  </ng-container>
+
+  <ng-template #loadingTpl>
+    <div class="loading-overlay">
+      <app-spinner size="lg"></app-spinner>
+      <p>Loading your dashboard...</p>
+    </div>
+  </ng-template>
+
+</div>

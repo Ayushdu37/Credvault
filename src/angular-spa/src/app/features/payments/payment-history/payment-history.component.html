@@ -1,0 +1,76 @@
+<div class="payments-page">
+
+  <header class="page-header">
+    <div>
+      <h1>Payments</h1>
+      <p>Track all your payment activity</p>
+    </div>
+    <app-button variant="primary" (click)="makePayment()">
+      <lucide-icon name="wallet" [size]="18"></lucide-icon>
+      Make a Payment
+    </app-button>
+  </header>
+
+  <ng-container *ngIf="loading$ | async; else paymentsContent">
+    <div class="loading-overlay">
+      <app-spinner size="lg"></app-spinner>
+      <p>Loading payment history...</p>
+    </div>
+  </ng-container>
+
+  <ng-template #paymentsContent>
+    <ng-container *ngIf="payments$ | async as payments">
+
+      <ng-container *ngIf="payments.length > 0; else emptyPayments">
+        <app-card title="Payment History">
+          <div class="table-wrapper">
+            <table class="payments-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Method</th>
+                  <th>Reference</th>
+                  <th class="text-right">Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let payment of payments" (click)="viewPayment(payment)" style="cursor: pointer;">
+                  <td class="date-cell">{{ payment.date | date:'MMM dd, yyyy' }}</td>
+                  <td>
+                    <div class="desc-cell">
+                      <div class="method-icon-wrap">
+                        <lucide-icon [name]="getMethodIcon(payment.method)" [size]="15"></lucide-icon>
+                      </div>
+                      {{ payment.description }}
+                    </div>
+                  </td>
+                  <td class="method-cell">{{ payment.method }}</td>
+                  <td class="ref-cell">{{ payment.referenceNumber }}</td>
+                  <td class="amount-cell text-right">{{ payment.amount | currency }}</td>
+                  <td>
+                    <span class="status-badge" [ngClass]="getStatusClass(payment.status)">
+                      {{ payment.status }}
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </app-card>
+      </ng-container>
+
+      <ng-template #emptyPayments>
+        <app-empty-state
+          icon="default"
+          title="No payments yet"
+          message="Your payment history will appear here once you make your first payment.">
+          <app-button variant="primary" (click)="makePayment()">Make a Payment</app-button>
+        </app-empty-state>
+      </ng-template>
+
+    </ng-container>
+  </ng-template>
+
+</div>

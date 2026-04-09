@@ -1,0 +1,120 @@
+<div class="rewards-container">
+  <div class="page-header">
+    <div>
+      <h1>Rewards</h1>
+      <p class="subtitle">Earn points on every payment and unlock higher tiers</p>
+    </div>
+    <div class="header-actions">
+      <app-button variant="primary" (click)="openRedeemModal()">
+        <lucide-icon name="gift" [size]="16"></lucide-icon>
+        Redeem Points
+      </app-button>
+    </div>
+  </div>
+
+  @if (loading()) {
+    <app-spinner />
+  } @else {
+    @if (account(); as acct) {
+      <!-- Stats Row -->
+      <div class="stats-row">
+        <app-card class="stat-card highlight">
+          <div class="stat-body">
+            <div class="stat-icon points-icon">
+              <lucide-icon name="star" [size]="24"></lucide-icon>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value">{{ acct.availablePoints | number }}</span>
+              <span class="stat-label">Available Points</span>
+            </div>
+          </div>
+        </app-card>
+
+        <app-card class="stat-card">
+          <div class="stat-body">
+            <div class="stat-icon earned-icon">
+              <lucide-icon name="trending-up" [size]="24"></lucide-icon>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value">{{ acct.totalEarned | number }}</span>
+              <span class="stat-label">Total Earned</span>
+            </div>
+          </div>
+        </app-card>
+
+        <app-card class="stat-card">
+          <div class="stat-body">
+            <div class="stat-icon cashback-icon">
+              <lucide-icon name="percent" [size]="24"></lucide-icon>
+            </div>
+            <div class="stat-info">
+              <span class="stat-value">{{ acct.cashbackPercent }}%</span>
+              <span class="stat-label">Cashback Rate</span>
+            </div>
+          </div>
+        </app-card>
+      </div>
+
+      <!-- Tier Progress -->
+      <app-card class="tier-card">
+        <div class="tier-header">
+          <div class="tier-badge" [style.border-color]="getTierColor(acct.tierName)">
+            <lucide-icon name="crown" [size]="20" [style.color]="getTierColor(acct.tierName)"></lucide-icon>
+            <span [style.color]="getTierColor(acct.tierName)">{{ acct.tierName }}</span>
+          </div>
+          <span class="tier-next">
+            @if (getNextTier() !== 'Max Tier') {
+              {{ getPointsToNextTier() | number }} pts to <strong>{{ getNextTier() }}</strong>
+            } @else {
+              <span class="max-tier-badge">
+                <lucide-icon name="check-circle" [size]="14"></lucide-icon>
+                Highest Tier Unlocked
+              </span>
+            }
+          </span>
+        </div>
+        <div class="tier-progress-bar">
+          <div class="tier-progress-fill" [style.width.%]="getTierProgress()" [style.background]="getTierColor(acct.tierName)"></div>
+        </div>
+        <div class="tiers-row">
+          @for (tier of tiers(); track tier.id) {
+            <div class="tier-marker" [class.active]="tier.name === acct.tierName" [class.achieved]="tier.minPoints <= acct.totalEarned">
+              <span class="tier-dot" [style.background]="tier.minPoints <= acct.totalEarned ? getTierColor(tier.name) : ''"></span>
+              <span class="tier-name">{{ tier.name }}</span>
+              <span class="tier-points">{{ tier.minPoints | number }} pts</span>
+              <span class="tier-cashback">{{ tier.cashbackPercent }}% back</span>
+            </div>
+          }
+        </div>
+      </app-card>
+
+      <!-- Transaction History -->
+      <app-card>
+        <div class="section-header">
+          <lucide-icon name="history" [size]="18"></lucide-icon>
+          <h3>Points History</h3>
+        </div>
+        <div class="tx-table">
+          <div class="tx-header-row">
+            <span>Date</span>
+            <span>Description</span>
+            <span>Type</span>
+            <span class="tx-points-col">Points</span>
+          </div>
+          @for (tx of transactions(); track tx.id) {
+            <div class="tx-row">
+              <span class="tx-date">{{ tx.createdAt | date:'MMM d, yyyy' }}</span>
+              <span class="tx-desc">{{ tx.description }}</span>
+              <span class="tx-type" [ngClass]="tx.type === 'Earned' ? 'type-earned' : 'type-redeemed'">
+                {{ tx.type }}
+              </span>
+              <span class="tx-points" [ngClass]="tx.points > 0 ? 'points-positive' : 'points-negative'">
+                {{ tx.points > 0 ? '+' : '' }}{{ tx.points | number }}
+              </span>
+            </div>
+          }
+        </div>
+      </app-card>
+    }
+  }
+</div>

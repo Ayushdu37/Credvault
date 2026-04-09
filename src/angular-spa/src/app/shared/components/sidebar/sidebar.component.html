@@ -1,0 +1,53 @@
+<aside class="sidebar" [class.sidebar--collapsed]="collapsed" id="app-sidebar">
+  <!-- Brand -->
+  <div class="sidebar__brand">
+    <div class="sidebar__logo">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <rect width="28" height="28" rx="8" fill="#6366f1"/>
+        <path d="M8 10.5C8 9.12 9.12 8 10.5 8h7C18.88 8 20 9.12 20 10.5v7c0 1.38-1.12 2.5-2.5 2.5h-7A2.5 2.5 0 0 1 8 17.5v-7z" fill="#fff" opacity=".3"/>
+        <path d="M10 12h8M10 15h5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    @if (!collapsed) {
+      <span class="sidebar__brand-text">CredVault</span>
+    }
+  </div>
+
+  <!-- Navigation -->
+  <nav class="sidebar__nav">
+    @for (item of navItems; track item.route) {
+      <a
+        class="sidebar__link"
+        [routerLink]="item.route"
+        routerLinkActive="sidebar__link--active"
+        [attr.title]="collapsed ? item.label : null"
+        [id]="'nav-' + item.icon">
+        <lucide-icon [name]="item.icon" class="sidebar__icon" [strokeWidth]="2"></lucide-icon>
+        @if (!collapsed) {
+          <span class="sidebar__label">{{ item.label }}</span>
+        }
+      </a>
+    }
+  </nav>
+
+  <!-- Footer Controls (Theme & Collapse) -->
+  <div class="sidebar__footer">
+    <!-- Theme Toggle -->
+    <button class="sidebar__toggle" (click)="themeService.toggleTheme()" id="theme-toggle"
+            [attr.aria-label]="themeService.currentTheme() === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'">
+      <lucide-icon [name]="themeService.currentTheme() === 'dark' ? 'sun' : 'moon'" class="sidebar__toggle-icon"></lucide-icon>
+      @if (!collapsed) {
+        <span>{{ themeService.currentTheme() === 'dark' ? 'Light Mode' : 'Dark Mode' }}</span>
+      }
+    </button>
+    
+    <!-- Collapse toggle -->
+    <button class="sidebar__toggle" (click)="toggle.emit()" id="sidebar-toggle"
+            [attr.aria-label]="collapsed ? 'Expand sidebar' : 'Collapse sidebar'">
+      <lucide-icon name="chevron-left" class="sidebar__toggle-icon" [class.sidebar__toggle-icon--flipped]="collapsed"></lucide-icon>
+      @if (!collapsed) {
+        <span>Collapse</span>
+      }
+    </button>
+  </div>
+</aside>

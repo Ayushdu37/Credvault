@@ -1,0 +1,59 @@
+<div class="auth-wrapper">
+  <div class="auth-box">
+    
+    <div class="auth-header">
+      <div class="brand-logo">
+        <lucide-icon name="box" [size]="24" class="logo-icon"></lucide-icon>
+        <span class="logo-text">CredVault</span>
+      </div>
+      <h2>Two-Factor Authentication</h2>
+      <p>Enter the 6-digit code sent to your registered email or authenticator app.</p>
+    </div>
+
+    @if (error) {
+      <div class="error-banner">
+        <lucide-icon name="alert-circle" [size]="16"></lucide-icon>
+        <span>{{ error }}</span>
+      </div>
+    }
+
+    @if (resendSuccess) {
+      <div class="success-banner">
+        <lucide-icon name="check-circle" [size]="16"></lucide-icon>
+        <span>A new code has been sent.</span>
+      </div>
+    }
+
+    <form [formGroup]="mfaForm" (ngSubmit)="onVerify()" class="auth-form">
+      <div class="form-group">
+        <label class="form-label">Authentication Code</label>
+        <input 
+          type="text" 
+          formControlName="code" 
+          class="form-input text-center mono" 
+          placeholder="000000" 
+          maxlength="6"
+          [class.input-error]="codeControl?.invalid && codeControl?.touched" />
+        
+        @if (codeControl?.invalid && codeControl?.touched) {
+          <span class="field-error">Please enter a valid 6-digit code.</span>
+        }
+      </div>
+
+      <button type="submit" class="auth-btn submit-btn" [disabled]="loading || mfaForm.invalid">
+        @if (loading) {
+          <lucide-icon name="loader-2" [size]="18" class="spin-icon"></lucide-icon>
+          Verifying...
+        } @else {
+          Verify Code
+        }
+      </button>
+    </form>
+
+    <div class="auth-footer">
+      <p>Didn't receive a code? <button type="button" class="text-btn" (click)="resendCode()">Resend</button></p>
+      <p class="mt-2"><a routerLink="/login">Back to Login</a></p>
+    </div>
+
+  </div>
+</div>

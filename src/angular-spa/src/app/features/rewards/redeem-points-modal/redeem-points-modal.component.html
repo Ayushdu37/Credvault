@@ -1,0 +1,73 @@
+<div class="modal-surface">
+  
+  <div class="modal-header">
+    <h2 class="modal-title">Redeem Points</h2>
+    <button class="modal-close" (click)="close()">
+      <lucide-icon name="x" [size]="18"></lucide-icon>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-light);">
+      <div>
+        <span style="display: block; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Available Points</span>
+        <span style="font-size: 1.25rem; font-weight: bold; color: var(--text-primary);">{{ data.availablePoints | number }} pts</span>
+      </div>
+      <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--accent-light); display: flex; align-items: center; justify-content: center;">
+        <lucide-icon name="gift" [size]="20" style="color: var(--accent);"></lucide-icon>
+      </div>
+    </div>
+
+    <!-- Redemption Method Toggle -->
+    <div class="method-toggle">
+      <button 
+        type="button" 
+        class="toggle-btn" 
+        [class.active]="redemptionMethod === 'Cashback'" 
+        (click)="setMethod('Cashback')">
+        <lucide-icon name="banknote" [size]="16"></lucide-icon> Statement Credit
+      </button>
+      <button 
+        type="button" 
+        class="toggle-btn" 
+        [class.active]="redemptionMethod === 'GiftCard'" 
+        (click)="setMethod('GiftCard')">
+        <lucide-icon name="shopping-bag" [size]="16"></lucide-icon> Gift Card
+      </button>
+    </div>
+
+    <form [formGroup]="redeemForm" (ngSubmit)="onSubmit()" class="form-grid">
+      <div class="form-group full-width">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <label class="form-label">Points to Redeem</label>
+        </div>
+        
+        <input type="number" formControlName="points" class="form-input" placeholder="e.g. 5000">
+        
+        @if (pointsControl?.invalid && pointsControl?.touched) {
+          @if (pointsControl?.errors?.['required']) {
+            <span class="field-error">Please enter the number of points.</span>
+          }
+          @if (pointsControl?.errors?.['min']) {
+            <span class="field-error">Minimum redemption is 100 points.</span>
+          }
+          @if (pointsControl?.errors?.['max']) {
+            <span class="field-error">You cannot exceed your available balance.</span>
+          }
+        }
+      </div>
+    </form>
+    
+    <!-- Conversion Preview -->
+    <div style="margin-top: 1.5rem; padding: 1rem; border-radius: var(--radius-md); background: var(--bg-body); border: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-size: 0.9rem; color: var(--text-secondary);">Estimated Value:</span>
+      <span style="font-size: 1.1rem; font-weight: bold; color: var(--success);">{{ convertedValue | currency }}</span>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <app-button variant="secondary" (click)="close()">Cancel</app-button>
+    <app-button variant="primary" [loading]="loading" (click)="onSubmit()" [disabled]="redeemForm.invalid">Redeem Now</app-button>
+  </div>
+  
+</div>

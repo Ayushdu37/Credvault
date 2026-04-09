@@ -1,0 +1,89 @@
+.payments-page { display: flex; flex-direction: column; gap: 24px; }
+
+.page-header { display: flex; justify-content: space-between; align-items: flex-end; }
+.page-header h1 { font-size: 2rem; font-weight: 600; color: var(--text-primary); margin: 0 0 4px; }
+.page-header p { color: var(--text-secondary); margin: 0; font-size: 0.95rem; }
+
+.table-wrapper { overflow-x: auto; }
+
+.payments-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.payments-table thead tr { border-bottom: 1px solid var(--border-color); }
+
+.payments-table th {
+  padding: 10px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.payments-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.15s;
+}
+.payments-table tbody tr:hover { background: var(--bg-surface-hover); }
+.payments-table tbody tr:last-child { border-bottom: none; }
+.payments-table td { padding: 14px; color: var(--text-primary); }
+
+.date-cell { color: var(--text-secondary); font-size: 0.85rem; white-space: nowrap; }
+
+.desc-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+
+.method-icon-wrap {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--bg-surface-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.method-cell { color: var(--text-secondary); font-size: 0.88rem; }
+
+.ref-cell {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.amount-cell { font-weight: 700; }
+.text-right { text-align: right; }
+
+.status-badge {
+  padding: 3px 12px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.badge--completed { background: rgba(16,185,129,0.15); color: #10B981; }
+.badge--pending   { background: rgba(245,158,11,0.15); color: #F59E0B; }
+.badge--failed    { background: rgba(239,68,68,0.15);  color: #EF4444; }
+
+.loading-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  gap: 16px;
+  color: var(--text-secondary);
+}

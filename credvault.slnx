@@ -1,0 +1,40 @@
+<Solution>
+  <Folder Name="/shared/">
+    <Project Path="shared/CredVault.Shared.Contracts/CredVault.Shared.Contracts.csproj" Id="f3aea406-e49a-44a9-9747-504a2720b52f" />
+  </Folder>
+  <Folder Name="/src/" />
+  <Folder Name="/src/ocelot-gateway/">
+    <Project Path="src/services/ocelot-gateway/OcelotGateway.API/OcelotGateway.API.csproj" Id="7990a022-cbd2-4ebb-b763-e320e2c27e89" />
+  </Folder>
+  <Folder Name="/src/services/" />
+  <Folder Name="/src/services/billing-service/">
+    <Project Path="src/services/billing-services/BillingService.API/BillingService.API.csproj" Id="d160af33-9f7c-4539-890e-4768d71cdbbb" />
+    <Project Path="src/services/billing-services/BillingService.Application/BillingService.Application.csproj" Id="79c53552-7908-4e72-8645-816516404d4c" />
+    <Project Path="src/services/billing-services/BillingService.Domain/BillingService.Domain.csproj" Id="473cf44e-4407-4e68-ad7d-4dea595742f5" />
+    <Project Path="src/services/billing-services/BillingService.Infrastructure/BillingService.Infrastructure.csproj" Id="ca555e41-fa32-45c1-bc35-4583fa8df210" />
+  </Folder>
+  <Folder Name="/src/services/card-service/">
+    <Project Path="src/services/card-service/CardService.API/CardService.API.csproj" Id="79dcb8a1-dfd4-4ac5-a4ca-01b6e6698477" />
+    <Project Path="src/services/card-service/CardService.Application/CardService.Application.csproj" Id="4203417a-1c8b-4dcb-b57f-6f04b19f201d" />
+    <Project Path="src/services/card-service/CardService.Domain/CardService.Domain.csproj" Id="ce87c55d-14a0-4dbf-8158-67a01f2c66ce" />
+    <Project Path="src/services/card-service/CardService.Infrastructure/CardService.Infrastructure.csproj" Id="c263ec97-73ec-4293-afd0-0f065773b284" />
+  </Folder>
+  <Folder Name="/src/services/identity-service/">
+    <Project Path="src/services/identity-service/IdentityService.API/IdentityService.API.csproj" Id="78ed2f63-13d8-4d99-a268-ad78e36cfcd1" />
+    <Project Path="src/services/identity-service/IdentityService.Application/IdentityService.Application.csproj" Id="81fae46c-a852-47ec-9dde-bedb7f408f41" />
+    <Project Path="src/services/identity-service/IdentityService.Domain/IdentityService.Domain.csproj" Id="9863ba65-bdf0-40cf-97c9-53a39113630c" />
+    <Project Path="src/services/identity-service/IdentityService.Infrastructure/IdentityService.Infrastructure.csproj" Id="e7fcc4b1-2d02-44a9-9f7e-99ffb7961345" />
+  </Folder>
+  <Folder Name="/src/services/notification-service/">
+    <Project Path="src/services/notification-service/NotificationService.API/NotificationService.API.csproj" Id="d3729973-d5d5-479c-8d48-18307986566f" />
+    <Project Path="src/services/notification-service/NotificationService.Application/NotificationService.Application.csproj" Id="8a7d9fc1-35dc-4a7e-9d2a-109cad25d089" />
+    <Project Path="src/services/notification-service/NotificationService.Domain/NotificationService.Domain.csproj" Id="4902a734-c3c2-436e-9c14-56d2f7e4734a" />
+    <Project Path="src/services/notification-service/NotificationService.Infrastructure/NotificationService.Infrastructure.csproj" Id="9b1de2ab-4f07-4dc3-97aa-e4ee2e6a98e8" />
+  </Folder>
+  <Folder Name="/src/services/payment-service/">
+    <Project Path="src/services/payment-service/PaymentService.API/PaymentService.API.csproj" Id="7fcdeeb4-a1ee-42bb-9386-b0b0eb86e980" />
+    <Project Path="src/services/payment-service/PaymentService.Application/PaymentService.Application.csproj" Id="60e73b6a-1c23-4fa8-9398-b49374f0ec91" />
+    <Project Path="src/services/payment-service/PaymentService.Domain/PaymentService.Domain.csproj" Id="d7684d45-c54b-4161-86d1-2ce09075a276" />
+    <Project Path="src/services/payment-service/PaymentService.Infrastructure/PaymentService.Infrastructure.csproj" Id="1ea86e94-3548-45d9-b679-05b8ee6046ae" />
+  </Folder>
+</Solution>
