@@ -1,4 +1,4 @@
-﻿using CredVault.Shared.Contracts.Common;
+using CredVault.Shared.Contracts.Common;
 using CredVault.Shared.Contracts.Identity.Events;
 using IdentityService.Application.Abstraction;
 using IdentityService.Domain.Entities;
@@ -30,8 +30,18 @@ namespace IdentityService.Application.Commands.RegisterUser
         public async Task<ApiResponse<string>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
             // 1. Check if user already exists
-            if (await _userRepository.ExistsByEmailAsync(request.Email, cancellationToken))
-                return ApiResponse<string>.FailureResponse("A user with this email already exists.");
+            var existingUser = await _userRepository.GetByEmailAsync(request.Email, cancellationToken);
+            if (existingUser != null)
+            {
+                if (existingUser.IsEmailVerified)
+                {
+                    return ApiResponse<string>.FailureResponse("A user with this email already exists and is verified. Please log in.");
+                }
+                
+                // They are unverified, so we treat it as a "success" so the frontend 
+                // redirects them to the verify-email page where it will automatically shoot out a new OTP!
+                return ApiResponse<string>.SuccessResponse(existingUser.Id.ToString(), "User exists but is unverified. Redirecting to verification...");
+            }
 
             // 2. Hash the password (never store plain text!)
             var passwordHash = _passwordHasher.Hash(request.Password);

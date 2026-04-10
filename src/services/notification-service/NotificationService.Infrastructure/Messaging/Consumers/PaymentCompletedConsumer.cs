@@ -1,9 +1,10 @@
-﻿using CredVault.Shared.Contracts.Payment.Events;
+using CredVault.Shared.Contracts.Payment.Events;
 using MassTransit;
 using Microsoft.Extensions.Logging;
 using NotificationService.Application.Abstractions;
 using NotificationService.Domain.Entities;
 using NotificationService.Domain.Interfaces;
+using NotificationService.Infrastructure.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -57,10 +58,7 @@ namespace NotificationService.Infrastructure.Messaging.Consumers
                     await _emailService.SendEmailAsync(
                         $"user-{evt.UserId}@credvault.com",
                         "✅ Payment Successful — CredVault",
-                        $"<h2>Payment Confirmed</h2>" +
-                        $"<p>Amount: <strong>₹{evt.Amount:N2}</strong></p>" +
-                        $"<p>Payment ID: {evt.PaymentId}</p>" +
-                        $"<p>Thank you for your payment!</p>");
+                        EmailTemplates.PaymentSuccess(evt.Amount, evt.PaymentId));
                     _logger.LogInformation(
                         "Payment success email sent for PaymentId={PaymentId}",
                         evt.PaymentId);

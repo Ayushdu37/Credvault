@@ -1,9 +1,10 @@
-﻿using CredVault.Shared.Contracts.Payment.Events;
+using CredVault.Shared.Contracts.Payment.Events;
 using MassTransit;
 using Microsoft.Extensions.Logging;
 using NotificationService.Application.Abstractions;
 using NotificationService.Domain.Entities;
 using NotificationService.Domain.Interfaces;
+using NotificationService.Infrastructure.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -58,10 +59,7 @@ namespace NotificationService.Infrastructure.Messaging.Consumers
                     await _emailService.SendEmailAsync(
                         $"user-{evt.UserId}@credvault.com",
                         "❌ Payment Failed — CredVault",
-                        $"<h2>Payment Failed</h2>" +
-                        $"<p>Amount: <strong>₹{evt.Amount:N2}</strong></p>" +
-                        $"<p>Reason: {evt.Reason}</p>" +
-                        $"<p>Please retry your payment.</p>");
+                        EmailTemplates.PaymentFailed(evt.Amount, evt.PaymentId, evt.Reason));
                 }
                 catch (Exception ex)
                 {

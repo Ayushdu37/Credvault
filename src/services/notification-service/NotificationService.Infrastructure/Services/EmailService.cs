@@ -1,11 +1,8 @@
-﻿using NotificationService.Application.Abstractions;
-using MailKit.Net.Smtp;
+using NotificationService.Application.Abstractions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using MimeKit;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Net;
+using System.Net.Mail;
 
 namespace NotificationService.Infrastructure.Services
 {
@@ -25,27 +22,31 @@ namespace NotificationService.Infrastructure.Services
         {
             var smtpSettings = _config.GetSection("SmtpSettings");
 
-            var message = new MimeMessage();
-            message.From.Add(new MailboxAddress(
-                smtpSettings["SenderName"] ?? "CredVault",
-                smtpSettings["SenderEmail"] ?? "noreply@credvault.com"));
-            message.To.Add(MailboxAddress.Parse(toEmail));
-            message.Subject = subject;
-            message.Body = new TextPart("html") { Text = htmlBody };
+            var senderName = smtpSettings["SenderName"] ?? "CredVault";
+            var senderEmail = smtpSettings["SenderEmail"] ?? "noreply@credvault.com";
+            var host = smtpSettings["Host"] ?? "smtp.gmail.com";
+            var port = int.Parse(smtpSettings["Port"] ?? "587");
+            var username = smtpSettings["Username"] ?? "";
+            var password = smtpSettings["Password"] ?? "";
 
-            using var client = new SmtpClient();
+            var message = new MailMessage
+            {
+                From = new MailAddress(senderEmail, senderName),
+                Subject = subject,
+                Body = htmlBody,
+                IsBodyHtml = true
+            };
+            message.To.Add(new MailAddress(toEmail));
+
+            using var client = new SmtpClient(host, port)
+            {
+                Credentials = new NetworkCredential(username, password),
+                EnableSsl = true
+            };
 
             try
             {
-                await client.ConnectAsync(
-                    smtpSettings["Host"] ?? "smtp.ethereal.email",
-                    int.Parse(smtpSettings["Port"] ?? "587"),
-                    MailKit.Security.SecureSocketOptions.StartTls, ct);
-                await client.AuthenticateAsync(
-                    smtpSettings["Username"] ?? "",
-                    smtpSettings["Password"] ?? "", ct);
-                await client.SendAsync(message, ct);
-                await client.DisconnectAsync(true, ct);
+                await client.SendMailAsync(message, ct);
                 _logger.LogInformation(
                     "Email sent to {ToEmail}: {Subject}", toEmail, subject);
             }

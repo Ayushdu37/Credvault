@@ -1,8 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AsyncPipe, CurrencyPipe, DatePipe, NgClass, NgFor, NgIf, PercentPipe } from '@angular/common';
 import { DashboardActions } from '../../store/dashboard/dashboard.actions';
-import { selectDashboardSummary, selectDashboardLoading } from '../../store/dashboard/dashboard.selectors';
+import { selectDashboardSummary, selectDashboardLoading, selectDashboardError } from '../../store/dashboard/dashboard.selectors';
 import { EChartsOption } from 'echarts';
 import * as echarts from 'echarts';
 import { NgxEchartsDirective, provideEchartsCore } from 'ngx-echarts';
@@ -39,10 +40,12 @@ import { ThemeService } from '../../core/services/theme.service';
 })
 export class DashboardComponent implements OnInit {
   private store = inject(Store);
+  private router = inject(Router);
   private themeService = inject(ThemeService);
 
   summary$ = this.store.select(selectDashboardSummary);
   loading$ = this.store.select(selectDashboardLoading);
+  error$ = this.store.select(selectDashboardError);
 
   // Chart Options State
   utilizationChartOptions: EChartsOption = {};
@@ -161,5 +164,13 @@ export class DashboardComponent implements OnInit {
         }
       ]
     };
+  }
+
+  navigateToStatements(): void {
+    this.router.navigate(['/billing']);
+  }
+
+  navigateToMakePayment(): void {
+    this.router.navigate(['/payments/pay']);
   }
 }

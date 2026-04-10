@@ -10,9 +10,13 @@
         }
       ],
       "UpstreamPathTemplate": "/api/auth/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ]
     },
-
     {
       "DownstreamPathTemplate": "/api/users/{everything}",
       "DownstreamScheme": "http",
@@ -23,16 +27,25 @@
         }
       ],
       "UpstreamPathTemplate": "/api/users/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       }
     },
-
     {
       "UpstreamPathTemplate": "/api/cards/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
       "DownstreamPathTemplate": "/api/cards/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -46,10 +59,14 @@
         "AllowedScopes": []
       }
     },
-
     {
       "UpstreamPathTemplate": "/api/bills/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
       "DownstreamPathTemplate": "/api/bills/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -63,10 +80,35 @@
         "AllowedScopes": []
       }
     },
-
+    {
+      "UpstreamPathTemplate": "/api/rewards",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
+      "DownstreamPathTemplate": "/api/rewards",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5034
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
     {
       "UpstreamPathTemplate": "/api/rewards/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
       "DownstreamPathTemplate": "/api/rewards/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -80,10 +122,14 @@
         "AllowedScopes": []
       }
     },
-
     {
       "UpstreamPathTemplate": "/api/payments/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
       "DownstreamPathTemplate": "/api/payments/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -97,10 +143,14 @@
         "AllowedScopes": []
       }
     },
-
     {
       "UpstreamPathTemplate": "/api/payment-methods/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
       "DownstreamPathTemplate": "/api/payment-methods/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -116,7 +166,13 @@
     },
     {
       "UpstreamPathTemplate": "/api/notifications/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ],
       "DownstreamPathTemplate": "/api/notifications/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [

@@ -24,7 +24,7 @@ import { LucideAngularModule } from 'lucide-angular';
 export class EmptyStateComponent {
   @Input() title = 'Nothing here yet';
   @Input() message = '';
-  @Input() icon: 'cards' | 'bills' | 'notifications' | 'wallet' | 'payments' | 'default' = 'default';
+  @Input() icon: 'cards' | 'bills' | 'notifications' | 'wallet' | 'payments' | 'default' | 'alert-circle' | 'inbox' = 'default';
 
   getLucideIcon(iconState: string): string {
     switch (iconState) {
@@ -33,6 +33,8 @@ export class EmptyStateComponent {
       case 'notifications': return 'bell';
       case 'wallet': return 'wallet';
       case 'payments': return 'arrow-right-left';
+      case 'alert-circle': return 'alert-circle';
+      case 'inbox': return 'inbox';
       default: return 'inbox';
     }
   }

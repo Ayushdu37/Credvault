@@ -147,3 +147,12 @@
   gap: 16px;
   color: var(--text-secondary);
 }
+
+/* ERROR AND EMPTY STATES */
+.error-container,
+.empty-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+}

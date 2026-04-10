@@ -16,7 +16,7 @@ export const AuthActions = createActionGroup({
       fullName: string;
       phoneNumber: string;
     }>(),
-    'Register Success': emptyProps(),
+    'Register Success': props<{ email: string }>(),
     'Register Failure': props<{ error: string }>(),
 
     // Profile (loaded after login success)

@@ -6,6 +6,46 @@
       <span class="logo-text" style="font-size: 1.5rem;">CredVault</span>
     </div>
 
+    @if (status === 'form') {
+      <div class="auth-header">
+        <h2 style="margin-top: 0;">Verify Your Email</h2>
+        <p>Enter the 6-digit code we sent to your email to activate your account.</p>
+      </div>
+
+      @if (resendSuccess) {
+        <div class="success-banner" style="display: flex; gap: 0.5rem; align-items: center; justify-content: center; background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.2); padding: 0.75rem; border-radius: 6px; margin-bottom: 1.5rem; color: var(--success);">
+          <lucide-icon name="check-circle" [size]="16"></lucide-icon>
+          <span>A new code has been sent.</span>
+        </div>
+      }
+
+      <form [formGroup]="verifyForm" (ngSubmit)="verifyEmail()" class="auth-form">
+        <div class="form-group" style="margin-bottom: 1.5rem;">
+          <input 
+            type="text" 
+            formControlName="code" 
+            class="form-input text-center mono" 
+            placeholder="000000" 
+            maxlength="6"
+            style="font-size: 24px; letter-spacing: 8px; padding: 1rem;"
+            [class.input-error]="codeControl?.invalid && codeControl?.touched" />
+          
+          @if (codeControl?.invalid && codeControl?.touched) {
+            <span class="field-error" style="color: var(--danger); font-size: 0.85rem; display: block; margin-top: 0.5rem;">Please enter a valid 6-digit code.</span>
+          }
+        </div>
+
+        <button type="submit" class="auth-btn submit-btn" [disabled]="verifyForm.invalid">
+          Verify Email
+        </button>
+      </form>
+
+      <div class="auth-footer" style="text-align: center; margin-top: 1.5rem;">
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;">Didn't receive a code? <button type="button" class="text-btn" (click)="resendCode()" style="background:none; border:none; padding:0; color:var(--accent); cursor:pointer; font-weight:600;">Resend</button></p>
+        <p class="mt-2"><a routerLink="/login" style="color: var(--text-secondary); text-decoration: none;">Back to Login</a></p>
+      </div>
+    }
+
     @if (status === 'verifying') {
       <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
         <lucide-icon name="loader-2" [size]="48" class="spin-icon" style="color: var(--accent)"></lucide-icon>

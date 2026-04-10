@@ -1,4 +1,4 @@
-﻿using NotificationService.Application.Abstractions;
+using NotificationService.Application.Abstractions;
 using NotificationService.Domain.Interfaces;
 using NotificationService.Infrastructure.Messaging.Consumers;
 using NotificationService.Infrastructure.Persistence;
@@ -35,6 +35,8 @@ namespace NotificationService.Infrastructure
             {
                 bus.AddConsumer<PaymentCompletedConsumer>();
                 bus.AddConsumer<PaymentFailedConsumer>();
+                bus.AddConsumer<OTPRequestedConsumer>();
+                bus.AddConsumer<UserRegisteredConsumer>();
                 bus.UsingRabbitMq((context, cfg) =>
                 {
                     cfg.Host(config["RabbitMQ:Host"] ?? "localhost", "/", h =>

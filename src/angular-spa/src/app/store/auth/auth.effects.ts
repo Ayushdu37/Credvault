@@ -116,10 +116,10 @@ export const register$ = createEffect(
                 });
               }
               toast.show(
-                'Registration successful! Check your email to verify.',
+                'Registration successful! Redirecting to verification...',
                 'success'
               );
-              return AuthActions.registerSuccess();
+              return AuthActions.registerSuccess({ email });
             }),
             catchError((err) =>
               of(
@@ -134,12 +134,21 @@ export const register$ = createEffect(
   { functional: true }
 );
 
-// ─── After Register Success → Redirect to Login ─────────
+// ─── After Register Success → Send OTP and Redirect ─────
+export const sendOtpAfterRegister$ = createEffect(
+  (actions$ = inject(Actions)) =>
+    actions$.pipe(
+      ofType(AuthActions.registerSuccess),
+      map(({ email }) => AuthActions.sendOTP({ email, purpose: 'EmailVerification' }))
+    ),
+  { functional: true }
+);
+
 export const redirectAfterRegister$ = createEffect(
   (actions$ = inject(Actions), router = inject(Router)) =>
     actions$.pipe(
       ofType(AuthActions.registerSuccess),
-      tap(() => router.navigateByUrl('/login'))
+      tap(({ email }) => router.navigateByUrl(`/verify-email?email=${encodeURIComponent(email)}`))
     ),
   { functional: true, dispatch: false }
 );
@@ -173,6 +182,105 @@ export const refreshToken$ = createEffect(
           catchError(() => of(AuthActions.tokenExpired()))
         );
       })
+    ),
+  { functional: true }
+);
+
+// ─── OTP & Verification ────────────────────────────────────
+export const sendOTP$ = createEffect(
+  (
+    actions$ = inject(Actions),
+    authService = inject(AuthService),
+    toast = inject(ToastService)
+  ) =>
+    actions$.pipe(
+      ofType(AuthActions.sendOTP),
+      exhaustMap(({ email, purpose }) =>
+        authService.sendOtp({ email, purpose }).pipe(
+          map((res) => {
+            if (!res.success) {
+              toast.show(res.message || 'Failed to send OTP', 'error');
+              return AuthActions.sendOTPFailure({
+                error: res.message || 'Failed to send OTP',
+              });
+            }
+            toast.show(`OTP sent to ${email}`, 'success');
+            return AuthActions.sendOTPSuccess();
+          }),
+          catchError((err) => {
+            toast.show(err.error?.message || 'Failed to send OTP', 'error');
+            return of(
+              AuthActions.sendOTPFailure({
+                error: err.error?.message || 'Network error',
+              })
+            );
+          })
+        )
+      )
+    ),
+  { functional: true }
+);
+
+export const verifyOTP$ = createEffect(
+  (
+    actions$ = inject(Actions),
+    authService = inject(AuthService)
+  ) =>
+    actions$.pipe(
+      ofType(AuthActions.verifyOTP),
+      exhaustMap(({ email, otpCode, purpose }) =>
+        authService.verifyOtp({ email, otpCode, purpose }).pipe(
+          map((res) => {
+            if (!res.success) {
+              return AuthActions.verifyOTPFailure({
+                error: res.message || 'Invalid OTP',
+              });
+            }
+            return AuthActions.verifyOTPSuccess();
+          }),
+          catchError((err) =>
+            of(
+              AuthActions.verifyOTPFailure({
+                error: err.error?.message || 'Network error',
+              })
+            )
+          )
+        )
+      )
+    ),
+  { functional: true }
+);
+
+export const verifyEmail$ = createEffect(
+  (
+    actions$ = inject(Actions),
+    authService = inject(AuthService),
+    toast = inject(ToastService),
+    router = inject(Router)
+  ) =>
+    actions$.pipe(
+      ofType(AuthActions.verifyEmail),
+      exhaustMap(({ email, otpCode }) =>
+        authService.verifyEmail({ email, otpCode }).pipe(
+          map((res) => {
+            if (!res.success) {
+              return AuthActions.verifyEmailFailure({
+                error: res.message || 'Verification failed',
+              });
+            }
+            toast.show('Email verified successfully! You can now log in.', 'success');
+            router.navigateByUrl('/login');
+            return AuthActions.verifyEmailSuccess();
+          }),
+          catchError((err) =>
+            of(
+              AuthActions.verifyEmailFailure({
+                error: err.error?.message || 'Network error',
+              })
+            )
+          )
+        )
+      )
     ),
   { functional: true }
 );

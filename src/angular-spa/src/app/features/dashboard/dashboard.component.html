@@ -1,8 +1,8 @@
 <div class="dashboard-container">
-  
+
   <ng-container *ngIf="(loading$ | async) === false; else loadingTpl">
-    <ng-container *ngIf="summary$ | async as summary">
-      
+    <ng-container *ngIf="summary$ | async as summary; else errorOrEmpty">
+
       <!-- HEADER -->
       <header class="dashboard-header">
         <div>
@@ -10,11 +10,11 @@
           <p>Here's an overview of your Credit Vault accounts.</p>
         </div>
         <div class="dashboard-actions">
-          <app-button variant="secondary">
+          <app-button variant="secondary" (click)="navigateToStatements()">
             <lucide-icon name="receipt" [size]="18"></lucide-icon>
             Statements
           </app-button>
-          <app-button variant="primary">
+          <app-button variant="primary" (click)="navigateToMakePayment()">
             <lucide-icon name="wallet" [size]="18"></lucide-icon>
             Make a Payment
           </app-button>
@@ -60,13 +60,11 @@
         <!-- Recent Activity -->
         <app-card title="Recent Activity">
           <div *ngIf="summary.recentActivity.length > 0; else noActivity" class="activity-list">
-            
+
             <div class="activity-item" *ngFor="let item of summary.recentActivity">
               <div class="activity-info">
                 <div class="activity-icon">
-                  <lucide-icon 
-                    [name]="item.type === 'payment' ? 'arrow-right-left' : 'credit-card'" 
-                    [size]="20">
+                  <lucide-icon [name]="item.type === 'payment' ? 'arrow-right-left' : 'credit-card'" [size]="20">
                   </lucide-icon>
                 </div>
                 <div class="activity-details">
@@ -80,11 +78,9 @@
             </div>
 
           </div>
-          
+
           <ng-template #noActivity>
-            <app-empty-state 
-              icon="default" 
-              title="No recent activity" 
+            <app-empty-state icon="default" title="No recent activity"
               message="Your recent transactions will appear here.">
             </app-empty-state>
           </ng-template>
@@ -99,6 +95,23 @@
     <div class="loading-overlay">
       <app-spinner size="lg"></app-spinner>
       <p>Loading your dashboard...</p>
+    </div>
+  </ng-template>
+
+  <ng-template #errorOrEmpty>
+    <ng-container *ngIf="error$ | async as error; else emptyState">
+      <div class="error-container">
+        <app-empty-state icon="alert-circle" title="Failed to load dashboard" [message]="error">
+        </app-empty-state>
+      </div>
+    </ng-container>
+  </ng-template>
+
+  <ng-template #emptyState>
+    <div class="empty-container">
+      <app-empty-state icon="inbox" title="No dashboard data"
+        message="Your dashboard data will appear here once you add cards and make transactions.">
+      </app-empty-state>
     </div>
   </ng-template>
 
