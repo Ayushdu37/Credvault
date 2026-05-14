@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,6 +11,7 @@ namespace CredVault.Shared.Contracts.Enums
     {
         EmailVerification = 0,
         PasswordReset = 1,
-        Login = 2
+        Login = 2,
+        PaymentVerification = 3
     }
 }

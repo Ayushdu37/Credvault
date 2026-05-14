@@ -41,13 +41,9 @@ export const paymentsReducer = createReducer(
   on(PaymentsActions.submitPayment, (state) => ({
     ...state, submitting: true, error: null, successMessage: null,
   })),
-  on(PaymentsActions.submitPaymentSuccess, (state, { payment }) =>
-    paymentsAdapter.addOne(payment, {
-      ...state,
-      submitting: false,
-      successMessage: `Payment of ₹${payment.amount} submitted successfully.`,
-    })
-  ),
+  on(PaymentsActions.submitPaymentSuccess, (state) => ({
+    ...state, submitting: false, successMessage: 'Payment processed successfully',
+  })),
   on(PaymentsActions.submitPaymentFailure, (state, { error }) => ({
     ...state, submitting: false, error,
   })),

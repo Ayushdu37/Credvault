@@ -134,7 +134,7 @@
 }
 
 .amount-payment {
-  color: var(--success);
+  color: var(--error);
 }
 
 /* LOADING OVERLAY */

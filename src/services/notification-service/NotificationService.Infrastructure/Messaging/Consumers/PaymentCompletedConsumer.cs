@@ -45,7 +45,7 @@ namespace NotificationService.Infrastructure.Messaging.Consumers
                 "PaymentSuccess",
                 "Payment Successful",
                 $"Your payment of ₹{evt.Amount:N2} has been processed " +
-                $"successfully. Payment ID: {evt.PaymentId}");
+                $"successfully using {evt.PaymentMethod}. Payment ID: {evt.PaymentId}");
 
             await _notifRepo.AddAsync(notification);
 

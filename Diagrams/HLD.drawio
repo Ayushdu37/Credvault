@@ -1,0 +1,63 @@
+<mxfile host="0b7bd667-4e9e-4e89-8a3c-939e31d4e41b" modified="2026-04-14T09:58:00.000Z" agent="Antigravity AI" version="21.0.0" type="device">
+  <diagram id="credvault-hld" name="High Level Design">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Layers -->
+        <mxCell id="l1" value="Presentation Layer (Angular SPA)" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="740" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ui" value="UI Components / NgRx Store" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="l1">
+          <mxGeometry x="270" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="l2" value="API Gateway Layer (Ocelot)" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="740" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="rt" value="Request Routing / JWT Validation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" vertex="1" parent="l2">
+          <mxGeometry x="270" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="l3" value="Application Layer (Microservices)" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="360" width="740" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="cqrs" value="CQRS Handlers / Domain Logic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="l3">
+          <mxGeometry x="270" y="50" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="l4" value="Infrastructure Layer" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="740" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="sql" value="SQL Databases" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;right=0;fillColor=#fff2cc;" vertex="1" parent="l4">
+          <mxGeometry x="80" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mq" value="RabbitMQ Bus" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;right=0;fillColor=#fff2cc;" vertex="1" parent="l4">
+          <mxGeometry x="310" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cache" value="Redis Cache" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;right=0;fillColor=#fff2cc;" vertex="1" parent="l4">
+          <mxGeometry x="540" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Connections -->
+        <mxCell id="c1" edge="1" parent="1" source="ui" target="rt">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" edge="1" parent="1" source="rt" target="cqrs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" edge="1" parent="1" source="cqrs" target="sql">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="Events" edge="1" parent="1" source="cqrs" target="mq">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" edge="1" parent="1" source="cqrs" target="cache">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

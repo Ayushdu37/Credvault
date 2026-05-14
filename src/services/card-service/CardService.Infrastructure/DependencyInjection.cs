@@ -1,4 +1,4 @@
-﻿using CardService.Application.Abstractions;
+using CardService.Application.Abstractions;
 using CardService.Domain.Interfaces;
 using CardService.Infrastructure.Messaging.Publishers;
 using CardService.Infrastructure.Persistence;
@@ -36,6 +36,8 @@ namespace CardService.Infrastructure
             // MassTransit (RabbitMQ)
             services.AddMassTransit(bus =>
             {
+                bus.AddConsumer<CardService.Infrastructure.Messaging.Consumers.PaymentCompletedConsumer>();
+
                 bus.UsingRabbitMq((context, cfg) =>
                 {
                     cfg.Host(config["RabbitMQ:Host"] ?? "localhost", "/", h =>

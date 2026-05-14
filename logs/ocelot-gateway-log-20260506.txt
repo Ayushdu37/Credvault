@@ -1,0 +1,314 @@
+2026-05-06 09:06:17.704 +05:30 [INF] HTTP OPTIONS /api/auth/login responded 204 in 36.5271 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB42GQQ929:00000001","ConnectionId":"0HNLB42GQQ929"}
+2026-05-06 09:06:21.325 +05:30 [INF] RequestId: 0HNLB42GQQ929:00000002, PreviousRequestId: -
+Rate limiting is disabled for route '/api/auth/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB42GQQ929:00000002","RequestPath":"/api/auth/login","ConnectionId":"0HNLB42GQQ929"}
+2026-05-06 09:06:21.341 +05:30 [INF] RequestId: 0HNLB42GQQ929:00000002, PreviousRequestId: -
+No authentication is required for the path '/api/auth/login' in the route /api/auth/{everything}. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB42GQQ929:00000002","RequestPath":"/api/auth/login","ConnectionId":"0HNLB42GQQ929"}
+2026-05-06 09:06:36.502 +05:30 [INF] RequestId: 0HNLB42GQQ929:00000002, PreviousRequestId: -
+102 unknown status code of request URI:  {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB42GQQ929:00000002","RequestPath":"/api/auth/login","ConnectionId":"0HNLB42GQQ929"}
+2026-05-06 09:06:36.518 +05:30 [WRN] RequestId: 0HNLB42GQQ929:00000002, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+RequestCanceled: The operation was canceled.
+Setting error response for request: POST /api/auth/login {"SourceContext":"Ocelot.Responder.Middleware.ResponderMiddleware","RequestId":"0HNLB42GQQ929:00000002","RequestPath":"/api/auth/login","ConnectionId":"0HNLB42GQQ929"}
+2026-05-06 09:06:36.526 +05:30 [INF] HTTP POST /api/auth/login responded 499 in 18506.0670 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB42GQQ929:00000002","ConnectionId":"0HNLB42GQQ929"}
+2026-05-06 09:16:12.188 +05:30 [INF] HTTP OPTIONS /api/auth/login responded 204 in 85.1440 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V6:00000001","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:16:14.035 +05:30 [INF] RequestId: 0HNLB481TE2V6:00000002, PreviousRequestId: -
+Rate limiting is disabled for route '/api/auth/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V6:00000002","RequestPath":"/api/auth/login","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:16:14.095 +05:30 [INF] RequestId: 0HNLB481TE2V6:00000002, PreviousRequestId: -
+No authentication is required for the path '/api/auth/login' in the route /api/auth/{everything}. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V6:00000002","RequestPath":"/api/auth/login","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:16:38.676 +05:30 [INF] RequestId: 0HNLB481TE2V6:00000002, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5032/api/auth/login {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V6:00000002","RequestPath":"/api/auth/login","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:16:39.085 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 26159.9688 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V6:00000002","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:16:39.476 +05:30 [INF] HTTP OPTIONS /api/users/profile responded 204 in 17.2150 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V6:00000003","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:16:40.434 +05:30 [INF] RequestId: 0HNLB481TE2V6:00000004, PreviousRequestId: -
+Rate limiting is disabled for route '/api/users/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V6:00000004","RequestPath":"/api/users/profile","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:16:40.447 +05:30 [INF] RequestId: 0HNLB481TE2V6:00000004, PreviousRequestId: -
+The path '/api/users/profile' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V6:00000004","RequestPath":"/api/users/profile","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:16:40.474 +05:30 [INF] RequestId: 0HNLB481TE2V6:00000004, PreviousRequestId: -
+Client has been authenticated for path '/api/users/profile' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V6:00000004","RequestPath":"/api/users/profile","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:16:41.972 +05:30 [INF] RequestId: 0HNLB481TE2V6:00000004, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5032/api/users/profile {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V6:00000004","RequestPath":"/api/users/profile","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:16:42.011 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 2485.1152 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V6:00000004","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:16:44.304 +05:30 [INF] HTTP OPTIONS /api/cards/utilization responded 204 in 0.2513 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V6:00000005","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:16:44.329 +05:30 [INF] HTTP OPTIONS /api/rewards responded 204 in 0.5327 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V9:00000001","ConnectionId":"0HNLB481TE2V9"}
+2026-05-06 09:16:44.329 +05:30 [INF] HTTP OPTIONS /api/bills responded 204 in 0.5964 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V7:00000001","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:16:44.330 +05:30 [INF] HTTP OPTIONS /api/payments responded 204 in 0.1214 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:00000001","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:16:44.424 +05:30 [INF] RequestId: 0HNLB481TE2V7:00000002, PreviousRequestId: -
+Rate limiting is disabled for route '/api/bills/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V7:00000002","RequestPath":"/api/bills","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:16:44.424 +05:30 [INF] RequestId: 0HNLB481TE2V9:00000002, PreviousRequestId: -
+Rate limiting is disabled for route '/api/payments/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V9:00000002","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V9"}
+2026-05-06 09:16:44.424 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000002, PreviousRequestId: -
+Rate limiting is disabled for route '/api/rewards' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V8:00000002","RequestPath":"/api/rewards","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:16:44.424 +05:30 [INF] RequestId: 0HNLB481TE2V6:00000006, PreviousRequestId: -
+Rate limiting is disabled for route '/api/cards/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V6:00000006","RequestPath":"/api/cards/utilization","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:16:44.426 +05:30 [INF] RequestId: 0HNLB481TE2V7:00000002, PreviousRequestId: -
+The path '/api/bills' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V7:00000002","RequestPath":"/api/bills","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:16:44.427 +05:30 [INF] RequestId: 0HNLB481TE2V9:00000002, PreviousRequestId: -
+The path '/api/payments' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V9:00000002","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V9"}
+2026-05-06 09:16:44.428 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000002, PreviousRequestId: -
+The path '/api/rewards' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:00000002","RequestPath":"/api/rewards","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:16:44.430 +05:30 [INF] RequestId: 0HNLB481TE2V6:00000006, PreviousRequestId: -
+The path '/api/cards/utilization' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V6:00000006","RequestPath":"/api/cards/utilization","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:16:44.431 +05:30 [INF] RequestId: 0HNLB481TE2V7:00000002, PreviousRequestId: -
+Client has been authenticated for path '/api/bills' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V7:00000002","RequestPath":"/api/bills","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:16:44.432 +05:30 [INF] RequestId: 0HNLB481TE2V9:00000002, PreviousRequestId: -
+Client has been authenticated for path '/api/payments' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V9:00000002","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V9"}
+2026-05-06 09:16:44.432 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000002, PreviousRequestId: -
+Client has been authenticated for path '/api/rewards' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:00000002","RequestPath":"/api/rewards","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:16:44.433 +05:30 [INF] RequestId: 0HNLB481TE2V6:00000006, PreviousRequestId: -
+Client has been authenticated for path '/api/cards/utilization' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V6:00000006","RequestPath":"/api/cards/utilization","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:17:30.711 +05:30 [INF] RequestId: 0HNLB481TE2V6:00000006, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5033/api/cards/utilization {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V6:00000006","RequestPath":"/api/cards/utilization","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:17:30.712 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000002, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5034/api/rewards {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V8:00000002","RequestPath":"/api/rewards","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:17:30.712 +05:30 [INF] RequestId: 0HNLB481TE2V7:00000002, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5034/api/bills {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V7:00000002","RequestPath":"/api/bills","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:17:30.748 +05:30 [INF] RequestId: 0HNLB481TE2V9:00000002, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5035/api/payments {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V9:00000002","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V9"}
+2026-05-06 09:17:30.906 +05:30 [INF] HTTP GET /api/bills responded 200 in 46488.6633 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V7:00000002","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:17:30.906 +05:30 [INF] HTTP GET /api/payments responded 200 in 46487.5769 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V9:00000002","ConnectionId":"0HNLB481TE2V9"}
+2026-05-06 09:17:30.906 +05:30 [INF] HTTP GET /api/cards/utilization responded 200 in 46545.0395 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V6:00000006","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:17:30.906 +05:30 [INF] HTTP GET /api/rewards responded 200 in 46488.8300 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:00000002","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:17:54.437 +05:30 [INF] HTTP OPTIONS /api/cards responded 204 in 26.6430 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:00000003","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:17:54.676 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000004, PreviousRequestId: -
+Rate limiting is disabled for route '/api/cards/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V8:00000004","RequestPath":"/api/cards","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:17:54.681 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000004, PreviousRequestId: -
+The path '/api/cards' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:00000004","RequestPath":"/api/cards","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:17:54.682 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000004, PreviousRequestId: -
+Client has been authenticated for path '/api/cards' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:00000004","RequestPath":"/api/cards","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:17:58.944 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000004, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5033/api/cards?page=1&pageSize=10 {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V8:00000004","RequestPath":"/api/cards","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:17:59.008 +05:30 [INF] HTTP GET /api/cards responded 200 in 4470.4262 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:00000004","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:07.098 +05:30 [INF] HTTP OPTIONS /api/cards/44ffaac9-7903-4072-add0-4835543aedbc responded 204 in 26.7783 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:00000005","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:07.098 +05:30 [INF] HTTP OPTIONS /api/bills/card/44ffaac9-7903-4072-add0-4835543aedbc responded 204 in 23.7113 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V6:00000007","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:18:07.256 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000006, PreviousRequestId: -
+Rate limiting is disabled for route '/api/bills/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V8:00000006","RequestPath":"/api/bills/card/44ffaac9-7903-4072-add0-4835543aedbc","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:07.256 +05:30 [INF] RequestId: 0HNLB481TE2V6:00000008, PreviousRequestId: -
+Rate limiting is disabled for route '/api/cards/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V6:00000008","RequestPath":"/api/cards/44ffaac9-7903-4072-add0-4835543aedbc","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:18:07.266 +05:30 [INF] RequestId: 0HNLB481TE2V6:00000008, PreviousRequestId: -
+The path '/api/cards/44ffaac9-7903-4072-add0-4835543aedbc' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V6:00000008","RequestPath":"/api/cards/44ffaac9-7903-4072-add0-4835543aedbc","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:18:07.265 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000006, PreviousRequestId: -
+The path '/api/bills/card/44ffaac9-7903-4072-add0-4835543aedbc' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:00000006","RequestPath":"/api/bills/card/44ffaac9-7903-4072-add0-4835543aedbc","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:07.290 +05:30 [INF] RequestId: 0HNLB481TE2V6:00000008, PreviousRequestId: -
+Client has been authenticated for path '/api/cards/44ffaac9-7903-4072-add0-4835543aedbc' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V6:00000008","RequestPath":"/api/cards/44ffaac9-7903-4072-add0-4835543aedbc","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:18:07.321 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000006, PreviousRequestId: -
+Client has been authenticated for path '/api/bills/card/44ffaac9-7903-4072-add0-4835543aedbc' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:00000006","RequestPath":"/api/bills/card/44ffaac9-7903-4072-add0-4835543aedbc","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:09.189 +05:30 [INF] RequestId: 0HNLB481TE2V6:00000008, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5033/api/cards/44ffaac9-7903-4072-add0-4835543aedbc {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V6:00000008","RequestPath":"/api/cards/44ffaac9-7903-4072-add0-4835543aedbc","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:18:09.216 +05:30 [INF] HTTP GET /api/cards/44ffaac9-7903-4072-add0-4835543aedbc responded 200 in 2066.0852 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V6:00000008","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:18:10.605 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000006, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5034/api/bills/card/44ffaac9-7903-4072-add0-4835543aedbc {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V8:00000006","RequestPath":"/api/bills/card/44ffaac9-7903-4072-add0-4835543aedbc","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:10.622 +05:30 [INF] HTTP GET /api/bills/card/44ffaac9-7903-4072-add0-4835543aedbc responded 200 in 3471.3596 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:00000006","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:24.791 +05:30 [INF] HTTP OPTIONS /api/cards responded 204 in 15.0791 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:00000007","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:24.866 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000008, PreviousRequestId: -
+Rate limiting is disabled for route '/api/cards/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V8:00000008","RequestPath":"/api/cards","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:24.871 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000008, PreviousRequestId: -
+The path '/api/cards' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:00000008","RequestPath":"/api/cards","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:24.873 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000008, PreviousRequestId: -
+Client has been authenticated for path '/api/cards' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:00000008","RequestPath":"/api/cards","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:25.083 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000008, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5033/api/cards?page=1&pageSize=10 {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V8:00000008","RequestPath":"/api/cards","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:25.107 +05:30 [INF] HTTP GET /api/cards responded 200 in 281.1315 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:00000008","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:32.357 +05:30 [INF] HTTP OPTIONS /api/payments responded 204 in 12.3078 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:00000009","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:32.501 +05:30 [INF] RequestId: 0HNLB481TE2V8:0000000A, PreviousRequestId: -
+Rate limiting is disabled for route '/api/payments/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V8:0000000A","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:32.517 +05:30 [INF] RequestId: 0HNLB481TE2V8:0000000A, PreviousRequestId: -
+The path '/api/payments' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:0000000A","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:32.519 +05:30 [INF] RequestId: 0HNLB481TE2V8:0000000A, PreviousRequestId: -
+Client has been authenticated for path '/api/payments' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:0000000A","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:34.451 +05:30 [INF] RequestId: 0HNLB481TE2V8:0000000A, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5035/api/payments?page=1&pageSize=10 {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V8:0000000A","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:34.480 +05:30 [INF] HTTP GET /api/payments responded 200 in 2070.3029 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:0000000A","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:46.121 +05:30 [INF] HTTP OPTIONS /api/cards responded 204 in 2.7037 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:0000000B","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:46.174 +05:30 [INF] RequestId: 0HNLB481TE2V8:0000000C, PreviousRequestId: -
+Rate limiting is disabled for route '/api/cards/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V8:0000000C","RequestPath":"/api/cards","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:46.181 +05:30 [INF] RequestId: 0HNLB481TE2V8:0000000C, PreviousRequestId: -
+The path '/api/cards' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:0000000C","RequestPath":"/api/cards","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:46.184 +05:30 [INF] RequestId: 0HNLB481TE2V8:0000000C, PreviousRequestId: -
+Client has been authenticated for path '/api/cards' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:0000000C","RequestPath":"/api/cards","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:46.536 +05:30 [INF] RequestId: 0HNLB481TE2V8:0000000C, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5033/api/cards?page=1&pageSize=50 {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V8:0000000C","RequestPath":"/api/cards","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:18:46.567 +05:30 [INF] HTTP GET /api/cards responded 200 in 427.6766 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:0000000C","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:19:24.315 +05:30 [INF] HTTP OPTIONS /api/auth/send-otp responded 204 in 19.5762 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:0000000D","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:19:24.431 +05:30 [INF] RequestId: 0HNLB481TE2V8:0000000E, PreviousRequestId: -
+Rate limiting is disabled for route '/api/auth/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V8:0000000E","RequestPath":"/api/auth/send-otp","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:19:24.437 +05:30 [INF] RequestId: 0HNLB481TE2V8:0000000E, PreviousRequestId: -
+No authentication is required for the path '/api/auth/send-otp' in the route /api/auth/{everything}. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:0000000E","RequestPath":"/api/auth/send-otp","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:19:27.380 +05:30 [INF] RequestId: 0HNLB481TE2V8:0000000E, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5032/api/auth/send-otp {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V8:0000000E","RequestPath":"/api/auth/send-otp","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:19:27.414 +05:30 [INF] HTTP POST /api/auth/send-otp responded 200 in 3047.4378 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:0000000E","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:19:59.689 +05:30 [INF] HTTP OPTIONS /api/auth/verify-otp responded 204 in 23.3755 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:0000000F","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:19:59.823 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000010, PreviousRequestId: -
+Rate limiting is disabled for route '/api/auth/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V8:00000010","RequestPath":"/api/auth/verify-otp","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:19:59.827 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000010, PreviousRequestId: -
+No authentication is required for the path '/api/auth/verify-otp' in the route /api/auth/{everything}. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:00000010","RequestPath":"/api/auth/verify-otp","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:02.373 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000010, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5032/api/auth/verify-otp {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V8:00000010","RequestPath":"/api/auth/verify-otp","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:02.411 +05:30 [INF] HTTP POST /api/auth/verify-otp responded 200 in 2651.5413 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:00000010","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:02.497 +05:30 [INF] HTTP OPTIONS /api/payments responded 204 in 2.9488 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:00000011","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:02.605 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000012, PreviousRequestId: -
+Rate limiting is disabled for route '/api/payments/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V8:00000012","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:02.710 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000012, PreviousRequestId: -
+The path '/api/payments' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:00000012","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:02.758 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000012, PreviousRequestId: -
+Client has been authenticated for path '/api/payments' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:00000012","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:08.510 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000012, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5035/api/payments {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V8:00000012","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:08.525 +05:30 [INF] HTTP POST /api/payments responded 200 in 5958.4522 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:00000012","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:10.098 +05:30 [INF] HTTP OPTIONS /api/cards/utilization responded 204 in 0.8331 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:00000013","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:10.112 +05:30 [INF] HTTP OPTIONS /api/bills responded 204 in 5.4076 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V6:00000009","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:20:10.127 +05:30 [INF] HTTP OPTIONS /api/payments responded 204 in 0.4994 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V9:00000003","ConnectionId":"0HNLB481TE2V9"}
+2026-05-06 09:20:10.243 +05:30 [INF] HTTP OPTIONS /api/cards responded 204 in 0.0769 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2VA:00000001","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 09:20:10.171 +05:30 [INF] HTTP OPTIONS /api/rewards responded 204 in 0.3435 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V7:00000003","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:20:10.249 +05:30 [INF] RequestId: 0HNLB481TE2V6:0000000A, PreviousRequestId: -
+Rate limiting is disabled for route '/api/bills/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V6:0000000A","RequestPath":"/api/bills","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:20:10.249 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000014, PreviousRequestId: -
+Rate limiting is disabled for route '/api/cards/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V8:00000014","RequestPath":"/api/cards/utilization","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:10.255 +05:30 [INF] RequestId: 0HNLB481TE2V9:00000004, PreviousRequestId: -
+Rate limiting is disabled for route '/api/payments/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V9:00000004","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V9"}
+2026-05-06 09:20:10.260 +05:30 [INF] RequestId: 0HNLB481TE2V6:0000000A, PreviousRequestId: -
+The path '/api/bills' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V6:0000000A","RequestPath":"/api/bills","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:20:10.262 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000014, PreviousRequestId: -
+The path '/api/cards/utilization' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:00000014","RequestPath":"/api/cards/utilization","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:10.264 +05:30 [INF] RequestId: 0HNLB481TE2V9:00000004, PreviousRequestId: -
+The path '/api/payments' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V9:00000004","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V9"}
+2026-05-06 09:20:10.264 +05:30 [INF] RequestId: 0HNLB481TE2V7:00000004, PreviousRequestId: -
+Rate limiting is disabled for route '/api/cards/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V7:00000004","RequestPath":"/api/cards","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:20:10.266 +05:30 [INF] RequestId: 0HNLB481TE2V6:0000000A, PreviousRequestId: -
+Client has been authenticated for path '/api/bills' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V6:0000000A","RequestPath":"/api/bills","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:20:10.269 +05:30 [INF] RequestId: 0HNLB481TE2VA:00000002, PreviousRequestId: -
+Rate limiting is disabled for route '/api/rewards' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2VA:00000002","RequestPath":"/api/rewards","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 09:20:10.270 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000014, PreviousRequestId: -
+Client has been authenticated for path '/api/cards/utilization' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:00000014","RequestPath":"/api/cards/utilization","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:10.277 +05:30 [INF] RequestId: 0HNLB481TE2VA:00000002, PreviousRequestId: -
+The path '/api/rewards' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2VA:00000002","RequestPath":"/api/rewards","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 09:20:10.273 +05:30 [INF] RequestId: 0HNLB481TE2V9:00000004, PreviousRequestId: -
+Client has been authenticated for path '/api/payments' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V9:00000004","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V9"}
+2026-05-06 09:20:10.279 +05:30 [INF] RequestId: 0HNLB481TE2VA:00000002, PreviousRequestId: -
+Client has been authenticated for path '/api/rewards' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2VA:00000002","RequestPath":"/api/rewards","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 09:20:10.274 +05:30 [INF] RequestId: 0HNLB481TE2V7:00000004, PreviousRequestId: -
+The path '/api/cards' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V7:00000004","RequestPath":"/api/cards","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:20:10.286 +05:30 [INF] RequestId: 0HNLB481TE2V7:00000004, PreviousRequestId: -
+Client has been authenticated for path '/api/cards' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V7:00000004","RequestPath":"/api/cards","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:20:10.342 +05:30 [INF] RequestId: 0HNLB481TE2V9:00000004, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5035/api/payments {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V9:00000004","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V9"}
+2026-05-06 09:20:10.355 +05:30 [INF] HTTP GET /api/payments responded 200 in 102.6830 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V9:00000004","ConnectionId":"0HNLB481TE2V9"}
+2026-05-06 09:20:10.970 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000014, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5033/api/cards/utilization {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V8:00000014","RequestPath":"/api/cards/utilization","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:11.064 +05:30 [INF] HTTP GET /api/cards/utilization responded 200 in 851.1973 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:00000014","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:11.238 +05:30 [INF] RequestId: 0HNLB481TE2V7:00000004, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5033/api/cards?page=1&pageSize=50 {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V7:00000004","RequestPath":"/api/cards","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:20:11.256 +05:30 [INF] HTTP GET /api/cards responded 200 in 995.0125 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V7:00000004","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:20:11.339 +05:30 [INF] RequestId: 0HNLB481TE2V6:0000000A, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5034/api/bills {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V6:0000000A","RequestPath":"/api/bills","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:20:11.374 +05:30 [INF] RequestId: 0HNLB481TE2VA:00000002, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5034/api/rewards {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2VA:00000002","RequestPath":"/api/rewards","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 09:20:11.441 +05:30 [INF] HTTP GET /api/bills responded 200 in 1197.6892 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V6:0000000A","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:20:11.449 +05:30 [INF] HTTP GET /api/rewards responded 200 in 1184.3438 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2VA:00000002","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 09:20:31.893 +05:30 [INF] HTTP OPTIONS /api/payments responded 204 in 42.9096 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2VA:00000003","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 09:20:32.562 +05:30 [INF] RequestId: 0HNLB481TE2VA:00000004, PreviousRequestId: -
+Rate limiting is disabled for route '/api/payments/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2VA:00000004","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 09:20:32.571 +05:30 [INF] RequestId: 0HNLB481TE2VA:00000004, PreviousRequestId: -
+The path '/api/payments' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2VA:00000004","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 09:20:32.575 +05:30 [INF] RequestId: 0HNLB481TE2VA:00000004, PreviousRequestId: -
+Client has been authenticated for path '/api/payments' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2VA:00000004","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 09:20:34.010 +05:30 [INF] RequestId: 0HNLB481TE2VA:00000004, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5035/api/payments?page=1&pageSize=10 {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2VA:00000004","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 09:20:34.075 +05:30 [INF] HTTP GET /api/payments responded 200 in 2023.7841 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2VA:00000004","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 09:20:52.032 +05:30 [INF] HTTP OPTIONS /api/rewards responded 204 in 129.1237 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:00000015","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:52.032 +05:30 [INF] HTTP OPTIONS /api/cards/utilization responded 204 in 128.8952 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2VA:00000005","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 09:20:52.032 +05:30 [INF] HTTP OPTIONS /api/payments responded 204 in 128.4730 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V7:00000005","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:20:52.032 +05:30 [INF] HTTP OPTIONS /api/bills responded 204 in 127.8824 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V6:0000000B","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:20:52.259 +05:30 [INF] RequestId: 0HNLB481TE2VA:00000006, PreviousRequestId: -
+Rate limiting is disabled for route '/api/cards/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2VA:00000006","RequestPath":"/api/cards/utilization","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 09:20:52.259 +05:30 [INF] RequestId: 0HNLB481TE2V6:0000000C, PreviousRequestId: -
+Rate limiting is disabled for route '/api/bills/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V6:0000000C","RequestPath":"/api/bills","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:20:52.260 +05:30 [INF] RequestId: 0HNLB481TE2V7:00000006, PreviousRequestId: -
+Rate limiting is disabled for route '/api/rewards' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V7:00000006","RequestPath":"/api/rewards","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:20:52.268 +05:30 [INF] RequestId: 0HNLB481TE2V6:0000000C, PreviousRequestId: -
+The path '/api/bills' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V6:0000000C","RequestPath":"/api/bills","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:20:52.264 +05:30 [INF] RequestId: 0HNLB481TE2VA:00000006, PreviousRequestId: -
+The path '/api/cards/utilization' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2VA:00000006","RequestPath":"/api/cards/utilization","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 09:20:52.260 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000016, PreviousRequestId: -
+Rate limiting is disabled for route '/api/payments/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB481TE2V8:00000016","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:52.268 +05:30 [INF] RequestId: 0HNLB481TE2V7:00000006, PreviousRequestId: -
+The path '/api/rewards' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V7:00000006","RequestPath":"/api/rewards","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:20:52.270 +05:30 [INF] RequestId: 0HNLB481TE2V6:0000000C, PreviousRequestId: -
+Client has been authenticated for path '/api/bills' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V6:0000000C","RequestPath":"/api/bills","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:20:52.271 +05:30 [INF] RequestId: 0HNLB481TE2VA:00000006, PreviousRequestId: -
+Client has been authenticated for path '/api/cards/utilization' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2VA:00000006","RequestPath":"/api/cards/utilization","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 09:20:52.278 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000016, PreviousRequestId: -
+The path '/api/payments' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:00000016","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:52.286 +05:30 [INF] RequestId: 0HNLB481TE2V7:00000006, PreviousRequestId: -
+Client has been authenticated for path '/api/rewards' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V7:00000006","RequestPath":"/api/rewards","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:20:52.286 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000016, PreviousRequestId: -
+Client has been authenticated for path '/api/payments' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB481TE2V8:00000016","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:54.326 +05:30 [INF] RequestId: 0HNLB481TE2V8:00000016, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5035/api/payments {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V8:00000016","RequestPath":"/api/payments","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:54.671 +05:30 [INF] HTTP GET /api/payments responded 200 in 2546.5667 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V8:00000016","ConnectionId":"0HNLB481TE2V8"}
+2026-05-06 09:20:54.930 +05:30 [INF] RequestId: 0HNLB481TE2V7:00000006, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5034/api/rewards {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V7:00000006","RequestPath":"/api/rewards","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:20:54.932 +05:30 [INF] RequestId: 0HNLB481TE2V6:0000000C, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5034/api/bills {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2V6:0000000C","RequestPath":"/api/bills","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:20:55.038 +05:30 [INF] HTTP GET /api/rewards responded 200 in 2914.3807 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V7:00000006","ConnectionId":"0HNLB481TE2V7"}
+2026-05-06 09:20:55.040 +05:30 [INF] HTTP GET /api/bills responded 200 in 2862.5923 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2V6:0000000C","ConnectionId":"0HNLB481TE2V6"}
+2026-05-06 09:20:56.088 +05:30 [INF] RequestId: 0HNLB481TE2VA:00000006, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5033/api/cards/utilization {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB481TE2VA:00000006","RequestPath":"/api/cards/utilization","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 09:20:56.210 +05:30 [INF] HTTP GET /api/cards/utilization responded 200 in 4085.3775 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB481TE2VA:00000006","ConnectionId":"0HNLB481TE2VA"}
+2026-05-06 12:08:25.339 +05:30 [INF] HTTP OPTIONS /api/auth/login responded 204 in 49.8628 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB789ED6S6:00000001","ConnectionId":"0HNLB789ED6S6"}
+2026-05-06 12:08:27.725 +05:30 [INF] RequestId: 0HNLB789ED6S6:00000002, PreviousRequestId: -
+Rate limiting is disabled for route '/api/auth/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB789ED6S6:00000002","RequestPath":"/api/auth/login","ConnectionId":"0HNLB789ED6S6"}
+2026-05-06 12:08:27.745 +05:30 [INF] RequestId: 0HNLB789ED6S6:00000002, PreviousRequestId: -
+No authentication is required for the path '/api/auth/login' in the route /api/auth/{everything}. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB789ED6S6:00000002","RequestPath":"/api/auth/login","ConnectionId":"0HNLB789ED6S6"}
+2026-05-06 12:08:43.876 +05:30 [INF] RequestId: 0HNLB789ED6S6:00000002, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5032/api/auth/login {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB789ED6S6:00000002","RequestPath":"/api/auth/login","ConnectionId":"0HNLB789ED6S6"}
+2026-05-06 12:08:44.078 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 18260.6316 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB789ED6S6:00000002","ConnectionId":"0HNLB789ED6S6"}
+2026-05-06 12:08:44.570 +05:30 [INF] HTTP OPTIONS /api/users/profile responded 204 in 10.1431 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB789ED6S6:00000003","ConnectionId":"0HNLB789ED6S6"}
+2026-05-06 12:08:44.999 +05:30 [INF] RequestId: 0HNLB789ED6S6:00000004, PreviousRequestId: -
+Rate limiting is disabled for route '/api/users/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB789ED6S6:00000004","RequestPath":"/api/users/profile","ConnectionId":"0HNLB789ED6S6"}
+2026-05-06 12:08:45.008 +05:30 [INF] RequestId: 0HNLB789ED6S6:00000004, PreviousRequestId: -
+The path '/api/users/profile' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB789ED6S6:00000004","RequestPath":"/api/users/profile","ConnectionId":"0HNLB789ED6S6"}
+2026-05-06 12:08:45.019 +05:30 [INF] RequestId: 0HNLB789ED6S6:00000004, PreviousRequestId: -
+Client has been authenticated for path '/api/users/profile' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB789ED6S6:00000004","RequestPath":"/api/users/profile","ConnectionId":"0HNLB789ED6S6"}
+2026-05-06 12:08:45.876 +05:30 [INF] RequestId: 0HNLB789ED6S6:00000004, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5032/api/users/profile {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB789ED6S6:00000004","RequestPath":"/api/users/profile","ConnectionId":"0HNLB789ED6S6"}
+2026-05-06 12:08:45.895 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 1257.9100 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB789ED6S6:00000004","ConnectionId":"0HNLB789ED6S6"}
+2026-05-06 12:08:50.368 +05:30 [INF] HTTP OPTIONS /api/cards/utilization responded 204 in 3.0740 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB789ED6S6:00000005","ConnectionId":"0HNLB789ED6S6"}
+2026-05-06 12:08:50.380 +05:30 [INF] HTTP OPTIONS /api/bills responded 204 in 0.9507 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB789ED6S7:00000001","ConnectionId":"0HNLB789ED6S7"}
+2026-05-06 12:08:50.385 +05:30 [INF] HTTP OPTIONS /api/payments responded 204 in 0.1066 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB789ED6S8:00000001","ConnectionId":"0HNLB789ED6S8"}
+2026-05-06 12:08:50.388 +05:30 [INF] HTTP OPTIONS /api/rewards responded 204 in 0.3031 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB789ED6S9:00000001","ConnectionId":"0HNLB789ED6S9"}
+2026-05-06 12:08:50.603 +05:30 [INF] RequestId: 0HNLB789ED6S9:00000002, PreviousRequestId: -
+Rate limiting is disabled for route '/api/payments/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB789ED6S9:00000002","RequestPath":"/api/payments","ConnectionId":"0HNLB789ED6S9"}
+2026-05-06 12:08:50.603 +05:30 [INF] RequestId: 0HNLB789ED6S8:00000002, PreviousRequestId: -
+Rate limiting is disabled for route '/api/bills/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB789ED6S8:00000002","RequestPath":"/api/bills","ConnectionId":"0HNLB789ED6S8"}
+2026-05-06 12:08:50.604 +05:30 [INF] RequestId: 0HNLB789ED6S6:00000006, PreviousRequestId: -
+Rate limiting is disabled for route '/api/cards/{everything}' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB789ED6S6:00000006","RequestPath":"/api/cards/utilization","ConnectionId":"0HNLB789ED6S6"}
+2026-05-06 12:08:50.609 +05:30 [INF] RequestId: 0HNLB789ED6S7:00000002, PreviousRequestId: -
+Rate limiting is disabled for route '/api/rewards' via the EnableRateLimiting option. {"SourceContext":"Ocelot.RateLimiting.RateLimitingMiddleware","RequestId":"0HNLB789ED6S7:00000002","RequestPath":"/api/rewards","ConnectionId":"0HNLB789ED6S7"}
+2026-05-06 12:08:50.634 +05:30 [INF] RequestId: 0HNLB789ED6S9:00000002, PreviousRequestId: -
+The path '/api/payments' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB789ED6S9:00000002","RequestPath":"/api/payments","ConnectionId":"0HNLB789ED6S9"}
+2026-05-06 12:08:50.741 +05:30 [INF] RequestId: 0HNLB789ED6S8:00000002, PreviousRequestId: -
+The path '/api/bills' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB789ED6S8:00000002","RequestPath":"/api/bills","ConnectionId":"0HNLB789ED6S8"}
+2026-05-06 12:08:50.741 +05:30 [INF] RequestId: 0HNLB789ED6S6:00000006, PreviousRequestId: -
+The path '/api/cards/utilization' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB789ED6S6:00000006","RequestPath":"/api/cards/utilization","ConnectionId":"0HNLB789ED6S6"}
+2026-05-06 12:08:50.741 +05:30 [INF] RequestId: 0HNLB789ED6S7:00000002, PreviousRequestId: -
+The path '/api/rewards' is an authenticated route! AuthenticationMiddleware checking if client is authenticated... {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB789ED6S7:00000002","RequestPath":"/api/rewards","ConnectionId":"0HNLB789ED6S7"}
+2026-05-06 12:08:50.741 +05:30 [INF] RequestId: 0HNLB789ED6S9:00000002, PreviousRequestId: -
+Client has been authenticated for path '/api/payments' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB789ED6S9:00000002","RequestPath":"/api/payments","ConnectionId":"0HNLB789ED6S9"}
+2026-05-06 12:08:50.742 +05:30 [INF] RequestId: 0HNLB789ED6S8:00000002, PreviousRequestId: -
+Client has been authenticated for path '/api/bills' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB789ED6S8:00000002","RequestPath":"/api/bills","ConnectionId":"0HNLB789ED6S8"}
+2026-05-06 12:08:50.754 +05:30 [INF] RequestId: 0HNLB789ED6S6:00000006, PreviousRequestId: -
+Client has been authenticated for path '/api/cards/utilization' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB789ED6S6:00000006","RequestPath":"/api/cards/utilization","ConnectionId":"0HNLB789ED6S6"}
+2026-05-06 12:08:50.755 +05:30 [INF] RequestId: 0HNLB789ED6S7:00000002, PreviousRequestId: -
+Client has been authenticated for path '/api/rewards' by 'AuthenticationTypes.Federation' scheme. {"SourceContext":"Ocelot.Authentication.AuthenticationMiddleware","RequestId":"0HNLB789ED6S7:00000002","RequestPath":"/api/rewards","ConnectionId":"0HNLB789ED6S7"}
+2026-05-06 12:09:14.499 +05:30 [INF] RequestId: 0HNLB789ED6S8:00000002, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5034/api/bills {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB789ED6S8:00000002","RequestPath":"/api/bills","ConnectionId":"0HNLB789ED6S8"}
+2026-05-06 12:09:14.495 +05:30 [INF] RequestId: 0HNLB789ED6S7:00000002, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5034/api/rewards {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB789ED6S7:00000002","RequestPath":"/api/rewards","ConnectionId":"0HNLB789ED6S7"}
+2026-05-06 12:09:14.495 +05:30 [INF] RequestId: 0HNLB789ED6S9:00000002, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5035/api/payments {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB789ED6S9:00000002","RequestPath":"/api/payments","ConnectionId":"0HNLB789ED6S9"}
+2026-05-06 12:09:14.693 +05:30 [INF] RequestId: 0HNLB789ED6S6:00000006, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:5033/api/cards/utilization {"SourceContext":"Ocelot.Requester.Middleware.HttpRequesterMiddleware","RequestId":"0HNLB789ED6S6:00000006","RequestPath":"/api/cards/utilization","ConnectionId":"0HNLB789ED6S6"}
+2026-05-06 12:09:14.773 +05:30 [INF] HTTP GET /api/payments responded 200 in 24312.5018 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB789ED6S9:00000002","ConnectionId":"0HNLB789ED6S9"}
+2026-05-06 12:09:14.773 +05:30 [INF] HTTP GET /api/rewards responded 200 in 24312.4707 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB789ED6S7:00000002","ConnectionId":"0HNLB789ED6S7"}
+2026-05-06 12:09:14.773 +05:30 [INF] HTTP GET /api/bills responded 200 in 24354.4934 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB789ED6S8:00000002","ConnectionId":"0HNLB789ED6S8"}
+2026-05-06 12:09:15.507 +05:30 [INF] HTTP GET /api/cards/utilization responded 200 in 25043.1503 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLB789ED6S6:00000006","ConnectionId":"0HNLB789ED6S6"}

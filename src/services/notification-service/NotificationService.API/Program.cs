@@ -5,91 +5,119 @@ using NotificationService.API.Middleware;
 using NotificationService.Application;
 using NotificationService.Infrastructure;
 using Scalar.AspNetCore;
+using Serilog;
 using System.Text;
 
-var builder = WebApplication.CreateBuilder(args);
+// Bootstrap logger — captures startup errors before config is loaded
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateBootstrapLogger();
 
-builder.Services.AddApplicationServices();
-builder.Services.AddInfrastructureServices(builder.Configuration);
-
-var jwtSettings = builder.Configuration.GetSection("JwtSettings");
-builder.Services.AddAuthentication(options =>
+try
 {
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = jwtSettings["Issuer"],
-        ValidAudience = jwtSettings["Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(jwtSettings["Secret"]!))
-    };
-});
+    Log.Information("Starting Notification Service");
 
-builder.Services.AddAuthorization();
-builder.Services.AddControllers();
-//builder.Services.AddOpenApi();
-builder.Services.AddSwaggerGen(options =>
-{
-    options.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "Notification Service API",
-        Version = "v1"
-    });
+    var builder = WebApplication.CreateBuilder(args);
 
-    // 🔒 JWT Auth Button
-    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        Name = "Authorization",
-        Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer",
-        BearerFormat = "JWT",
-        In = ParameterLocation.Header,
-        Description = "Enter: Bearer {your JWT token}"
-    });
+    // Configure Serilog from appsettings.json
+    builder.Host.UseSerilog((context, services, configuration) => configuration
+        .ReadFrom.Configuration(context.Configuration)
+        .ReadFrom.Services(services)
+        .Enrich.FromLogContext());
 
-    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    builder.Services.AddApplicationServices();
+    builder.Services.AddInfrastructureServices(builder.Configuration);
+
+    var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+    builder.Services.AddAuthentication(options =>
     {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
         {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-            },
-            Array.Empty<string>()
-        }
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = jwtSettings["Issuer"],
+            ValidAudience = jwtSettings["Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(jwtSettings["Secret"]!))
+        };
     });
-});
 
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(policy =>
-        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-});
+    builder.Services.AddAuthorization();
+    builder.Services.AddControllers();
+    //builder.Services.AddOpenApi();
+    builder.Services.AddSwaggerGen(options =>
+    {
+        options.SwaggerDoc("v1", new OpenApiInfo
+        {
+            Title = "Notification Service API",
+            Version = "v1"
+        });
 
-var app = builder.Build();
+        // 🔒 JWT Auth Button
+        options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+        {
+            Name = "Authorization",
+            Type = SecuritySchemeType.ApiKey,
+            Scheme = "Bearer",
+            BearerFormat = "JWT",
+            In = ParameterLocation.Header,
+            Description = "Enter: Bearer {your JWT token}"
+        });
 
-if (app.Environment.IsDevelopment())
-{
-    //app.MapOpenApi();
-    app.MapScalarApiReference();
-    app.UseSwagger();
-    app.UseSwaggerUI();
+        options.AddSecurityRequirement(new OpenApiSecurityRequirement
+        {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference
+                    {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "Bearer"
+                    }
+                },
+                Array.Empty<string>()
+            }
+        });
+    });
+
+    builder.Services.AddCors(options =>
+    {
+        options.AddDefaultPolicy(policy =>
+            policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+    });
+
+    var app = builder.Build();
+
+    // Serilog request logging — logs every HTTP request automatically
+    app.UseSerilogRequestLogging();
+
+    if (app.Environment.IsDevelopment())
+    {
+        //app.MapOpenApi();
+        app.MapScalarApiReference();
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
+
+    app.UseCors();
+    app.UseMiddleware<ExceptionMiddleware>();
+    app.UseAuthentication();
+    app.UseAuthorization();
+    app.MapControllers();
+    app.Run();
 }
-
-app.UseCors();
-app.UseMiddleware<ExceptionMiddleware>();
-app.UseAuthentication();
-app.UseAuthorization();
-app.MapControllers();
-app.Run();
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Notification Service terminated unexpectedly");
+}
+finally
+{
+    Log.CloseAndFlush();
+}

@@ -73,7 +73,7 @@
                 </div>
               </div>
               <div class="activity-amount" [ngClass]="item.type === 'payment' ? 'amount-payment' : 'amount-charge'">
-                {{ item.type === 'payment' ? '+' : '' }}{{ item.amount | currency }}
+                {{ item.type === 'payment' ? '-' : '' }}{{ item.amount | currency }}
               </div>
             </div>
 

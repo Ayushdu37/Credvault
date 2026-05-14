@@ -37,4 +37,7 @@
     <Project Path="src/services/payment-service/PaymentService.Domain/PaymentService.Domain.csproj" Id="d7684d45-c54b-4161-86d1-2ce09075a276" />
     <Project Path="src/services/payment-service/PaymentService.Infrastructure/PaymentService.Infrastructure.csproj" Id="1ea86e94-3548-45d9-b679-05b8ee6046ae" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CredVault.Tests/CredVault.Tests.csproj" />
+  </Folder>
 </Solution>

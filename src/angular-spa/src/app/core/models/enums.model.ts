@@ -74,7 +74,8 @@ export enum PaymentScheduleStatus {
 }
 
 export enum OTPPurpose {
-  Login = 0,
-  Payment = 1,
-  PasswordReset = 2,
+  EmailVerification = 0,
+  PasswordReset = 1,
+  Login = 2,
+  PaymentVerification = 3
 }

@@ -5,21 +5,30 @@
     Back to Billing
   </button>
 
+  <h1 class="page-title">Payments Hub</h1>
+  <p class="page-subtitle">Securely transfer funds and review history.</p>
+
   <!-- SUCCESS STATE -->
   <ng-container *ngIf="submitted && (successMessage$ | async) as successMsg">
     <div class="success-panel">
-      <div class="success-icon">
-        <lucide-icon name="check-circle" [size]="56"></lucide-icon>
+      <div class="success-check">
+        <div class="check-circle">
+          <lucide-icon name="check" [size]="48"></lucide-icon>
+        </div>
       </div>
-      <h2>Payment Submitted!</h2>
-      <p>{{ successMsg }}</p>
+      <h2>Payment Successful!</h2>
+      <p>Your payment has been processed successfully.</p>
       <div class="ref-box" *ngIf="referenceNumber$ | async as ref">
         <span class="ref-label">Reference Number</span>
         <span class="ref-value">{{ ref }}</span>
+        <button class="copy-btn" title="Copy to clipboard">
+          <lucide-icon name="copy" [size]="14"></lucide-icon>
+        </button>
       </div>
-      <app-button variant="primary" (click)="goToHistory()">
-        View Payment History
-      </app-button>
+      <div class="success-actions">
+        <app-button variant="ghost" (click)="goBack()">Make Another Payment</app-button>
+        <app-button variant="primary" (click)="goToHistory()">View History</app-button>
+      </div>
     </div>
   </ng-container>
 
@@ -27,106 +36,299 @@
   <ng-container *ngIf="!submitted">
     <div class="pay-layout">
 
-      <!-- Form Card -->
-      <app-card title="Make a Payment">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="pay-form">
+      <!-- Left: Payment Form -->
+      <div class="form-panel">
+        <app-card title="Send Money">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-          <!-- Bill ID display -->
-          <div class="bill-info" *ngIf="billId">
-            <lucide-icon name="file-text" [size]="18"></lucide-icon>
-            <span>Paying for statement: <strong>{{ billId }}</strong></span>
-          </div>
-
-          <!-- Amount -->
-          <div class="form-field">
-            <label for="amount">Payment Amount</label>
-            <div class="input-wrapper" [ngClass]="{ 'input-wrapper--error': amountControl?.invalid && amountControl?.touched }">
-              <span class="currency-prefix">₹</span>
-              <input
-                id="amount"
-                type="number"
-                formControlName="amount"
-                placeholder="0.00"
-                min="1"
-                step="0.01"
-              />
+            <div class="section-label">Select Category</div>
+            <div class="category-grid">
+              <div class="category-card" *ngFor="let cat of categories"
+                [class.category-card--active]="selectedCategory?.id === cat.id" (click)="selectCategory(cat)">
+                <div class="category-icon" [style.color]="cat.color">
+                  <lucide-icon [name]="cat.icon" [size]="28" [color]="cat.color"></lucide-icon>
+                </div>
+                <span class="category-label">{{ cat.label }}</span>
+              </div>
             </div>
-            <div class="field-error" *ngIf="amountControl?.invalid && amountControl?.touched">
-              <ng-container *ngIf="amountControl?.errors?.['required']">Amount is required.</ng-container>
-              <ng-container *ngIf="amountControl?.errors?.['min']">Amount must be at least ₹1.</ng-container>
-            </div>
-          </div>
 
-          <!-- Payment Method -->
-          <div class="form-field">
-            <label>Payment Method</label>
-            <div class="method-options">
-              <button
-                type="button"
-                class="method-btn"
-                *ngFor="let method of paymentMethods"
-                [ngClass]="{ 'method-btn--active': methodControl?.value === method }"
-                (click)="methodControl?.setValue(method)">
-                <lucide-icon [name]="getMethodIcon(method)" [size]="20"></lucide-icon>
-                <span>{{ method }}</span>
-              </button>
-            </div>
-          </div>
+            <!-- =========== DYNAMIC FIELDS BASED ON CATEGORY =========== -->
+            <ng-container *ngIf="selectedCategory">
 
-          <!-- Error from store -->
-          <div class="error-box" *ngIf="error$ | async as err">
-            <lucide-icon name="alert-circle" [size]="16"></lucide-icon>
-            {{ err }}
-          </div>
-
-          <!-- Submit -->
-          <div class="form-actions">
-            <app-button
-              type="submit"
-              variant="primary"
-              [disabled]="(submitting$ | async) === true">
-              <ng-container *ngIf="(submitting$ | async); else submitLabel">
-                <app-spinner size="sm"></app-spinner>
-                Processing...
+              <!-- CREDIT CARD CATEGORY → Card Dropdown -->
+              <ng-container *ngIf="selectedCategory.usesCardDropdown">
+                <div class="form-field">
+                  <label for="cardSelect">Select Card to Pay</label>
+                  <div class="select-wrapper"
+                    [ngClass]="{ 'input-wrapper--error': selectedCardIdControl?.invalid && selectedCardIdControl?.touched }">
+                    <select id="cardSelect" class="form-select" formControlName="selectedCardId"
+                      (change)="onCardSelected($any($event.target).value)">
+                      <option value="" disabled>Select a card...</option>
+                      <option *ngFor="let card of userCards" [value]="card.id">
+                        {{ maskCardNumber(card.last4Digits) }} — {{ card.network }} (Due: {{ card.currentBalance | currency:'INR':'symbol':'1.0-0' }})
+                      </option>
+                    </select>
+                  </div>
+                  <div class="field-error" *ngIf="selectedCardIdControl?.invalid && selectedCardIdControl?.touched">
+                    <lucide-icon name="alert-circle" [size]="14"></lucide-icon>
+                    Please select a card.
+                  </div>
+                  <!-- Selected card info pill -->
+                  <div class="selected-card-pill" *ngIf="selectedCard">
+                    <lucide-icon name="credit-card" [size]="16"></lucide-icon>
+                    <span>{{ selectedCard.network }} {{ maskCardNumber(selectedCard.last4Digits) }}</span>
+                    <span class="pill-balance">Balance: {{ selectedCard.currentBalance | currency:'INR':'symbol':'1.0-0' }}</span>
+                  </div>
+                </div>
               </ng-container>
-              <ng-template #submitLabel>
-                <lucide-icon name="send" [size]="16"></lucide-icon>
-                Confirm Payment
-              </ng-template>
-            </app-button>
-          </div>
 
-        </form>
-      </app-card>
+              <!-- OTHER CATEGORIES → Text Input -->
+              <ng-container *ngIf="!selectedCategory.usesCardDropdown">
+                <!-- Extra dropdown (e.g. Operator for Mobile Recharge) -->
+                <div class="form-field" *ngIf="selectedCategory.extraDropdown">
+                  <label>{{ selectedCategory.extraDropdown.label }}</label>
+                  <div class="select-wrapper">
+                    <select class="form-select" formControlName="operator">
+                      <option value="" disabled>Select {{ selectedCategory.extraDropdown.label }}...</option>
+                      <option *ngFor="let opt of selectedCategory.extraDropdown.options" [value]="opt">{{ opt }}</option>
+                    </select>
+                  </div>
+                </div>
 
-      <!-- Info Card -->
-      <app-card title="Payment Info">
-        <div class="info-list">
-          <div class="info-item">
-            <lucide-icon name="shield-check" [size]="18" class="info-icon"></lucide-icon>
-            <div>
-              <div class="info-title">Secure & Encrypted</div>
-              <div class="info-desc">All payments are processed through a secure, encrypted channel.</div>
+                <!-- Recipient Text Input -->
+                <div class="form-field">
+                  <label for="recipient">{{ selectedCategory.inputLabel }}</label>
+                  <div class="input-wrapper"
+                    [ngClass]="{ 'input-wrapper--error': recipientControl?.invalid && recipientControl?.touched }">
+                    <input id="recipient" [type]="selectedCategory.inputType" formControlName="recipient"
+                      [placeholder]="selectedCategory.placeholder" />
+                  </div>
+                  <div class="field-error" *ngIf="recipientControl?.invalid && recipientControl?.touched">
+                    <lucide-icon name="alert-circle" [size]="14"></lucide-icon>
+                    {{ selectedCategory.inputLabel }} is required.
+                  </div>
+                </div>
+              </ng-container>
+
+              <!-- Amount Field -->
+              <div class="form-field">
+                <label for="amount">Amount (₹)</label>
+                <div class="amount-input-group">
+                  <div class="input-wrapper amount-wrapper"
+                    [ngClass]="{ 'input-wrapper--error': amountControl?.invalid && amountControl?.touched }">
+                    <span class="currency-prefix">₹</span>
+                    <input id="amount" type="number" formControlName="amount" placeholder="0.00" min="1" step="0.01" />
+                  </div>
+                </div>
+                <!-- Quick Amount Buttons -->
+                <div class="quick-amounts">
+                  <button type="button" class="quick-amount-btn" *ngFor="let amt of quickAmounts"
+                    [class.quick-amount-btn--active]="amountControl?.value === amt" (click)="setQuickAmount(amt)">
+                    ₹{{ amt | number:'1.0-0' }}
+                  </button>
+                </div>
+                <div class="field-error" *ngIf="amountControl?.invalid && amountControl?.touched">
+                  <lucide-icon name="alert-circle" [size]="14"></lucide-icon>
+                  <ng-container *ngIf="amountControl?.errors?.['required']">Amount is required.</ng-container>
+                  <ng-container *ngIf="amountControl?.errors?.['min']">Amount must be at least ₹1.</ng-container>
+                </div>
+              </div>
+
+              <!-- Payment Method (Pay From) -->
+              <div class="form-field">
+                <label>Pay From</label>
+                <div class="method-options">
+                  <button type="button" class="method-btn" *ngFor="let method of paymentMethods"
+                    [class.method-btn--active]="methodControl?.value === method"
+                    (click)="methodControl?.setValue(method)">
+                    <lucide-icon [name]="getMethodIcon(method)" [size]="18"></lucide-icon>
+                    <span>{{ method }}</span>
+                  </button>
+                </div>
+
+                <!-- Card picker for "Pay From → Card" -->
+                <div class="payf-card-picker" *ngIf="isCardMethod()">
+                  <div class="select-wrapper">
+                    <select class="form-select" formControlName="payFromCardId"
+                      (change)="onPayFromCardSelected($any($event.target).value)">
+                      <option value="">Select card to pay from...</option>
+                      <option *ngFor="let card of userCards" [value]="card.id">
+                        {{ maskCardNumber(card.last4Digits) }} — {{ card.network }} (Available: {{ (card.creditLimit - card.currentBalance) | currency:'INR':'symbol':'1.0-0' }})
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Error from store -->
+              <div class="error-box" *ngIf="(error$ | async) as err">
+                <lucide-icon name="alert-card" [size]="16"></lucide-icon>
+                {{ err }}
+              </div>
+
+              <!-- Submit -->
+              <div class="form-actions">
+                <app-button type="submit" variant="primary" [disabled]="(submitting$ | async) === true"
+                  [fullWidth]="true">
+                  <ng-container *ngIf="(submitting$ | async); else submitLabel">
+                    <app-spinner size="sm"></app-spinner>
+                    Processing...
+                  </ng-container>
+                  <ng-template #submitLabel>
+                    <lucide-icon name="send" [size]="16"></lucide-icon>
+                    Pay Now
+                  </ng-template>
+                </app-button>
+              </div>
+
+            </ng-container>
+
+          </form>
+        </app-card>
+      </div>
+
+      <!-- Right: Info Panel -->
+      <div class="info-panel">
+        <app-card title="Payment Info">
+          <div class="info-list">
+            <div class="info-item">
+              <div class="info-icon info-icon--secure">
+                <lucide-icon name="shield-check" [size]="18"></lucide-icon>
+              </div>
+              <div>
+                <div class="info-title">Secure & Encrypted</div>
+                <div class="info-desc">All payments are processed through a secure, encrypted channel.</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon info-icon--instant">
+                <lucide-icon name="zap" [size]="18"></lucide-icon>
+              </div>
+              <div>
+                <div class="info-title">Instant Processing</div>
+                <div class="info-desc">Payments reflect on your account within 1–2 business days.</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon info-icon--receipt">
+                <lucide-icon name="receipt" [size]="18"></lucide-icon>
+              </div>
+              <div>
+                <div class="info-title">Reference Number</div>
+                <div class="info-desc">You'll receive a unique reference number upon successful submission.</div>
+              </div>
             </div>
           </div>
-          <div class="info-item">
-            <lucide-icon name="clock" [size]="18" class="info-icon"></lucide-icon>
-            <div>
-              <div class="info-title">Instant Processing</div>
-              <div class="info-desc">Payments reflect on your account within 1–2 business days.</div>
+        </app-card>
+
+        <!-- Dynamic Category / Card Info Card -->
+        <ng-container *ngIf="selectedCategory">
+
+          <!-- Card selected — show card details -->
+          <app-card *ngIf="selectedCard && selectedCategory.usesCardDropdown" class="category-info-card">
+            <div class="category-info-header" [style.color]="selectedCategory.color">
+              <lucide-icon [name]="selectedCategory.icon" [size]="20"></lucide-icon>
+              <span>{{ selectedCategory.label }}</span>
             </div>
-          </div>
-          <div class="info-item">
-            <lucide-icon name="receipt" [size]="18" class="info-icon"></lucide-icon>
-            <div>
-              <div class="info-title">Reference Number</div>
-              <div class="info-desc">You'll receive a unique reference number upon successful submission.</div>
+            <div class="card-info-details">
+              <div class="card-info-row">
+                <span class="card-info-label">Card</span>
+                <span class="card-info-value">{{ selectedCard.network }} {{ maskCardNumber(selectedCard.last4Digits) }}</span>
+              </div>
+              <div class="card-info-row">
+                <span class="card-info-label">Due Amount</span>
+                <span class="card-info-value card-info-value--accent">{{ selectedCard.currentBalance | currency:'INR':'symbol':'1.0-0' }}</span>
+              </div>
+              <div class="card-info-row">
+                <span class="card-info-label">Available Credit</span>
+                <span class="card-info-value">{{ (selectedCard.creditLimit - selectedCard.currentBalance) | currency:'INR':'symbol':'1.0-0' }}</span>
+              </div>
+              <div class="card-info-row">
+                <span class="card-info-label">Credit Limit</span>
+                <span class="card-info-value">{{ selectedCard.creditLimit | currency:'INR':'symbol':'1.0-0' }}</span>
+              </div>
             </div>
+          </app-card>
+
+          <!-- No card selected or non-card category — show category description -->
+          <app-card *ngIf="!selectedCard || !selectedCategory.usesCardDropdown" class="category-info-card">
+            <div class="category-info-header" [style.color]="selectedCategory.color">
+              <lucide-icon [name]="selectedCategory.icon" [size]="20"></lucide-icon>
+              <span>{{ selectedCategory.label }}</span>
+            </div>
+            <p class="category-info-desc">{{ selectedCategory.description }}</p>
+            <p class="category-info-hint" *ngIf="selectedCategory.usesCardDropdown && !selectedCard">
+              Select a card from the dropdown to see balance details.
+            </p>
+          </app-card>
+
+        </ng-container>
+
+        <!-- Placeholder when nothing selected -->
+        <app-card *ngIf="!selectedCategory" class="category-info-card">
+          <div class="category-info-placeholder">
+            <lucide-icon name="hand-metal" [size]="28" color="var(--text-muted)"></lucide-icon>
+            <p>Select a payment category to get started.</p>
           </div>
-        </div>
-      </app-card>
+        </app-card>
+
+      </div>
 
     </div>
   </ng-container>
 
+</div>
+
+<!-- OTP Modal Overlay -->
+<div class="otp-modal-overlay" *ngIf="showOtpModal">
+  <div class="otp-modal">
+    <div class="otp-header">
+      <div class="otp-icon-wrapper">
+        <lucide-icon name="shield-check" [size]="32" class="otp-shield-icon"></lucide-icon>
+      </div>
+      <h2>Payment Verification</h2>
+      <p>We've sent a 6-digit verification code to <span class="user-email">{{currentUser?.email}}</span></p>
+    </div>
+
+    <div class="otp-body">
+      <div class="otp-input-group">
+        <label for="otpCode">Enter 6-Digit OTP</label>
+        <input 
+          type="text" 
+          id="otpCode" 
+          [(ngModel)]="otpCode" 
+          maxlength="6" 
+          placeholder="000000"
+          class="otp-input"
+          [disabled]="verifyingOtp"
+          (keyup.enter)="verifyOtpAndPay()"
+        >
+        <div class="otp-error" *ngIf="otpError">
+          {{otpError}}
+        </div>
+      </div>
+
+      <div class="otp-actions">
+        <button 
+          class="cancel-btn" 
+          (click)="cancelOtp()" 
+          [disabled]="verifyingOtp"
+        >
+          Cancel
+        </button>
+        <button 
+          class="verify-btn" 
+          (click)="verifyOtpAndPay()" 
+          [disabled]="verifyingOtp || otpCode.length < 6"
+        >
+          <app-spinner *ngIf="verifyingOtp" size="sm"></app-spinner>
+          <span *ngIf="!verifyingOtp">Verify & Pay</span>
+        </button>
+      </div>
+
+      <div class="otp-footer">
+        <p>Didn't receive the code? <a href="javascript:void(0)" (click)="onSubmit()">Resend OTP</a></p>
+      </div>
+    </div>
+  </div>
 </div>

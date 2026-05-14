@@ -1,0 +1,388 @@
+2026-04-14 05:40:03.314 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 05:40:03.578 +05:30 [INF] HTTP GET /swagger responded 301 in 28.2467 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HA:00000001","ConnectionId":"0HNKPN8LJG7HA"}
+2026-04-14 05:40:04.651 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 392.0622 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HA:00000002","ConnectionId":"0HNKPN8LJG7HA"}
+2026-04-14 05:40:05.492 +05:30 [INF] HTTP GET /swagger/index.css responded 200 in 204.7071 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HD:00000001","ConnectionId":"0HNKPN8LJG7HD"}
+2026-04-14 05:40:05.957 +05:30 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 669.4902 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HC:00000001","ConnectionId":"0HNKPN8LJG7HC"}
+2026-04-14 05:40:05.642 +05:30 [INF] HTTP GET /swagger/swagger-ui.css responded 200 in 644.0726 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HB:00000001","ConnectionId":"0HNKPN8LJG7HB"}
+2026-04-14 05:40:07.464 +05:30 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 200 in 9.9114 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HD:00000002","ConnectionId":"0HNKPN8LJG7HD"}
+2026-04-14 05:40:07.744 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 4.7948 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HB:00000002","ConnectionId":"0HNKPN8LJG7HB"}
+2026-04-14 05:40:13.461 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 30.1147 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HA:00000005","ConnectionId":"0HNKPN8LJG7HA"}
+2026-04-14 05:44:17.058 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"85ad602f-6bc1-4af7-8980-2356f74a9067","ActionName":"IdentityService.API.Controllers.AuthController.Login (IdentityService.API)","RequestId":"0HNKPN8LJG7HE:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNKPN8LJG7HE"}
+2026-04-14 05:44:26.611 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 14738.3902 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HE:00000001","ConnectionId":"0HNKPN8LJG7HE"}
+2026-04-14 05:44:27.756 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 639.3535 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HF:00000001","ConnectionId":"0HNKPN8LJG7HF"}
+2026-04-14 05:44:49.211 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 213.1762 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HF:00000002","ConnectionId":"0HNKPN8LJG7HF"}
+2026-04-14 05:50:15.026 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 856.9002 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HG:00000001","ConnectionId":"0HNKPN8LJG7HG"}
+2026-04-14 05:50:15.221 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 49.9022 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HH:00000001","ConnectionId":"0HNKPN8LJG7HH"}
+2026-04-14 05:57:21.318 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 1115.7009 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HI:00000001","ConnectionId":"0HNKPN8LJG7HI"}
+2026-04-14 05:57:21.778 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 66.7958 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HJ:00000001","ConnectionId":"0HNKPN8LJG7HJ"}
+2026-04-14 06:12:05.034 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 1131.8293 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HK:00000001","ConnectionId":"0HNKPN8LJG7HK"}
+2026-04-14 06:12:05.156 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 39.2689 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HL:00000001","ConnectionId":"0HNKPN8LJG7HL"}
+2026-04-14 06:17:38.613 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 1280.8089 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HM:00000001","ConnectionId":"0HNKPN8LJG7HM"}
+2026-04-14 06:17:38.813 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 49.0735 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HN:00000001","ConnectionId":"0HNKPN8LJG7HN"}
+2026-04-14 06:20:40.353 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 770.3488 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HO:00000001","ConnectionId":"0HNKPN8LJG7HO"}
+2026-04-14 06:20:40.495 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 37.9528 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HP:00000001","ConnectionId":"0HNKPN8LJG7HP"}
+2026-04-14 06:20:57.502 +05:30 [INF] HTTP POST /api/auth/login responded 401 in 332.5084 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HO:00000002","ConnectionId":"0HNKPN8LJG7HO"}
+2026-04-14 06:21:06.329 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 324.5237 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HO:00000003","ConnectionId":"0HNKPN8LJG7HO"}
+2026-04-14 06:21:06.391 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 21.1578 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HP:00000002","ConnectionId":"0HNKPN8LJG7HP"}
+2026-04-14 06:35:23.995 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 1110.2463 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HQ:00000001","ConnectionId":"0HNKPN8LJG7HQ"}
+2026-04-14 06:35:24.160 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 46.8931 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LJG7HR:00000001","ConnectionId":"0HNKPN8LJG7HR"}
+2026-04-14 06:48:24.868 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 06:48:27.479 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 453.8841 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOESDG7JG:00000001","ConnectionId":"0HNKPOESDG7JG"}
+2026-04-14 06:48:27.916 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 62.3846 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOESDG7JH:00000001","ConnectionId":"0HNKPOESDG7JH"}
+2026-04-14 06:48:29.384 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 143.7169 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOESDG7JH:00000002","ConnectionId":"0HNKPOESDG7JH"}
+2026-04-14 06:48:31.606 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 55.3821 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOESDG7JH:00000004","ConnectionId":"0HNKPOESDG7JH"}
+2026-04-14 06:50:09.996 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"7438dc26-b55a-4408-a2a4-c74226c44d36","ActionName":"IdentityService.API.Controllers.AuthController.Login (IdentityService.API)","RequestId":"0HNKPOESDG7JI:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNKPOESDG7JI"}
+2026-04-14 06:50:15.728 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 6142.2757 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOESDG7JI:00000001","ConnectionId":"0HNKPOESDG7JI"}
+2026-04-14 06:50:16.426 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 409.2471 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOESDG7JJ:00000001","ConnectionId":"0HNKPOESDG7JJ"}
+2026-04-14 07:06:03.456 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 1525.4718 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOESDG7JK:00000001","ConnectionId":"0HNKPOESDG7JK"}
+2026-04-14 07:06:03.611 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 46.1778 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOESDG7JL:00000001","ConnectionId":"0HNKPOESDG7JL"}
+2026-04-14 07:19:36.535 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 07:19:39.319 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 198.9694 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHS0SJ:00000001","ConnectionId":"0HNKPP0AHS0SJ"}
+2026-04-14 07:19:39.711 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 10.8871 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHS0SK:00000001","ConnectionId":"0HNKPP0AHS0SK"}
+2026-04-14 07:19:41.019 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 127.5124 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHS0SL:00000002","ConnectionId":"0HNKPP0AHS0SL"}
+2026-04-14 07:19:42.165 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 13.6936 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHS0SL:00000004","ConnectionId":"0HNKPP0AHS0SL"}
+2026-04-14 07:20:57.578 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"7552a432-0da3-4dbf-8660-b1a74d641362","ActionName":"IdentityService.API.Controllers.AuthController.Login (IdentityService.API)","RequestId":"0HNKPP0AHS0SM:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNKPP0AHS0SM"}
+2026-04-14 07:21:01.864 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 4610.0271 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHS0SM:00000001","ConnectionId":"0HNKPP0AHS0SM"}
+2026-04-14 07:21:02.430 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 301.4064 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHS0SN:00000001","ConnectionId":"0HNKPP0AHS0SN"}
+2026-04-14 07:22:07.159 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 180.4263 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHS0SN:00000002","ConnectionId":"0HNKPP0AHS0SN"}
+2026-04-14 07:30:59.825 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 07:30:59.984 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 364.2381 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LC88LI:00000001","ConnectionId":"0HNKPP6LC88LI"}
+2026-04-14 07:31:00.541 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 69.7379 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LC88LJ:00000001","ConnectionId":"0HNKPP6LC88LJ"}
+2026-04-14 07:31:02.238 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 250.8467 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LC88LK:00000002","ConnectionId":"0HNKPP6LC88LK"}
+2026-04-14 07:32:19.413 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"3a605ba4-3b5b-4459-8766-d439a2a2c946","ActionName":"IdentityService.API.Controllers.AuthController.Login (IdentityService.API)","RequestId":"0HNKPP6LC88LL:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNKPP6LC88LL"}
+2026-04-14 07:32:23.680 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 4714.7675 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LC88LL:00000001","ConnectionId":"0HNKPP6LC88LL"}
+2026-04-14 07:32:24.264 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 351.1751 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LC88LM:00000001","ConnectionId":"0HNKPP6LC88LM"}
+2026-04-14 07:51:08.449 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 07:51:10.839 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 507.8641 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUAUNT7:00000001","ConnectionId":"0HNKPPHUAUNT7"}
+2026-04-14 07:51:12.625 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 19.4889 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUAUNT7:00000002","ConnectionId":"0HNKPPHUAUNT7"}
+2026-04-14 07:51:18.459 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 74.0607 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUAUNT9:00000002","ConnectionId":"0HNKPPHUAUNT9"}
+2026-04-14 07:52:18.651 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"508d83b3-0cba-4bc7-bccc-e78d373b3cec","ActionName":"IdentityService.API.Controllers.AuthController.Login (IdentityService.API)","RequestId":"0HNKPPHUAUNTA:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNKPPHUAUNTA"}
+2026-04-14 07:52:25.757 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 7610.5683 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUAUNTA:00000001","ConnectionId":"0HNKPPHUAUNTA"}
+2026-04-14 07:52:27.737 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 568.9416 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUAUNTB:00000001","ConnectionId":"0HNKPPHUAUNTB"}
+2026-04-14 07:56:26.816 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 1114.7807 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUAUNTC:00000001","ConnectionId":"0HNKPPHUAUNTC"}
+2026-04-14 07:56:26.933 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 30.6786 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUAUNTD:00000001","ConnectionId":"0HNKPPHUAUNTD"}
+2026-04-14 08:13:07.733 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 1014.7566 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUAUNTE:00000001","ConnectionId":"0HNKPPHUAUNTE"}
+2026-04-14 08:13:07.891 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 28.0392 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUAUNTF:00000001","ConnectionId":"0HNKPPHUAUNTF"}
+2026-04-14 12:33:56.216 +05:30 [WRN] Connection Failed: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed, host 127.0.0.1:5672)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed, host 127.0.0.1:5672
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFactory.OpenAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.CreateAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandlerAsync(AmqpTcpEndpoint endpoint, CancellationToken cancellationToken)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+2026-04-14 12:33:57.451 +05:30 [INF] Retrying "00:00:05.5072191": Broker unreachable: guest@localhost:5672/ {"SourceContext":"MassTransit"}
+MassTransit.RabbitMqConnectionException: Broker unreachable: guest@localhost:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed, host 127.0.0.1:5672)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed, host 127.0.0.1:5672
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFactory.OpenAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.CreateAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandlerAsync(AmqpTcpEndpoint endpoint, CancellationToken cancellationToken)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 129
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 74
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.SupervisorExtensions.<>c__DisplayClass5_0`2.<<CreateAgent>g__HandleSupervisorTask|0>d.MoveNext() in /_/src/MassTransit/SupervisorExtensions.cs:line 139
+--- End of stack trace from previous location ---
+   at MassTransit.SupervisorExtensions.CreateAgent[T,TAgent](ISupervisor`1 supervisor, IAsyncPipeContextAgent`1 asyncContext, Func`3 agentFactory, CancellationToken cancellationToken) in /_/src/MassTransit/SupervisorExtensions.cs:line 158
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ITransportSupervisor`1 supervisor, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/TransportStartExtensions.cs:line 19
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 200
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 208
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.Run() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 145
+2026-04-14 12:33:58.069 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 574.8331 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUFU2RTDU:00000001","ConnectionId":"0HNKPUFU2RTDU"}
+2026-04-14 12:34:01.351 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 20.0455 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUFU2RTDV:00000001","ConnectionId":"0HNKPUFU2RTDV"}
+2026-04-14 12:34:02.592 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 27.3919 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUFU2RTDV:00000002","ConnectionId":"0HNKPUFU2RTDV"}
+2026-04-14 12:34:08.742 +05:30 [WRN] Connection Failed: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed, host 127.0.0.1:5672)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed, host 127.0.0.1:5672
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFactory.OpenAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.CreateAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandlerAsync(AmqpTcpEndpoint endpoint, CancellationToken cancellationToken)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+2026-04-14 12:34:09.792 +05:30 [INF] Retrying "00:00:07.5000797": Broker unreachable: guest@localhost:5672/ {"SourceContext":"MassTransit"}
+MassTransit.RabbitMqConnectionException: Broker unreachable: guest@localhost:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed, host 127.0.0.1:5672)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed, host 127.0.0.1:5672
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFactory.OpenAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.CreateAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandlerAsync(AmqpTcpEndpoint endpoint, CancellationToken cancellationToken)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 129
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 74
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.SupervisorExtensions.<>c__DisplayClass5_0`2.<<CreateAgent>g__HandleSupervisorTask|0>d.MoveNext() in /_/src/MassTransit/SupervisorExtensions.cs:line 139
+--- End of stack trace from previous location ---
+   at MassTransit.SupervisorExtensions.CreateAgent[T,TAgent](ISupervisor`1 supervisor, IAsyncPipeContextAgent`1 asyncContext, Func`3 agentFactory, CancellationToken cancellationToken) in /_/src/MassTransit/SupervisorExtensions.cs:line 158
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ITransportSupervisor`1 supervisor, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/TransportStartExtensions.cs:line 19
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 200
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 208
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.Run() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 145
+2026-04-14 12:35:44.109 +05:30 [WRN] Connection Failed: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Pipe is completed.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFromPipeAsync(PipeReader reader, UInt32 maxInboundMessageBodySize, InboundFrame frame, CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.ReceiveLoopAsync(CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Connection.StartAndTuneAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+2026-04-14 12:35:46.416 +05:30 [INF] Retrying "00:00:06.0470284": Broker unreachable: guest@localhost:5672/ {"SourceContext":"MassTransit"}
+MassTransit.RabbitMqConnectionException: Broker unreachable: guest@localhost:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Pipe is completed.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFromPipeAsync(PipeReader reader, UInt32 maxInboundMessageBodySize, InboundFrame frame, CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.ReceiveLoopAsync(CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Connection.StartAndTuneAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 129
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 74
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.SupervisorExtensions.<>c__DisplayClass5_0`2.<<CreateAgent>g__HandleSupervisorTask|0>d.MoveNext() in /_/src/MassTransit/SupervisorExtensions.cs:line 139
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ChannelContextFactory.CreateSharedChannel(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ChannelContextFactory.cs:line 77
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ITransportSupervisor`1 supervisor, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/TransportStartExtensions.cs:line 19
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 200
+   at MassTransit.SupervisorExtensions.CreateAgent[T,TAgent](ISupervisor`1 supervisor, IAsyncPipeContextAgent`1 asyncContext, Func`3 agentFactory, CancellationToken cancellationToken) in /_/src/MassTransit/SupervisorExtensions.cs:line 158
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 208
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.Run() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 145
+2026-04-14 12:35:50.262 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 416.8060 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGVI92AT:00000001","ConnectionId":"0HNKPUGVI92AT"}
+2026-04-14 12:35:50.364 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 7.7747 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGVI92AU:00000001","ConnectionId":"0HNKPUGVI92AU"}
+2026-04-14 12:35:53.148 +05:30 [WRN] Connection Failed: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Pipe is completed.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFromPipeAsync(PipeReader reader, UInt32 maxInboundMessageBodySize, InboundFrame frame, CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.ReceiveLoopAsync(CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Connection.StartAndTuneAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+2026-04-14 12:35:54.396 +05:30 [INF] Retrying "00:00:07.5753110": Broker unreachable: guest@localhost:5672/ {"SourceContext":"MassTransit"}
+MassTransit.RabbitMqConnectionException: Broker unreachable: guest@localhost:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Pipe is completed.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFromPipeAsync(PipeReader reader, UInt32 maxInboundMessageBodySize, InboundFrame frame, CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.ReceiveLoopAsync(CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Connection.StartAndTuneAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 129
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 74
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.SupervisorExtensions.<>c__DisplayClass5_0`2.<<CreateAgent>g__HandleSupervisorTask|0>d.MoveNext() in /_/src/MassTransit/SupervisorExtensions.cs:line 139
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ChannelContextFactory.CreateSharedChannel(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ChannelContextFactory.cs:line 77
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ITransportSupervisor`1 supervisor, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/TransportStartExtensions.cs:line 19
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 200
+   at MassTransit.SupervisorExtensions.CreateAgent[T,TAgent](ISupervisor`1 supervisor, IAsyncPipeContextAgent`1 asyncContext, Func`3 agentFactory, CancellationToken cancellationToken) in /_/src/MassTransit/SupervisorExtensions.cs:line 158
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 208
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.Run() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 145
+2026-04-14 12:35:54.458 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 39.3359 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGVI92B0:00000002","ConnectionId":"0HNKPUGVI92B0"}
+2026-04-14 12:36:03.681 +05:30 [WRN] Connection Failed: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Pipe is completed.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFromPipeAsync(PipeReader reader, UInt32 maxInboundMessageBodySize, InboundFrame frame, CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.ReceiveLoopAsync(CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Connection.StartAndTuneAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+2026-04-14 12:36:04.972 +05:30 [INF] Retrying "00:00:15.1992060": Broker unreachable: guest@localhost:5672/ {"SourceContext":"MassTransit"}
+MassTransit.RabbitMqConnectionException: Broker unreachable: guest@localhost:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Pipe is completed.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFromPipeAsync(PipeReader reader, UInt32 maxInboundMessageBodySize, InboundFrame frame, CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.ReceiveLoopAsync(CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Connection.StartAndTuneAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 129
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 74
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.SupervisorExtensions.<>c__DisplayClass5_0`2.<<CreateAgent>g__HandleSupervisorTask|0>d.MoveNext() in /_/src/MassTransit/SupervisorExtensions.cs:line 139
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ChannelContextFactory.CreateSharedChannel(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ChannelContextFactory.cs:line 77
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ITransportSupervisor`1 supervisor, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/TransportStartExtensions.cs:line 19
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 200
+   at MassTransit.SupervisorExtensions.CreateAgent[T,TAgent](ISupervisor`1 supervisor, IAsyncPipeContextAgent`1 asyncContext, Func`3 agentFactory, CancellationToken cancellationToken) in /_/src/MassTransit/SupervisorExtensions.cs:line 158
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 208
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.Run() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 145
+2026-04-14 12:36:22.166 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 12:38:05.653 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"ea2b1a98-7cc0-4cf0-8849-061cf785b790","ActionName":"IdentityService.API.Controllers.AuthController.Login (IdentityService.API)","RequestId":"0HNKPUGVI92B1:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNKPUGVI92B1"}
+2026-04-14 12:38:14.389 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 11443.2009 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGVI92B1:00000001","ConnectionId":"0HNKPUGVI92B1"}
+2026-04-14 12:38:15.360 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 419.5918 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGVI92B2:00000001","ConnectionId":"0HNKPUGVI92B2"}
+2026-04-14 14:48:20.760 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 14:48:27.899 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 525.8860 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ0R120F2Q:00000001","ConnectionId":"0HNKQ0R120F2Q"}
+2026-04-14 14:48:28.467 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 33.8744 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ0R120F2S:00000001","ConnectionId":"0HNKQ0R120F2S"}
+2026-04-14 14:48:30.999 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 243.7227 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ0R120F2S:00000003","ConnectionId":"0HNKQ0R120F2S"}
+2026-04-14 14:51:11.498 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"53c5f829-ad7f-4009-96c3-e8f7cf0619da","ActionName":"IdentityService.API.Controllers.AuthController.Login (IdentityService.API)","RequestId":"0HNKQ0R120F2T:00000001","RequestPath":"/api/auth/login","ConnectionId":"0HNKQ0R120F2T"}
+2026-04-14 14:51:27.049 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 20176.1056 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ0R120F2T:00000001","ConnectionId":"0HNKQ0R120F2T"}
+2026-04-14 14:51:31.415 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 879.8876 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ0R120F2U:00000001","ConnectionId":"0HNKQ0R120F2U"}
+2026-04-14 14:54:45.561 +05:30 [INF] HTTP POST /api/auth/login responded 200 in 4526.3774 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ0R120F2V:00000001","ConnectionId":"0HNKQ0R120F2V"}
+2026-04-14 14:54:46.294 +05:30 [INF] HTTP GET /api/users/profile responded 200 in 329.8224 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ0R120F30:00000001","ConnectionId":"0HNKQ0R120F30"}
+2026-04-14 15:24:26.258 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 3297.3631 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ1F1F3KJS:00000001","ConnectionId":"0HNKQ1F1F3KJS"}
+2026-04-14 15:24:28.499 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 149.8656 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ1F1F3KJU:00000001","ConnectionId":"0HNKQ1F1F3KJU"}
+2026-04-14 15:24:35.275 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 1263.9961 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ1F1F3KJS:00000002","ConnectionId":"0HNKQ1F1F3KJS"}
+2026-04-14 15:24:49.189 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 15:27:30.642 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 15:27:49.326 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 5591.6698 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ1GT1EMSO:00000001","ConnectionId":"0HNKQ1GT1EMSO"}
+2026-04-14 15:27:56.962 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 210.5453 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ1GT1EMSO:00000002","ConnectionId":"0HNKQ1GT1EMSO"}
+2026-04-14 15:28:01.827 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 1749.0816 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ1GT1EMSP:00000003","ConnectionId":"0HNKQ1GT1EMSP"}

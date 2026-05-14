@@ -52,6 +52,10 @@ namespace PaymentService.Infrastructure.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("RazorpayOrderId")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasMaxLength(20)

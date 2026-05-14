@@ -6,10 +6,41 @@
       <p>Track all your payment activity</p>
     </div>
     <app-button variant="primary" (click)="makePayment()">
-      <lucide-icon name="wallet" [size]="18"></lucide-icon>
-      Make a Payment
+      <lucide-icon name="plus" [size]="18"></lucide-icon>
+      New Payment
     </app-button>
   </header>
+
+  <!-- Stats Row -->
+  <div class="stats-row">
+    <div class="stat-card stat-card--primary">
+      <div class="stat-icon stat-icon--primary">
+        <lucide-icon name="wallet" [size]="22"></lucide-icon>
+      </div>
+      <div class="stat-info">
+        <span class="stat-label">Paid This Month</span>
+        <span class="stat-value">{{ totalThisMonth$ | async | currency:'INR':'symbol' }}</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon stat-icon--success">
+        <lucide-icon name="check-circle-2" [size]="22"></lucide-icon>
+      </div>
+      <div class="stat-info">
+        <span class="stat-label">Completed</span>
+        <span class="stat-value">{{ completedCount$ | async }}</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon stat-icon--warning">
+        <lucide-icon name="clock" [size]="22"></lucide-icon>
+      </div>
+      <div class="stat-info">
+        <span class="stat-label">Pending</span>
+        <span class="stat-value">{{ pendingCount$ | async }}</span>
+      </div>
+    </div>
+  </div>
 
   <ng-container *ngIf="loading$ | async; else paymentsContent">
     <div class="loading-overlay">
@@ -21,34 +52,53 @@
   <ng-template #paymentsContent>
     <ng-container *ngIf="payments$ | async as payments">
 
+      <!-- Filter Tabs -->
+      <div class="filter-tabs" *ngIf="payments.length > 0">
+        <button class="filter-tab" [class.filter-tab--active]="activeFilter === 'all'" (click)="setFilter('all')">
+          All Payments
+        </button>
+        <button class="filter-tab" [class.filter-tab--active]="activeFilter === 'Completed'"
+          (click)="setFilter('Completed')">
+          Completed
+        </button>
+        <button class="filter-tab" [class.filter-tab--active]="activeFilter === 'Pending'"
+          (click)="setFilter('Pending')">
+          Pending
+        </button>
+        <button class="filter-tab" [class.filter-tab--active]="activeFilter === 'Failed'" (click)="setFilter('Failed')">
+          Failed
+        </button>
+      </div>
+
       <ng-container *ngIf="payments.length > 0; else emptyPayments">
-        <app-card title="Payment History">
+        <app-card title="Payment History" [noPadding]="true">
           <div class="table-wrapper">
             <table class="payments-table">
               <thead>
                 <tr>
                   <th>Date</th>
-                  <th>Description</th>
-                  <th>Method</th>
-                  <th>Reference</th>
+                  <th>Category</th>
+                  <th>Recipient</th>
                   <th class="text-right">Amount</th>
                   <th>Status</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let payment of payments" (click)="viewPayment(payment)" style="cursor: pointer;">
+                <tr *ngFor="let payment of getFilteredPayments(payments)" (click)="viewPayment(payment)">
                   <td class="date-cell">{{ payment.date | date:'MMM dd, yyyy' }}</td>
                   <td>
-                    <div class="desc-cell">
-                      <div class="method-icon-wrap">
-                        <lucide-icon [name]="getMethodIcon(payment.method)" [size]="15"></lucide-icon>
+                    <div class="category-cell">
+                      <div class="category-icon" [style.background]="getCategoryForPayment(payment)?.bgColor"
+                        [style.color]="getCategoryForPayment(payment)?.color">
+                        <lucide-icon [name]="getCategoryForPayment(payment)?.icon || getMethodIcon(payment.method)"
+                          [size]="16"></lucide-icon>
                       </div>
-                      {{ payment.description }}
+                      <span class="category-label">{{ getCategoryForPayment(payment)?.label || payment.description
+                        }}</span>
                     </div>
                   </td>
-                  <td class="method-cell">{{ payment.method }}</td>
-                  <td class="ref-cell">{{ payment.referenceNumber }}</td>
-                  <td class="amount-cell text-right">{{ payment.amount | currency }}</td>
+                  <td class="recipient-cell">{{ payment.referenceNumber }}</td>
+                  <td class="amount-cell text-right">-{{ payment.amount | currency:'INR':'symbol':'1.2-2' }}</td>
                   <td>
                     <span class="status-badge" [ngClass]="getStatusClass(payment.status)">
                       {{ payment.status }}
@@ -62,11 +112,9 @@
       </ng-container>
 
       <ng-template #emptyPayments>
-        <app-empty-state
-          icon="default"
-          title="No payments yet"
+        <app-empty-state icon="wallet" title="No payments yet"
           message="Your payment history will appear here once you make your first payment.">
-          <app-button variant="primary" (click)="makePayment()">Make a Payment</app-button>
+          <app-button variant="primary" (click)="makePayment()">Make Your First Payment</app-button>
         </app-empty-state>
       </ng-template>
 

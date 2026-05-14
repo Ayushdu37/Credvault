@@ -49,13 +49,9 @@
 
       <!-- Receipt Actions -->
       <div class="receipt-actions">
-        <app-button variant="secondary" style="width: 100%;">
+        <app-button variant="secondary" style="width: 100%;" (click)="downloadReceipt()">
           <lucide-icon name="download" [size]="16"></lucide-icon>
           Download Receipt
-        </app-button>
-        <app-button variant="ghost" style="width: 100%;">
-          <lucide-icon name="help-circle" [size]="16"></lucide-icon>
-          Report an Issue
         </app-button>
       </div>
 

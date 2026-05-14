@@ -12,6 +12,7 @@ import { SpinnerComponent } from '../../../shared/components/spinner/spinner.com
 import { LucideAngularModule } from 'lucide-angular';
 import { ModalService } from '../../../shared/components/modal/modal.service';
 import { ManageLimitModalComponent, ManageLimitData } from '../manage-limit-modal/manage-limit-modal.component';
+import { BillingService } from '../../billing/services/billing.service';
 
 @Component({
   selector: 'app-card-detail',
@@ -28,6 +29,7 @@ export class CardDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private modalService = inject(ModalService);
+  private billingService = inject(BillingService);
 
   loading$ = this.store.select(selectCardsLoading);
   actionLoading$ = this.store.select(selectCardsActionLoading);
@@ -43,6 +45,22 @@ export class CardDetailComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id') || '';
     this.store.dispatch(CardsActions.selectCard({ id }));
+    if (id) {
+      this.store.dispatch(CardsActions.loadCardById({ id }));
+      this.billingService.getBillsByCard(id).subscribe({
+        next: (bills) => {
+          this.cardBills = bills.map(b => ({
+            id: b.id,
+            date: b.createdAt || b.billingMonth + '-01',
+            dueDate: b.dueDate,
+            minimumDue: b.minimumDue,
+            amount: b.totalAmount,
+            status: b.status.toString() === 'Paid' || b.status === 0 ? 'Paid' : (new Date(b.dueDate) < new Date() ? 'Overdue' : 'Due')
+          }));
+        },
+        error: (err) => console.error('Failed to load bills', err)
+      });
+    }
   }
 
   goBack(): void {
@@ -130,5 +148,14 @@ export class CardDetailComponent implements OnInit {
 
   viewBill(billId: string): void {
     this.router.navigate(['/billing', billId]);
+  }
+
+  payNow(card: CreditCard): void {
+    this.router.navigate(['/payments/pay'], { 
+      queryParams: { 
+        category: 'credit', 
+        cardId: card.id 
+      } 
+    });
   }
 }

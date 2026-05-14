@@ -45,55 +45,13 @@
                 <div *ngIf="card.isVirtual" class="card-badge-virtual">Virtual</div>
               </div>
             </div>
-            <div class="locked-overlay" *ngIf="card.status === 'Locked'">
-              <lucide-icon name="lock" [size]="40"></lucide-icon>
-              <span>Card Locked</span>
-            </div>
-          </div>
-
-          <!-- Verified / Unverified Badge -->
-          <div class="verification-badge" [class.verified]="card.isVerified">
-            <lucide-icon [name]="card.isVerified ? 'shield-check' : 'shield-alert'" [size]="16"></lucide-icon>
-            {{ card.isVerified ? 'Verified' : 'Unverified' }}
-          </div>
-
           <div class="card-actions" style="display: flex; gap: 0.5rem; width: 100%; flex-wrap: wrap;">
-            <app-button 
-              [variant]="card.status === 'Locked' ? 'primary' : 'danger'"
-              (click)="toggleLock(card)"
-              [disabled]="(actionLoading$ | async) === true"
-              style="flex: 1;">
-              <lucide-icon [name]="card.status === 'Locked' ? 'lock-open' : 'lock'" [size]="16"></lucide-icon>
-              {{ card.status === 'Locked' ? 'Unlock' : 'Lock' }}
-            </app-button>
-
             <app-button 
               variant="secondary"
               (click)="manageLimit(card)"
               style="flex: 1;">
               <lucide-icon name="sliders" [size]="16"></lucide-icon>
-              Limit
-            </app-button>
-
-            <app-button 
-              variant="ghost"
-              (click)="setDefault(card)"
-              [disabled]="card.isDefault || (actionLoading$ | async) === true"
-              style="flex: 1;">
-              <lucide-icon [name]="card.isDefault ? 'star' : 'star'" [size]="16"></lucide-icon>
-              {{ card.isDefault ? 'Default' : 'Set Default' }}
-            </app-button>
-          </div>
-
-          <div class="card-actions-secondary" style="display: flex; gap: 0.5rem; width: 100%; margin-top: 0.5rem;">
-            <app-button 
-              *ngIf="!card.isVerified"
-              variant="primary"
-              (click)="verifyCard(card)"
-              [disabled]="(actionLoading$ | async) === true"
-              style="flex: 1;">
-              <lucide-icon name="shield-check" [size]="16"></lucide-icon>
-              Verify Card
+              Manage Limit
             </app-button>
 
             <app-button 
@@ -106,6 +64,7 @@
             </app-button>
           </div>
         </div>
+      </div>
 
         <!-- Card Stats Column -->
         <div class="stats-col">
@@ -123,6 +82,17 @@
                 <div class="stat-label">Available Credit</div>
                 <div class="stat-value text-success">{{ (card.creditLimit - card.currentBalance) | currency }}</div>
               </div>
+            </div>
+
+            <div class="pay-action-row" style="margin: 1.5rem 0 0.5rem 0;">
+              <app-button 
+                variant="primary" 
+                [fullWidth]="true"
+                (click)="payNow(card)"
+                [disabled]="card.currentBalance <= 0">
+                <lucide-icon name="wallet" [size]="18"></lucide-icon>
+                Pay Outstanding Bill
+              </app-button>
             </div>
 
             <div class="util-section">

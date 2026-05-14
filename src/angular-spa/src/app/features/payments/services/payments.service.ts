@@ -2,8 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { ApiService } from '../../../core/services/api.service';
-import { PaymentResponse, MakePaymentRequest } from '../../../core/models/payment.model';
-import { PaginatedResponse } from '../../../core/models/api-response.model';
+import { 
+  PaymentResponse, 
+  MakePaymentRequest
+} from '../../../core/models/payment.model';
+import { PaginatedResponse, ApiResponse } from '../../../core/models/api-response.model';
 
 @Injectable({ providedIn: 'root' })
 export class PaymentsService {
@@ -35,8 +38,8 @@ export class PaymentsService {
       );
   }
 
-  makePayment(payload: MakePaymentRequest): Observable<PaymentResponse> {
-    return this.api.post<PaymentResponse>('/api/payments', payload)
+  makePayment(payload: MakePaymentRequest): Observable<string> {
+    return this.api.post<string>('/api/payments', payload)
       .pipe(
         map(res => res.data!)
       );

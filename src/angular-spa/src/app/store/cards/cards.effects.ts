@@ -24,6 +24,23 @@ export const loadCards$ = createEffect(
   { functional: true }
 );
 
+export const loadCardById$ = createEffect(
+  (actions$ = inject(Actions), cardsService = inject(CardsService)) =>
+    actions$.pipe(
+      ofType(CardsActions.loadCardById),
+      switchMap(({ id }) =>
+        cardsService.getCardById(id).pipe(
+          map(res => {
+            const card = mapCardResponseToCreditCard(res);
+            return CardsActions.loadCardByIdSuccess({ card });
+          }),
+          catchError(err => of(CardsActions.loadCardByIdFailure({ error: err.message })))
+        )
+      )
+    ),
+  { functional: true }
+);
+
 export const setDefaultCard$ = createEffect(
   (actions$ = inject(Actions), cardsService = inject(CardsService)) =>
     actions$.pipe(

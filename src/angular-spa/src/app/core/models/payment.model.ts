@@ -115,7 +115,8 @@ export interface MakePaymentRequest {
   billId: string;
   cardId: string;
   amount: number;
-  paymentMethodId: string;
+  paymentMethod: number;
+  transactionReference?: string;
 }
 
 export interface AddPaymentMethodRequest {

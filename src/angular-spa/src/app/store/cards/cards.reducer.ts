@@ -44,6 +44,14 @@ export const cardsReducer = createReducer(
     ...state, selectedId: id,
   })),
 
+  on(CardsActions.loadCardById, (state) => ({ ...state, loading: true })),
+  on(CardsActions.loadCardByIdSuccess, (state, { card }) =>
+    cardsAdapter.upsertOne(card, { ...state, loading: false })
+  ),
+  on(CardsActions.loadCardByIdFailure, (state, { error }) => ({
+    ...state, loading: false, error,
+  })),
+
   on(CardsActions.setDefaultCard, (state) => ({ ...state, actionLoading: true })),
   on(CardsActions.setDefaultCardSuccess, (state, { id }) => {
     const allIds = state.ids as string[];

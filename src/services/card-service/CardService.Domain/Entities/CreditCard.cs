@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -100,7 +100,7 @@ namespace CardService.Domain.Entities
 
         public void UpdateOutstandingBalance(decimal amount)
         {
-            OutstandingBalance += amount;
+            OutstandingBalance = Math.Max(0, OutstandingBalance + amount);
             UpdatedAt = DateTime.UtcNow;
         }
 

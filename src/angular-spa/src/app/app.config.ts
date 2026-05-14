@@ -1,6 +1,10 @@
-import { ApplicationConfig, isDevMode, importProvidersFrom } from '@angular/core';
+import { ApplicationConfig, isDevMode, importProvidersFrom, LOCALE_ID, DEFAULT_CURRENCY_CODE } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeIn from '@angular/common/locales/en-IN';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
+
+registerLocaleData(localeIn);
 import { provideStore, provideState } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
@@ -31,7 +35,8 @@ import {
   FileText, AlertCircle, Monitor, Tv, Coffee, ShoppingBag, Plane,
   Landmark, Smartphone, Send, CheckCircle, ShieldCheck, Clock,
   Info, TrendingUp, ShieldAlert, Calendar, Crown, Mail, Check, Trash2,
-  Star, History, Percent, Box, Shield, Loader2, Sun, Moon,
+  Star, History, Percent, Box, Shield, Loader2, Sun, Moon, Zap, Droplet, Home, Copy,
+  HandMetal, Download,
 } from 'lucide-angular';
 
 export const appConfig: ApplicationConfig = {
@@ -43,7 +48,8 @@ export const appConfig: ApplicationConfig = {
       FileText, AlertCircle, Monitor, Tv, Coffee, ShoppingBag, Plane,
       Landmark, Smartphone, Send, CheckCircle, ShieldCheck, Clock,
       Info, TrendingUp, ShieldAlert, Calendar, Crown, Mail, Check, Trash2,
-      Star, History, Percent, Box, Shield, Loader2, Sun, Moon,
+      Star, History, Percent, Box, Shield, Loader2, Sun, Moon, Zap, Droplet, Home, Copy,
+      HandMetal, Download,
     })),
     provideRouter(routes),
     provideHttpClient(withInterceptors([authInterceptor, errorInterceptor])),
@@ -57,5 +63,7 @@ export const appConfig: ApplicationConfig = {
     provideState('rewards', rewardsReducer),
     provideEffects(authEffects, dashboardEffects, cardsEffects, billingEffects, paymentsEffects, notificationsEffects, paymentMethodsEffects, rewardsEffects),
     provideStoreDevtools({ maxAge: 25, logOnly: isDevMode() }),
+    { provide: LOCALE_ID, useValue: 'en-IN' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'INR' },
   ],
 };

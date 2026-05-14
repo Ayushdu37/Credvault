@@ -1,0 +1,48 @@
+2026-05-14 14:17:55.312 +05:30 [INF] Configured endpoint PaymentCompleted, Consumer: NotificationService.Infrastructure.Messaging.Consumers.PaymentCompletedConsumer {"SourceContext":"MassTransit"}
+2026-05-14 14:17:55.527 +05:30 [INF] Configured endpoint PaymentFailed, Consumer: NotificationService.Infrastructure.Messaging.Consumers.PaymentFailedConsumer {"SourceContext":"MassTransit"}
+2026-05-14 14:17:55.883 +05:30 [INF] Configured endpoint OTPRequested, Consumer: NotificationService.Infrastructure.Messaging.Consumers.OTPRequestedConsumer {"SourceContext":"MassTransit"}
+2026-05-14 14:17:56.112 +05:30 [INF] Configured endpoint UserRegistered, Consumer: NotificationService.Infrastructure.Messaging.Consumers.UserRegisteredConsumer {"SourceContext":"MassTransit"}
+2026-05-14 14:17:58.316 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-05-14 14:29:37.094 +05:30 [INF] Configured endpoint PaymentCompleted, Consumer: NotificationService.Infrastructure.Messaging.Consumers.PaymentCompletedConsumer {"SourceContext":"MassTransit"}
+2026-05-14 14:29:37.408 +05:30 [INF] Configured endpoint PaymentFailed, Consumer: NotificationService.Infrastructure.Messaging.Consumers.PaymentFailedConsumer {"SourceContext":"MassTransit"}
+2026-05-14 14:29:37.417 +05:30 [INF] Configured endpoint OTPRequested, Consumer: NotificationService.Infrastructure.Messaging.Consumers.OTPRequestedConsumer {"SourceContext":"MassTransit"}
+2026-05-14 14:29:37.421 +05:30 [INF] Configured endpoint UserRegistered, Consumer: NotificationService.Infrastructure.Messaging.Consumers.UserRegisteredConsumer {"SourceContext":"MassTransit"}
+2026-05-14 14:29:41.856 +05:30 [WRN] Connection Failed: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Reached the end of the stream. Possible authentication failure.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFrom(Stream reader, Byte[] frameHeaderBuffer, ArrayPool`1 pool, UInt32 maxMessageSize)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ReadFrame()
+   at RabbitMQ.Client.Framing.Impl.Connection.MainLoopIteration()
+   at RabbitMQ.Client.Framing.Impl.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Impl.Connection.StartAndTune()
+   at RabbitMQ.Client.Framing.Impl.Connection.Open(Boolean insist)
+   at RabbitMQ.Client.Framing.Impl.Connection..ctor(IConnectionFactory factory, Boolean insist, IFrameHandler frameHandler, String clientProvidedName)
+   at RabbitMQ.Client.Framing.Impl.Connection..ctor(IConnectionFactory factory, Boolean insist, IFrameHandler frameHandler, ArrayPool`1 memoryPool, String clientProvidedName)
+   at RabbitMQ.Client.Framing.Impl.ProtocolBase.CreateConnection(IConnectionFactory factory, Boolean insist, IFrameHandler frameHandler, ArrayPool`1 memoryPool, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 85
+2026-05-14 14:29:50.176 +05:30 [WRN] Connection Failed: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Reached the end of the stream. Possible authentication failure.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFrom(Stream reader, Byte[] frameHeaderBuffer, ArrayPool`1 pool, UInt32 maxMessageSize)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ReadFrame()
+   at RabbitMQ.Client.Framing.Impl.Connection.MainLoopIteration()
+   at RabbitMQ.Client.Framing.Impl.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Impl.Connection.StartAndTune()
+   at RabbitMQ.Client.Framing.Impl.Connection.Open(Boolean insist)
+   at RabbitMQ.Client.Framing.Impl.Connection..ctor(IConnectionFactory factory, Boolean insist, IFrameHandler frameHandler, String clientProvidedName)
+   at RabbitMQ.Client.Framing.Impl.Connection..ctor(IConnectionFactory factory, Boolean insist, IFrameHandler frameHandler, ArrayPool`1 memoryPool, String clientProvidedName)
+   at RabbitMQ.Client.Framing.Impl.ProtocolBase.CreateConnection(IConnectionFactory factory, Boolean insist, IFrameHandler frameHandler, ArrayPool`1 memoryPool, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 85
+2026-05-14 14:30:01.272 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}

@@ -1,0 +1,151 @@
+@startuml LLD_Full_Project
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam roundCorner 10
+
+title CredVault - Full Project Low Level Design (LLD)
+
+package "Identity Service" #E1F5FE {
+    interface IUserRepository {
+        + GetByEmailAsync(email: string): Task<User>
+        + AddAsync(user: User): Task
+    }
+    interface ITokenService {
+        + GenerateTokens(user: User): Task<TokenResponse>
+        + ValidateRefreshToken(token: string): Task<bool>
+    }
+    class PasswordHasher {
+        + Hash(password: string): string
+        + Verify(hash: string, password: string): bool
+    }
+    class LoginUserCommandHandler {
+        - _userRepo: IUserRepository
+        - _tokenService: ITokenService
+        - _hasher: PasswordHasher
+        + Handle(command: LoginUserCommand): Task<TokenResponse>
+    }
+    class User <<Entity>> {
+        + Email: string
+        + Name: string
+        + FullName: string
+        + SetPassword(hash: string)
+    }
+}
+
+package "Card Service" #F1F8E9 {
+    interface ICreditCardRepository {
+        + GetByIdAsync(id: Guid): Task<CreditCard>
+        + GetByUserIdAsync(userId: Guid): Task<IEnumerable<CreditCard>>
+    }
+    class CardHasher {
+        + HashCardNumber(number: string): string
+        + MaskCardNumber(number: string): string
+    }
+    class AddCardCommandHandler {
+        - _repo: ICreditCardRepository
+        - _hasher: CardHasher
+        + Handle(cmd: AddCardCommand): Task<Guid>
+    }
+    class CreditCard <<Entity>> {
+        + OutstandingBalance: decimal
+        + CreditLimit: decimal
+        + UpdateOutstandingBalance(amount: decimal)
+    }
+    class CardPaymentCompletedConsumer {
+        - _repo: ICreditCardRepository
+        + Consume(context: ConsumeContext<PaymentCompletedEvent>)
+    }
+}
+
+package "Payment Service" #FFF3E0 {
+    interface IPaymentRepository {
+        + AddAsync(payment: Payment): Task
+        + GetByIdAsync(id: Guid): Task<Payment>
+    }
+    class MakePaymentCommandHandler {
+        - _repo: IPaymentRepository
+        - _publisher: IEventPublisher
+        + Handle(cmd: MakePaymentCommand): Task<Guid>
+    }
+    class Payment <<Entity>> {
+        + Amount: decimal
+        + Status: string
+        + MarkCompleted()
+    }
+}
+
+package "Billing Service" #F3E5F5 {
+    interface IBillRepository {
+        + GetByCardIdAsync(cardId: Guid): Task<IEnumerable<Bill>>
+        + AddAsync(bill: Bill): Task
+    }
+    interface IRewardRepository {
+        + GetAccountByUserId(userId: Guid): Task<RewardAccount>
+        + RecordTransaction(tx: RewardTransaction): Task
+    }
+    class GenerateBillCommandHandler {
+        - _billRepo: IBillRepository
+        - _cardRepo: ICreditCardRepository
+        + Handle(cmd: GenerateBillCommand): Task
+    }
+    class Bill <<Entity>> {
+        + TotalAmount: decimal
+        + DueDate: DateTime
+        + ApplyPayment(amount: decimal)
+    }
+    class BillingPaymentCompletedConsumer {
+        - _billRepo: IBillRepository
+        - _rewardRepo: IRewardRepository
+        + Consume(context: ConsumeContext<PaymentCompletedEvent>)
+    }
+}
+
+package "Notification Service" #FFEBEE {
+    interface IEmailService {
+        + SendEmailAsync(to: string, subject: string, body: string): Task
+    }
+    interface INotificationRepository {
+        + AddAsync(notif: Notification): Task
+        + GetUnreadCount(userId: Guid): Task<int>
+    }
+    class EmailService {
+        - _smtpClient: ISmtpClient
+        + SendOTPAsync(email: string, code: string)
+    }
+    class NotificationCompletedConsumer {
+        - _repo: INotificationRepository
+        - _email: IEmailService
+        + Consume(context: ConsumeContext<PaymentCompletedEvent>)
+    }
+}
+
+package "Infrastructure / Shared" #ECEFF1 {
+    interface IEventPublisher {
+        + PublishAsync<T>(message: T): Task
+    }
+    class OcelotGateway {
+        + RouteRequest(req: HttpRequest): Task<HttpResponse>
+    }
+}
+
+' Connections - Application Logic
+LoginUserCommandHandler --> IUserRepository
+LoginUserCommandHandler --> ITokenService
+LoginUserCommandHandler --> PasswordHasher
+
+AddCardCommandHandler --> ICreditCardRepository
+AddCardCommandHandler --> CardHasher
+
+MakePaymentCommandHandler --> IPaymentRepository
+MakePaymentCommandHandler --> IEventPublisher
+
+GenerateBillCommandHandler --> IBillRepository
+
+' Cross-service Messaging
+CardPaymentCompletedConsumer ..> ICreditCardRepository : updates balance
+BillingPaymentCompletedConsumer ..> IBillRepository : marks as paid
+BillingPaymentCompletedConsumer ..> IRewardRepository : awards points
+NotificationCompletedConsumer ..> INotificationRepository : creates record
+NotificationCompletedConsumer ..> IEmailService : sends alert
+
+@enduml

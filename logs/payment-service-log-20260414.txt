@@ -1,0 +1,503 @@
+2026-04-14 05:40:03.167 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 05:40:03.590 +05:30 [INF] HTTP GET /swagger responded 301 in 35.3716 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEB:00000001","ConnectionId":"0HNKPN8LVNVEB"}
+2026-04-14 05:40:04.620 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 385.0661 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEB:00000002","ConnectionId":"0HNKPN8LVNVEB"}
+2026-04-14 05:40:05.500 +05:30 [INF] HTTP GET /swagger/index.css responded 200 in 209.4241 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVED:00000001","ConnectionId":"0HNKPN8LVNVED"}
+2026-04-14 05:40:05.746 +05:30 [INF] HTTP GET /swagger/swagger-ui.css responded 200 in 454.4192 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEE:00000001","ConnectionId":"0HNKPN8LVNVEE"}
+2026-04-14 05:40:05.996 +05:30 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 705.7665 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEC:00000001","ConnectionId":"0HNKPN8LVNVEC"}
+2026-04-14 05:40:07.324 +05:30 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 200 in 27.0998 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVED:00000002","ConnectionId":"0HNKPN8LVNVED"}
+2026-04-14 05:40:07.564 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 7.0760 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEE:00000002","ConnectionId":"0HNKPN8LVNVEE"}
+2026-04-14 05:40:13.411 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 33.7465 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVED:00000004","ConnectionId":"0HNKPN8LVNVED"}
+2026-04-14 05:44:33.073 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"153efd61-b7a1-49bd-b811-60b9dfe055a1","ActionName":"PaymentService.API.Controllers.PaymentsController.GetPayments (PaymentService.API)","RequestId":"0HNKPN8LVNVEF:00000001","RequestPath":"/api/payments","ConnectionId":"0HNKPN8LVNVEF"}
+2026-04-14 05:44:39.785 +05:30 [INF] HTTP GET /api/payments responded 200 in 10504.3619 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEF:00000001","ConnectionId":"0HNKPN8LVNVEF"}
+2026-04-14 05:44:56.500 +05:30 [INF] HTTP GET /api/payments responded 200 in 140.4328 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEF:00000002","ConnectionId":"0HNKPN8LVNVEF"}
+2026-04-14 05:45:07.031 +05:30 [INF] HTTP GET /api/payments responded 200 in 63.5365 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEF:00000003","ConnectionId":"0HNKPN8LVNVEF"}
+2026-04-14 05:46:13.872 +05:30 [INF] HTTP GET /api/payments responded 200 in 213.2495 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEF:00000004","ConnectionId":"0HNKPN8LVNVEF"}
+2026-04-14 05:50:17.487 +05:30 [INF] HTTP GET /api/payments responded 200 in 1226.2842 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEG:00000001","ConnectionId":"0HNKPN8LVNVEG"}
+2026-04-14 05:50:21.845 +05:30 [INF] HTTP GET /api/payments responded 200 in 25.8046 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEG:00000002","ConnectionId":"0HNKPN8LVNVEG"}
+2026-04-14 05:50:33.582 +05:30 [INF] HTTP GET /api/payments responded 200 in 15.5572 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEG:00000003","ConnectionId":"0HNKPN8LVNVEG"}
+2026-04-14 05:57:23.209 +05:30 [INF] HTTP GET /api/payments responded 200 in 705.1905 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEH:00000001","ConnectionId":"0HNKPN8LVNVEH"}
+2026-04-14 05:57:27.942 +05:30 [INF] HTTP GET /api/payments responded 200 in 32.9673 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEH:00000002","ConnectionId":"0HNKPN8LVNVEH"}
+2026-04-14 06:12:06.560 +05:30 [INF] HTTP GET /api/payments responded 200 in 681.8483 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEI:00000001","ConnectionId":"0HNKPN8LVNVEI"}
+2026-04-14 06:12:10.066 +05:30 [INF] HTTP GET /api/payments responded 200 in 36.8479 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEI:00000002","ConnectionId":"0HNKPN8LVNVEI"}
+2026-04-14 06:12:41.941 +05:30 [INF] HTTP POST /api/payments responded 400 in 302.0141 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEI:00000003","ConnectionId":"0HNKPN8LVNVEI"}
+2026-04-14 06:15:54.231 +05:30 [INF] HTTP GET /api/payments responded 200 in 1172.2858 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEJ:00000001","ConnectionId":"0HNKPN8LVNVEJ"}
+2026-04-14 06:17:40.662 +05:30 [INF] HTTP GET /api/payments responded 200 in 568.4441 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEK:00000001","ConnectionId":"0HNKPN8LVNVEK"}
+2026-04-14 06:17:43.313 +05:30 [INF] HTTP GET /api/payments responded 200 in 28.8221 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEK:00000002","ConnectionId":"0HNKPN8LVNVEK"}
+2026-04-14 06:18:03.063 +05:30 [INF] Saga started: PaymentId="ea980207-876d-4638-ae31-7a99bad50aec", Status=Processing {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"5a5b7d86-8def-4e04-8688-0ab1e0773a49","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPN8LVNVEK:00000003","RequestPath":"/api/payments","ConnectionId":"0HNKPN8LVNVEK"}
+2026-04-14 06:18:03.687 +05:30 [INF] Saga success: PaymentId="ea980207-876d-4638-ae31-7a99bad50aec", Status=Completed {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"5a5b7d86-8def-4e04-8688-0ab1e0773a49","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPN8LVNVEK:00000003","RequestPath":"/api/payments","ConnectionId":"0HNKPN8LVNVEK"}
+2026-04-14 06:18:04.193 +05:30 [INF] HTTP POST /api/payments responded 200 in 1919.4768 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEK:00000003","ConnectionId":"0HNKPN8LVNVEK"}
+2026-04-14 06:18:22.144 +05:30 [INF] Saga started: PaymentId="9e62a26e-cc60-4717-84e4-8755d09a89cd", Status=Processing {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"5a5b7d86-8def-4e04-8688-0ab1e0773a49","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPN8LVNVEK:00000004","RequestPath":"/api/payments","ConnectionId":"0HNKPN8LVNVEK"}
+2026-04-14 06:18:22.665 +05:30 [INF] Saga success: PaymentId="9e62a26e-cc60-4717-84e4-8755d09a89cd", Status=Completed {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"5a5b7d86-8def-4e04-8688-0ab1e0773a49","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPN8LVNVEK:00000004","RequestPath":"/api/payments","ConnectionId":"0HNKPN8LVNVEK"}
+2026-04-14 06:18:22.682 +05:30 [INF] HTTP POST /api/payments responded 200 in 598.6104 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEK:00000004","ConnectionId":"0HNKPN8LVNVEK"}
+2026-04-14 06:20:41.528 +05:30 [INF] HTTP GET /api/payments responded 200 in 438.9747 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEL:00000001","ConnectionId":"0HNKPN8LVNVEL"}
+2026-04-14 06:21:06.908 +05:30 [INF] HTTP GET /api/payments responded 200 in 389.2932 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEL:00000002","ConnectionId":"0HNKPN8LVNVEL"}
+2026-04-14 06:21:16.108 +05:30 [INF] HTTP GET /api/payments responded 200 in 22.2116 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEL:00000003","ConnectionId":"0HNKPN8LVNVEL"}
+2026-04-14 06:21:17.917 +05:30 [INF] HTTP GET /api/payments responded 200 in 45.4421 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEL:00000004","ConnectionId":"0HNKPN8LVNVEL"}
+2026-04-14 06:21:36.242 +05:30 [INF] HTTP GET /api/payments responded 200 in 13.2997 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEL:00000005","ConnectionId":"0HNKPN8LVNVEL"}
+2026-04-14 06:21:52.587 +05:30 [INF] HTTP GET /api/payments responded 200 in 7.1017 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEL:00000006","ConnectionId":"0HNKPN8LVNVEL"}
+2026-04-14 06:21:55.695 +05:30 [INF] HTTP GET /api/payments responded 200 in 6.6251 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEL:00000007","ConnectionId":"0HNKPN8LVNVEL"}
+2026-04-14 06:22:21.251 +05:30 [INF] Saga started: PaymentId="14adde7f-837c-4879-8fc8-e94ba5f4eefa", Status=Processing {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"5a5b7d86-8def-4e04-8688-0ab1e0773a49","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPN8LVNVEL:00000008","RequestPath":"/api/payments","ConnectionId":"0HNKPN8LVNVEL"}
+2026-04-14 06:22:21.782 +05:30 [INF] Saga success: PaymentId="14adde7f-837c-4879-8fc8-e94ba5f4eefa", Status=Completed {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"5a5b7d86-8def-4e04-8688-0ab1e0773a49","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPN8LVNVEL:00000008","RequestPath":"/api/payments","ConnectionId":"0HNKPN8LVNVEL"}
+2026-04-14 06:22:21.840 +05:30 [INF] HTTP POST /api/payments responded 200 in 678.0482 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEL:00000008","ConnectionId":"0HNKPN8LVNVEL"}
+2026-04-14 06:22:25.608 +05:30 [INF] HTTP GET /api/payments responded 200 in 8.1321 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEL:00000009","ConnectionId":"0HNKPN8LVNVEL"}
+2026-04-14 06:22:34.202 +05:30 [INF] HTTP GET /api/payments responded 200 in 7.4832 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEL:0000000A","ConnectionId":"0HNKPN8LVNVEL"}
+2026-04-14 06:22:37.651 +05:30 [INF] HTTP GET /api/payments responded 200 in 18.1338 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEL:0000000B","ConnectionId":"0HNKPN8LVNVEL"}
+2026-04-14 06:22:44.802 +05:30 [INF] HTTP GET /api/payments responded 200 in 9.3131 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEM:00000001","ConnectionId":"0HNKPN8LVNVEM"}
+2026-04-14 06:23:05.511 +05:30 [INF] HTTP GET /api/payments responded 200 in 13.8804 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEM:00000002","ConnectionId":"0HNKPN8LVNVEM"}
+2026-04-14 06:23:23.224 +05:30 [INF] HTTP GET /api/payments responded 200 in 23.2127 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEM:00000003","ConnectionId":"0HNKPN8LVNVEM"}
+2026-04-14 06:23:29.513 +05:30 [INF] HTTP GET /api/payments responded 200 in 14.1011 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEM:00000004","ConnectionId":"0HNKPN8LVNVEM"}
+2026-04-14 06:24:56.439 +05:30 [INF] HTTP GET /api/payments responded 200 in 31.6966 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEN:00000001","ConnectionId":"0HNKPN8LVNVEN"}
+2026-04-14 06:26:21.083 +05:30 [INF] HTTP GET /api/payments responded 200 in 84.5294 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEO:00000001","ConnectionId":"0HNKPN8LVNVEO"}
+2026-04-14 06:26:36.275 +05:30 [INF] HTTP GET /api/payments responded 200 in 78.6611 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEO:00000002","ConnectionId":"0HNKPN8LVNVEO"}
+2026-04-14 06:35:25.445 +05:30 [INF] HTTP GET /api/payments responded 200 in 515.1050 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEP:00000001","ConnectionId":"0HNKPN8LVNVEP"}
+2026-04-14 06:35:34.627 +05:30 [INF] HTTP GET /api/payments responded 200 in 25.9773 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEP:00000002","ConnectionId":"0HNKPN8LVNVEP"}
+2026-04-14 06:35:48.023 +05:30 [INF] HTTP GET /api/payments responded 200 in 16.8244 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEP:00000003","ConnectionId":"0HNKPN8LVNVEP"}
+2026-04-14 06:36:11.646 +05:30 [INF] Saga started: PaymentId="1716d527-9f10-4af7-831f-ca377f6da905", Status=Processing {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"5a5b7d86-8def-4e04-8688-0ab1e0773a49","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPN8LVNVEP:00000004","RequestPath":"/api/payments","ConnectionId":"0HNKPN8LVNVEP"}
+2026-04-14 06:36:12.185 +05:30 [INF] Saga success: PaymentId="1716d527-9f10-4af7-831f-ca377f6da905", Status=Completed {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"5a5b7d86-8def-4e04-8688-0ab1e0773a49","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPN8LVNVEP:00000004","RequestPath":"/api/payments","ConnectionId":"0HNKPN8LVNVEP"}
+2026-04-14 06:36:12.306 +05:30 [INF] HTTP POST /api/payments responded 200 in 753.1544 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEP:00000004","ConnectionId":"0HNKPN8LVNVEP"}
+2026-04-14 06:36:13.871 +05:30 [INF] HTTP GET /api/payments responded 200 in 15.0787 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEP:00000005","ConnectionId":"0HNKPN8LVNVEP"}
+2026-04-14 06:36:18.517 +05:30 [INF] HTTP GET /api/payments responded 200 in 20.2224 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEP:00000006","ConnectionId":"0HNKPN8LVNVEP"}
+2026-04-14 06:36:34.562 +05:30 [INF] HTTP GET /api/payments responded 200 in 16.3177 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEP:00000007","ConnectionId":"0HNKPN8LVNVEP"}
+2026-04-14 06:36:40.611 +05:30 [INF] HTTP GET /api/payments responded 200 in 24.1926 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPN8LVNVEP:00000008","ConnectionId":"0HNKPN8LVNVEP"}
+2026-04-14 06:48:24.869 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 06:48:27.476 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 576.9009 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1G:00000001","ConnectionId":"0HNKPOES8OQ1G"}
+2026-04-14 06:48:27.816 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 6.7798 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1G:00000002","ConnectionId":"0HNKPOES8OQ1G"}
+2026-04-14 06:48:29.349 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 133.3328 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1H:00000002","ConnectionId":"0HNKPOES8OQ1H"}
+2026-04-14 06:48:32.348 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 48.3241 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1H:00000004","ConnectionId":"0HNKPOES8OQ1H"}
+2026-04-14 06:50:18.257 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"e6b4337a-3852-4edf-b21f-e953afa48e9f","ActionName":"PaymentService.API.Controllers.PaymentsController.GetPayments (PaymentService.API)","RequestId":"0HNKPOES8OQ1J:00000001","RequestPath":"/api/payments","ConnectionId":"0HNKPOES8OQ1J"}
+2026-04-14 06:50:22.564 +05:30 [INF] HTTP GET /api/payments responded 200 in 5155.6678 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1J:00000001","ConnectionId":"0HNKPOES8OQ1J"}
+2026-04-14 06:51:07.202 +05:30 [INF] HTTP GET /api/payments responded 200 in 132.4032 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1J:00000002","ConnectionId":"0HNKPOES8OQ1J"}
+2026-04-14 07:06:05.665 +05:30 [INF] HTTP GET /api/payments responded 200 in 1230.1431 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1K:00000001","ConnectionId":"0HNKPOES8OQ1K"}
+2026-04-14 07:06:11.252 +05:30 [INF] HTTP GET /api/payments responded 200 in 27.7276 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1K:00000002","ConnectionId":"0HNKPOES8OQ1K"}
+2026-04-14 07:06:16.190 +05:30 [INF] HTTP GET /api/payments responded 200 in 32.6283 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1K:00000003","ConnectionId":"0HNKPOES8OQ1K"}
+2026-04-14 07:07:11.397 +05:30 [INF] Saga started: PaymentId="1b5cba29-4c47-4e2f-bc5f-50644b070096", Status=Processing {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"21648c1b-6faa-462b-b75c-6e2308f4d57a","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPOES8OQ1K:00000004","RequestPath":"/api/payments","ConnectionId":"0HNKPOES8OQ1K"}
+2026-04-14 07:07:11.943 +05:30 [INF] Saga success: PaymentId="1b5cba29-4c47-4e2f-bc5f-50644b070096", Status=Completed {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"21648c1b-6faa-462b-b75c-6e2308f4d57a","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPOES8OQ1K:00000004","RequestPath":"/api/payments","ConnectionId":"0HNKPOES8OQ1K"}
+2026-04-14 07:07:12.396 +05:30 [INF] HTTP POST /api/payments responded 200 in 1647.7677 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1K:00000004","ConnectionId":"0HNKPOES8OQ1K"}
+2026-04-14 07:07:12.538 +05:30 [INF] HTTP GET /api/payments responded 200 in 24.9259 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1K:00000005","ConnectionId":"0HNKPOES8OQ1K"}
+2026-04-14 07:07:14.493 +05:30 [INF] HTTP GET /api/payments responded 200 in 11.9522 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1K:00000006","ConnectionId":"0HNKPOES8OQ1K"}
+2026-04-14 07:07:19.386 +05:30 [INF] HTTP GET /api/payments responded 200 in 21.6682 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1K:00000007","ConnectionId":"0HNKPOES8OQ1K"}
+2026-04-14 07:07:53.322 +05:30 [INF] HTTP GET /api/payments responded 200 in 23.8848 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1K:00000008","ConnectionId":"0HNKPOES8OQ1K"}
+2026-04-14 07:07:55.768 +05:30 [INF] HTTP GET /api/payments responded 200 in 10.9801 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1K:00000009","ConnectionId":"0HNKPOES8OQ1K"}
+2026-04-14 07:08:31.999 +05:30 [INF] HTTP GET /api/payments responded 200 in 15.3950 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1L:00000001","ConnectionId":"0HNKPOES8OQ1L"}
+2026-04-14 07:09:42.853 +05:30 [INF] HTTP GET /api/payments responded 200 in 119.1393 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1L:00000002","ConnectionId":"0HNKPOES8OQ1L"}
+2026-04-14 07:09:49.816 +05:30 [INF] HTTP GET /api/payments responded 200 in 16.2814 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPOES8OQ1L:00000003","ConnectionId":"0HNKPOES8OQ1L"}
+2026-04-14 07:19:36.518 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 07:19:39.383 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 250.8121 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHQ5KA:00000001","ConnectionId":"0HNKPP0AHQ5KA"}
+2026-04-14 07:19:40.147 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 113.1298 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHQ5KB:00000001","ConnectionId":"0HNKPP0AHQ5KB"}
+2026-04-14 07:19:41.250 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 111.3715 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHQ5KA:00000005","ConnectionId":"0HNKPP0AHQ5KA"}
+2026-04-14 07:19:43.422 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 13.2826 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHQ5KA:00000006","ConnectionId":"0HNKPP0AHQ5KA"}
+2026-04-14 07:21:03.881 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"b947a24f-19e7-460c-b6c8-e67a9c354e0e","ActionName":"PaymentService.API.Controllers.PaymentsController.GetPayments (PaymentService.API)","RequestId":"0HNKPP0AHQ5KC:00000001","RequestPath":"/api/payments","ConnectionId":"0HNKPP0AHQ5KC"}
+2026-04-14 07:21:07.231 +05:30 [INF] HTTP GET /api/payments responded 200 in 4099.3036 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHQ5KC:00000001","ConnectionId":"0HNKPP0AHQ5KC"}
+2026-04-14 07:21:23.998 +05:30 [INF] HTTP GET /api/payments responded 200 in 115.8523 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHQ5KC:00000002","ConnectionId":"0HNKPP0AHQ5KC"}
+2026-04-14 07:21:25.694 +05:30 [INF] HTTP GET /api/payments/1b5cba29-4c47-4e2f-bc5f-50644b070096 responded 200 in 152.2915 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHQ5KC:00000003","ConnectionId":"0HNKPP0AHQ5KC"}
+2026-04-14 07:21:36.064 +05:30 [INF] HTTP GET /api/payments responded 200 in 23.9104 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHQ5KC:00000004","ConnectionId":"0HNKPP0AHQ5KC"}
+2026-04-14 07:21:37.315 +05:30 [INF] HTTP GET /api/payments/1b5cba29-4c47-4e2f-bc5f-50644b070096 responded 200 in 8.6596 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHQ5KC:00000005","ConnectionId":"0HNKPP0AHQ5KC"}
+2026-04-14 07:22:35.549 +05:30 [INF] HTTP GET /api/payments responded 200 in 16.2147 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHQ5KC:00000006","ConnectionId":"0HNKPP0AHQ5KC"}
+2026-04-14 07:22:38.648 +05:30 [INF] HTTP GET /api/payments responded 200 in 76.4245 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP0AHQ5KC:00000007","ConnectionId":"0HNKPP0AHQ5KC"}
+2026-04-14 07:30:59.742 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 07:30:59.982 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 366.6263 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LJ5T5O:00000001","ConnectionId":"0HNKPP6LJ5T5O"}
+2026-04-14 07:31:02.111 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 36.0750 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LJ5T5O:00000002","ConnectionId":"0HNKPP6LJ5T5O"}
+2026-04-14 07:31:05.174 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 22.0907 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LJ5T5O:00000003","ConnectionId":"0HNKPP6LJ5T5O"}
+2026-04-14 07:32:25.572 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"06e2c2a7-1840-4149-bada-6b0e06ad850d","ActionName":"PaymentService.API.Controllers.PaymentsController.GetPayments (PaymentService.API)","RequestId":"0HNKPP6LJ5T5R:00000001","RequestPath":"/api/payments","ConnectionId":"0HNKPP6LJ5T5R"}
+2026-04-14 07:32:29.079 +05:30 [INF] HTTP GET /api/payments responded 200 in 4216.7657 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LJ5T5R:00000001","ConnectionId":"0HNKPP6LJ5T5R"}
+2026-04-14 07:33:17.408 +05:30 [INF] Saga started: PaymentId="cdfdc27d-5284-40b6-97e0-da287bdfe234", Status=Processing {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"2c812126-1757-48a2-9150-a27f462bf604","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPP6LJ5T5R:00000002","RequestPath":"/api/payments","ConnectionId":"0HNKPP6LJ5T5R"}
+2026-04-14 07:33:17.952 +05:30 [INF] Saga success: PaymentId="cdfdc27d-5284-40b6-97e0-da287bdfe234", Status=Completed {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"2c812126-1757-48a2-9150-a27f462bf604","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPP6LJ5T5R:00000002","RequestPath":"/api/payments","ConnectionId":"0HNKPP6LJ5T5R"}
+2026-04-14 07:33:18.287 +05:30 [INF] HTTP POST /api/payments responded 200 in 1410.2402 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LJ5T5R:00000002","ConnectionId":"0HNKPP6LJ5T5R"}
+2026-04-14 07:33:19.946 +05:30 [INF] HTTP GET /api/payments responded 200 in 75.2270 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LJ5T5R:00000003","ConnectionId":"0HNKPP6LJ5T5R"}
+2026-04-14 07:33:20.654 +05:30 [INF] HTTP GET /api/payments responded 200 in 20.9484 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LJ5T5R:00000004","ConnectionId":"0HNKPP6LJ5T5R"}
+2026-04-14 07:33:29.223 +05:30 [INF] HTTP GET /api/payments responded 200 in 21.8224 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LJ5T5R:00000005","ConnectionId":"0HNKPP6LJ5T5R"}
+2026-04-14 07:33:46.267 +05:30 [INF] HTTP GET /api/payments responded 200 in 11.5436 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LJ5T5R:00000006","ConnectionId":"0HNKPP6LJ5T5R"}
+2026-04-14 07:34:01.565 +05:30 [INF] HTTP GET /api/payments responded 200 in 26.4525 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LJ5T5R:00000007","ConnectionId":"0HNKPP6LJ5T5R"}
+2026-04-14 07:34:11.227 +05:30 [INF] HTTP GET /api/payments responded 200 in 11.7038 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LJ5T5R:00000008","ConnectionId":"0HNKPP6LJ5T5R"}
+2026-04-14 07:34:14.568 +05:30 [INF] HTTP GET /api/payments responded 200 in 27.9116 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LJ5T5R:00000009","ConnectionId":"0HNKPP6LJ5T5R"}
+2026-04-14 07:34:53.561 +05:30 [INF] HTTP GET /api/payments responded 200 in 85.1218 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LJ5T5S:00000001","ConnectionId":"0HNKPP6LJ5T5S"}
+2026-04-14 07:35:07.581 +05:30 [INF] HTTP GET /api/payments responded 200 in 21.4857 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPP6LJ5T5S:00000002","ConnectionId":"0HNKPP6LJ5T5S"}
+2026-04-14 07:51:08.457 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 07:51:10.407 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 326.7785 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUB2J5Q:00000001","ConnectionId":"0HNKPPHUB2J5Q"}
+2026-04-14 07:51:10.686 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 44.3800 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUB2J5R:00000001","ConnectionId":"0HNKPPHUB2J5R"}
+2026-04-14 07:51:17.883 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 46.9805 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUB2J5R:00000003","ConnectionId":"0HNKPPHUB2J5R"}
+2026-04-14 07:52:29.464 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"0041a8e9-615c-4592-939b-86b16e98d504","ActionName":"PaymentService.API.Controllers.PaymentsController.GetPayments (PaymentService.API)","RequestId":"0HNKPPHUB2J5S:00000001","RequestPath":"/api/payments","ConnectionId":"0HNKPPHUB2J5S"}
+2026-04-14 07:52:32.566 +05:30 [INF] HTTP GET /api/payments responded 200 in 3841.7822 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUB2J5S:00000001","ConnectionId":"0HNKPPHUB2J5S"}
+2026-04-14 07:53:31.715 +05:30 [INF] HTTP GET /api/payments responded 200 in 478.8992 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUB2J5S:00000002","ConnectionId":"0HNKPPHUB2J5S"}
+2026-04-14 07:56:28.218 +05:30 [INF] HTTP GET /api/payments responded 200 in 469.2463 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUB2J5T:00000001","ConnectionId":"0HNKPPHUB2J5T"}
+2026-04-14 07:56:36.630 +05:30 [INF] HTTP GET /api/payments responded 200 in 83.8611 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUB2J5T:00000002","ConnectionId":"0HNKPPHUB2J5T"}
+2026-04-14 08:13:09.157 +05:30 [INF] HTTP GET /api/payments responded 200 in 552.7633 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUB2J5U:00000001","ConnectionId":"0HNKPPHUB2J5U"}
+2026-04-14 08:13:23.296 +05:30 [INF] HTTP GET /api/payments responded 200 in 69.6742 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUB2J5U:00000002","ConnectionId":"0HNKPPHUB2J5U"}
+2026-04-14 08:45:35.390 +05:30 [INF] HTTP GET /api/payments responded 200 in 461.5344 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPPHUB2J5V:00000001","ConnectionId":"0HNKPPHUB2J5V"}
+2026-04-14 12:33:55.724 +05:30 [WRN] Connection Failed: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed, host 127.0.0.1:5672)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed, host 127.0.0.1:5672
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFactory.OpenAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.CreateAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandlerAsync(AmqpTcpEndpoint endpoint, CancellationToken cancellationToken)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+2026-04-14 12:33:57.220 +05:30 [INF] Retrying "00:00:04.7304441": Broker unreachable: guest@localhost:5672/ {"SourceContext":"MassTransit"}
+MassTransit.RabbitMqConnectionException: Broker unreachable: guest@localhost:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed, host 127.0.0.1:5672)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed, host 127.0.0.1:5672
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFactory.OpenAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.CreateAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandlerAsync(AmqpTcpEndpoint endpoint, CancellationToken cancellationToken)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 129
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 74
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.SupervisorExtensions.<>c__DisplayClass5_0`2.<<CreateAgent>g__HandleSupervisorTask|0>d.MoveNext() in /_/src/MassTransit/SupervisorExtensions.cs:line 139
+--- End of stack trace from previous location ---
+   at MassTransit.SupervisorExtensions.CreateAgent[T,TAgent](ISupervisor`1 supervisor, IAsyncPipeContextAgent`1 asyncContext, Func`3 agentFactory, CancellationToken cancellationToken) in /_/src/MassTransit/SupervisorExtensions.cs:line 158
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ITransportSupervisor`1 supervisor, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/TransportStartExtensions.cs:line 19
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 200
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 208
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.Run() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 145
+2026-04-14 12:33:58.285 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 748.6102 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUFU27HL7:00000001","ConnectionId":"0HNKPUFU27HL7"}
+2026-04-14 12:34:01.363 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 20.8240 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUFU27HL8:00000001","ConnectionId":"0HNKPUFU27HL8"}
+2026-04-14 12:34:02.577 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 21.8618 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUFU27HLA:00000002","ConnectionId":"0HNKPUFU27HLA"}
+2026-04-14 12:34:08.103 +05:30 [WRN] Connection Failed: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed, host 127.0.0.1:5672)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed, host 127.0.0.1:5672
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFactory.OpenAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.CreateAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandlerAsync(AmqpTcpEndpoint endpoint, CancellationToken cancellationToken)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+2026-04-14 12:34:09.341 +05:30 [INF] Retrying "00:00:10.8554699": Broker unreachable: guest@localhost:5672/ {"SourceContext":"MassTransit"}
+MassTransit.RabbitMqConnectionException: Broker unreachable: guest@localhost:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed, host 127.0.0.1:5672)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed, host 127.0.0.1:5672
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFactory.OpenAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.CreateAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandlerAsync(AmqpTcpEndpoint endpoint, CancellationToken cancellationToken)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 129
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 74
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.SupervisorExtensions.<>c__DisplayClass5_0`2.<<CreateAgent>g__HandleSupervisorTask|0>d.MoveNext() in /_/src/MassTransit/SupervisorExtensions.cs:line 139
+--- End of stack trace from previous location ---
+   at MassTransit.SupervisorExtensions.CreateAgent[T,TAgent](ISupervisor`1 supervisor, IAsyncPipeContextAgent`1 asyncContext, Func`3 agentFactory, CancellationToken cancellationToken) in /_/src/MassTransit/SupervisorExtensions.cs:line 158
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ITransportSupervisor`1 supervisor, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/TransportStartExtensions.cs:line 19
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 200
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 208
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.Run() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 145
+2026-04-14 12:35:38.663 +05:30 [WRN] Connection Failed: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Pipe is completed.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFromPipeAsync(PipeReader reader, UInt32 maxInboundMessageBodySize, InboundFrame frame, CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.ReceiveLoopAsync(CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Connection.StartAndTuneAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+2026-04-14 12:35:40.326 +05:30 [INF] Retrying "00:00:04.9726706": Broker unreachable: guest@localhost:5672/ {"SourceContext":"MassTransit"}
+MassTransit.RabbitMqConnectionException: Broker unreachable: guest@localhost:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Pipe is completed.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFromPipeAsync(PipeReader reader, UInt32 maxInboundMessageBodySize, InboundFrame frame, CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.ReceiveLoopAsync(CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Connection.StartAndTuneAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 129
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 74
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.SupervisorExtensions.<>c__DisplayClass5_0`2.<<CreateAgent>g__HandleSupervisorTask|0>d.MoveNext() in /_/src/MassTransit/SupervisorExtensions.cs:line 139
+   at MassTransit.SupervisorExtensions.CreateAgent[T,TAgent](ISupervisor`1 supervisor, IAsyncPipeContextAgent`1 asyncContext, Func`3 agentFactory, CancellationToken cancellationToken) in /_/src/MassTransit/SupervisorExtensions.cs:line 158
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ITransportSupervisor`1 supervisor, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/TransportStartExtensions.cs:line 19
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 200
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 208
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.Run() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 145
+2026-04-14 12:35:48.569 +05:30 [WRN] Connection Failed: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Pipe is completed.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFromPipeAsync(PipeReader reader, UInt32 maxInboundMessageBodySize, InboundFrame frame, CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.ReceiveLoopAsync(CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Connection.StartAndTuneAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+2026-04-14 12:35:49.704 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 244.1514 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DG:00000001","ConnectionId":"0HNKPUGTS48DG"}
+2026-04-14 12:35:49.715 +05:30 [INF] Retrying "00:00:08.8326591": Broker unreachable: guest@localhost:5672/ {"SourceContext":"MassTransit"}
+MassTransit.RabbitMqConnectionException: Broker unreachable: guest@localhost:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Pipe is completed.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFromPipeAsync(PipeReader reader, UInt32 maxInboundMessageBodySize, InboundFrame frame, CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.ReceiveLoopAsync(CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Connection.StartAndTuneAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 129
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 74
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.SupervisorExtensions.<>c__DisplayClass5_0`2.<<CreateAgent>g__HandleSupervisorTask|0>d.MoveNext() in /_/src/MassTransit/SupervisorExtensions.cs:line 139
+   at MassTransit.SupervisorExtensions.CreateAgent[T,TAgent](ISupervisor`1 supervisor, IAsyncPipeContextAgent`1 asyncContext, Func`3 agentFactory, CancellationToken cancellationToken) in /_/src/MassTransit/SupervisorExtensions.cs:line 158
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ITransportSupervisor`1 supervisor, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/TransportStartExtensions.cs:line 19
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 200
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 208
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.Run() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 145
+2026-04-14 12:35:49.981 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 4.8265 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DH:00000001","ConnectionId":"0HNKPUGTS48DH"}
+2026-04-14 12:35:53.637 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 29.2120 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DI:00000003","ConnectionId":"0HNKPUGTS48DI"}
+2026-04-14 12:35:59.248 +05:30 [WRN] Connection Failed: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Pipe is completed.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFromPipeAsync(PipeReader reader, UInt32 maxInboundMessageBodySize, InboundFrame frame, CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.ReceiveLoopAsync(CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Connection.StartAndTuneAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+2026-04-14 12:36:00.278 +05:30 [INF] Retrying "00:00:12.5318150": Broker unreachable: guest@localhost:5672/ {"SourceContext":"MassTransit"}
+MassTransit.RabbitMqConnectionException: Broker unreachable: guest@localhost:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Pipe is completed.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFromPipeAsync(PipeReader reader, UInt32 maxInboundMessageBodySize, InboundFrame frame, CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.ReceiveLoopAsync(CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Connection.StartAndTuneAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 102
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 129
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 74
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.SupervisorExtensions.<>c__DisplayClass5_0`2.<<CreateAgent>g__HandleSupervisorTask|0>d.MoveNext() in /_/src/MassTransit/SupervisorExtensions.cs:line 139
+   at MassTransit.SupervisorExtensions.CreateAgent[T,TAgent](ISupervisor`1 supervisor, IAsyncPipeContextAgent`1 asyncContext, Func`3 agentFactory, CancellationToken cancellationToken) in /_/src/MassTransit/SupervisorExtensions.cs:line 158
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ITransportSupervisor`1 supervisor, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/TransportStartExtensions.cs:line 19
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 200
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 208
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.Run() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 145
+2026-04-14 12:36:11.430 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 12:38:20.813 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"188927a8-3118-413d-ae91-eec9ad022e20","ActionName":"PaymentService.API.Controllers.PaymentsController.GetPayments (PaymentService.API)","RequestId":"0HNKPUGTS48DJ:00000001","RequestPath":"/api/payments","ConnectionId":"0HNKPUGTS48DJ"}
+2026-04-14 12:38:26.714 +05:30 [INF] HTTP GET /api/payments responded 200 in 9930.9579 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DJ:00000001","ConnectionId":"0HNKPUGTS48DJ"}
+2026-04-14 12:38:44.445 +05:30 [INF] HTTP GET /api/payments responded 200 in 153.0201 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DJ:00000002","ConnectionId":"0HNKPUGTS48DJ"}
+2026-04-14 12:39:03.622 +05:30 [INF] HTTP GET /api/payments responded 200 in 66.9193 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DJ:00000003","ConnectionId":"0HNKPUGTS48DJ"}
+2026-04-14 12:39:06.846 +05:30 [INF] HTTP GET /api/payments/1716d527-9f10-4af7-831f-ca377f6da905 responded 200 in 139.2718 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DJ:00000004","ConnectionId":"0HNKPUGTS48DJ"}
+2026-04-14 12:39:23.157 +05:30 [INF] HTTP GET /api/payments responded 200 in 13.5512 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DJ:00000005","ConnectionId":"0HNKPUGTS48DJ"}
+2026-04-14 12:40:05.731 +05:30 [INF] Saga started: PaymentId="240e2b71-b8d6-4a18-a403-9f14f45b8906", Status=Processing {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"9d9b693d-ea83-4678-8bd0-8c46cd2436e8","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPUGTS48DJ:00000006","RequestPath":"/api/payments","ConnectionId":"0HNKPUGTS48DJ"}
+2026-04-14 12:40:06.320 +05:30 [INF] Saga success: PaymentId="240e2b71-b8d6-4a18-a403-9f14f45b8906", Status=Completed {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"9d9b693d-ea83-4678-8bd0-8c46cd2436e8","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPUGTS48DJ:00000006","RequestPath":"/api/payments","ConnectionId":"0HNKPUGTS48DJ"}
+2026-04-14 12:40:06.796 +05:30 [INF] HTTP POST /api/payments responded 200 in 1582.3197 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DJ:00000006","ConnectionId":"0HNKPUGTS48DJ"}
+2026-04-14 12:40:08.478 +05:30 [INF] HTTP GET /api/payments responded 200 in 17.0868 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DJ:00000007","ConnectionId":"0HNKPUGTS48DJ"}
+2026-04-14 12:40:15.140 +05:30 [INF] HTTP GET /api/payments responded 200 in 12.2782 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DJ:00000008","ConnectionId":"0HNKPUGTS48DJ"}
+2026-04-14 12:40:30.683 +05:30 [INF] HTTP GET /api/payments responded 200 in 13.4395 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DK:00000001","ConnectionId":"0HNKPUGTS48DK"}
+2026-04-14 12:40:53.607 +05:30 [INF] Saga started: PaymentId="08949d25-f393-4089-9fe6-8d86eb7507fc", Status=Processing {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"9d9b693d-ea83-4678-8bd0-8c46cd2436e8","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPUGTS48DK:00000002","RequestPath":"/api/payments","ConnectionId":"0HNKPUGTS48DK"}
+2026-04-14 12:40:54.119 +05:30 [INF] Saga success: PaymentId="08949d25-f393-4089-9fe6-8d86eb7507fc", Status=Completed {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"9d9b693d-ea83-4678-8bd0-8c46cd2436e8","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPUGTS48DK:00000002","RequestPath":"/api/payments","ConnectionId":"0HNKPUGTS48DK"}
+2026-04-14 12:40:54.150 +05:30 [INF] HTTP POST /api/payments responded 200 in 579.0826 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DK:00000002","ConnectionId":"0HNKPUGTS48DK"}
+2026-04-14 12:40:55.757 +05:30 [INF] HTTP GET /api/payments responded 200 in 15.2469 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DK:00000003","ConnectionId":"0HNKPUGTS48DK"}
+2026-04-14 12:41:30.005 +05:30 [INF] HTTP GET /api/payments responded 200 in 59.3156 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DK:00000004","ConnectionId":"0HNKPUGTS48DK"}
+2026-04-14 12:42:06.870 +05:30 [INF] HTTP GET /api/payments responded 200 in 50.1335 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DK:00000005","ConnectionId":"0HNKPUGTS48DK"}
+2026-04-14 12:42:11.864 +05:30 [INF] HTTP GET /api/payments responded 200 in 18.4162 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DK:00000006","ConnectionId":"0HNKPUGTS48DK"}
+2026-04-14 12:42:36.273 +05:30 [INF] Saga started: PaymentId="59e62514-22dc-4aa3-9f92-13efa1bded6f", Status=Processing {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"9d9b693d-ea83-4678-8bd0-8c46cd2436e8","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPUGTS48DL:00000001","RequestPath":"/api/payments","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:42:36.817 +05:30 [INF] Saga success: PaymentId="59e62514-22dc-4aa3-9f92-13efa1bded6f", Status=Completed {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"9d9b693d-ea83-4678-8bd0-8c46cd2436e8","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPUGTS48DL:00000001","RequestPath":"/api/payments","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:42:36.900 +05:30 [INF] HTTP POST /api/payments responded 200 in 717.9170 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:00000001","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:42:38.795 +05:30 [INF] HTTP GET /api/payments responded 200 in 210.8571 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:00000002","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:42:41.602 +05:30 [INF] HTTP GET /api/payments responded 200 in 16.3014 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:00000003","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:42:55.587 +05:30 [INF] HTTP GET /api/payments responded 200 in 25.3141 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:00000004","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:43:12.913 +05:30 [INF] HTTP GET /api/payments responded 200 in 36.4203 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:00000005","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:43:15.666 +05:30 [INF] HTTP GET /api/payments responded 200 in 13.8225 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:00000006","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:43:23.701 +05:30 [INF] HTTP GET /api/payments responded 200 in 34.6186 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:00000007","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:43:26.859 +05:30 [INF] HTTP GET /api/payments responded 200 in 14.3141 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:00000008","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:43:29.359 +05:30 [INF] HTTP GET /api/payments responded 200 in 15.9064 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:00000009","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:43:30.791 +05:30 [INF] HTTP GET /api/payments responded 200 in 14.8312 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:0000000A","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:43:31.848 +05:30 [INF] HTTP GET /api/payments responded 200 in 16.4743 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:0000000B","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:43:34.149 +05:30 [INF] HTTP GET /api/payments responded 200 in 16.8536 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:0000000C","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:43:37.058 +05:30 [INF] HTTP GET /api/payment-methods responded 200 in 136.3690 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DM:00000001","ConnectionId":"0HNKPUGTS48DM"}
+2026-04-14 12:43:39.760 +05:30 [INF] HTTP GET /api/payments responded 200 in 79.1774 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:0000000D","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:43:42.725 +05:30 [INF] HTTP GET /api/payments responded 200 in 24.5807 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:0000000E","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:43:45.464 +05:30 [INF] HTTP GET /api/payments responded 200 in 22.0587 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:0000000F","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:43:57.815 +05:30 [INF] Saga started: PaymentId="feb5a1de-b83b-4b3b-86cf-d3d6d2bdd244", Status=Processing {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"9d9b693d-ea83-4678-8bd0-8c46cd2436e8","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPUGTS48DL:00000010","RequestPath":"/api/payments","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:43:58.334 +05:30 [INF] Saga success: PaymentId="feb5a1de-b83b-4b3b-86cf-d3d6d2bdd244", Status=Completed {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"9d9b693d-ea83-4678-8bd0-8c46cd2436e8","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPUGTS48DL:00000010","RequestPath":"/api/payments","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:43:58.365 +05:30 [INF] HTTP POST /api/payments responded 200 in 596.2598 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:00000010","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:43:59.932 +05:30 [INF] HTTP GET /api/payments responded 200 in 16.5821 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:00000011","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:44:02.981 +05:30 [INF] HTTP GET /api/payments responded 200 in 10.8646 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:00000012","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:44:12.496 +05:30 [INF] HTTP GET /api/payments responded 200 in 12.1286 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:00000013","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:44:17.719 +05:30 [INF] HTTP GET /api/payments responded 200 in 10.5162 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:00000014","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:44:18.808 +05:30 [INF] HTTP GET /api/payments responded 200 in 29.9229 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:00000015","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:44:20.487 +05:30 [INF] HTTP GET /api/payments responded 200 in 9.7296 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:00000016","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:44:34.261 +05:30 [INF] Saga started: PaymentId="ff1c13ad-e003-419b-ac92-8db46f6f54b3", Status=Processing {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"9d9b693d-ea83-4678-8bd0-8c46cd2436e8","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPUGTS48DL:00000017","RequestPath":"/api/payments","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:44:34.778 +05:30 [INF] Saga success: PaymentId="ff1c13ad-e003-419b-ac92-8db46f6f54b3", Status=Completed {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"9d9b693d-ea83-4678-8bd0-8c46cd2436e8","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPUGTS48DL:00000017","RequestPath":"/api/payments","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:44:34.796 +05:30 [INF] HTTP POST /api/payments responded 200 in 551.9316 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DL:00000017","ConnectionId":"0HNKPUGTS48DL"}
+2026-04-14 12:44:36.412 +05:30 [INF] HTTP GET /api/payments responded 200 in 20.1294 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DN:00000001","ConnectionId":"0HNKPUGTS48DN"}
+2026-04-14 12:44:37.947 +05:30 [INF] HTTP GET /api/payments responded 200 in 15.0113 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DN:00000002","ConnectionId":"0HNKPUGTS48DN"}
+2026-04-14 12:44:44.241 +05:30 [INF] HTTP GET /api/payments responded 200 in 31.5522 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DN:00000003","ConnectionId":"0HNKPUGTS48DN"}
+2026-04-14 12:44:49.835 +05:30 [INF] HTTP GET /api/payments responded 200 in 11.9166 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DN:00000004","ConnectionId":"0HNKPUGTS48DN"}
+2026-04-14 12:45:03.039 +05:30 [INF] HTTP GET /api/payments responded 200 in 29.9036 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DN:00000005","ConnectionId":"0HNKPUGTS48DN"}
+2026-04-14 12:45:04.706 +05:30 [INF] HTTP GET /api/payments responded 200 in 9.1477 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DN:00000006","ConnectionId":"0HNKPUGTS48DN"}
+2026-04-14 12:45:37.038 +05:30 [INF] Saga started: PaymentId="7a01e6f2-0cf2-4fc4-b75e-f64fd16e3d52", Status=Processing {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"9d9b693d-ea83-4678-8bd0-8c46cd2436e8","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPUGTS48DN:00000007","RequestPath":"/api/payments","ConnectionId":"0HNKPUGTS48DN"}
+2026-04-14 12:45:37.564 +05:30 [INF] Saga success: PaymentId="7a01e6f2-0cf2-4fc4-b75e-f64fd16e3d52", Status=Completed {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"9d9b693d-ea83-4678-8bd0-8c46cd2436e8","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPUGTS48DN:00000007","RequestPath":"/api/payments","ConnectionId":"0HNKPUGTS48DN"}
+2026-04-14 12:45:37.587 +05:30 [INF] HTTP POST /api/payments responded 200 in 570.5303 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DN:00000007","ConnectionId":"0HNKPUGTS48DN"}
+2026-04-14 12:45:39.184 +05:30 [INF] HTTP GET /api/payments responded 200 in 11.8105 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DN:00000008","ConnectionId":"0HNKPUGTS48DN"}
+2026-04-14 12:45:39.440 +05:30 [INF] HTTP GET /api/payments responded 200 in 7.2599 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DN:00000009","ConnectionId":"0HNKPUGTS48DN"}
+2026-04-14 12:45:43.891 +05:30 [INF] HTTP GET /api/payments/7a01e6f2-0cf2-4fc4-b75e-f64fd16e3d52 responded 200 in 10.8907 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DN:0000000A","ConnectionId":"0HNKPUGTS48DN"}
+2026-04-14 12:45:46.576 +05:30 [INF] HTTP GET /api/payments responded 200 in 8.7786 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DN:0000000B","ConnectionId":"0HNKPUGTS48DN"}
+2026-04-14 12:45:48.676 +05:30 [INF] HTTP GET /api/payments responded 200 in 17.9954 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DN:0000000C","ConnectionId":"0HNKPUGTS48DN"}
+2026-04-14 12:46:18.951 +05:30 [INF] HTTP GET /api/payments responded 200 in 10.9311 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DN:0000000D","ConnectionId":"0HNKPUGTS48DN"}
+2026-04-14 12:46:38.002 +05:30 [INF] Saga started: PaymentId="0ef144af-8328-45ba-8d65-6c484cb41056", Status=Processing {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"9d9b693d-ea83-4678-8bd0-8c46cd2436e8","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPUGTS48DO:00000001","RequestPath":"/api/payments","ConnectionId":"0HNKPUGTS48DO"}
+2026-04-14 12:46:38.523 +05:30 [INF] Saga success: PaymentId="0ef144af-8328-45ba-8d65-6c484cb41056", Status=Completed {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"9d9b693d-ea83-4678-8bd0-8c46cd2436e8","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPUGTS48DO:00000001","RequestPath":"/api/payments","ConnectionId":"0HNKPUGTS48DO"}
+2026-04-14 12:46:38.551 +05:30 [INF] HTTP POST /api/payments responded 200 in 574.0937 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DO:00000001","ConnectionId":"0HNKPUGTS48DO"}
+2026-04-14 12:46:40.129 +05:30 [INF] HTTP GET /api/payments responded 200 in 12.4090 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DO:00000002","ConnectionId":"0HNKPUGTS48DO"}
+2026-04-14 12:46:51.813 +05:30 [INF] HTTP GET /api/payments responded 200 in 25.1210 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DO:00000003","ConnectionId":"0HNKPUGTS48DO"}
+2026-04-14 12:47:04.021 +05:30 [INF] HTTP GET /api/payments responded 200 in 24.3804 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DO:00000004","ConnectionId":"0HNKPUGTS48DO"}
+2026-04-14 12:47:24.574 +05:30 [INF] HTTP GET /api/payments responded 200 in 10.4340 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DO:00000005","ConnectionId":"0HNKPUGTS48DO"}
+2026-04-14 12:47:46.425 +05:30 [INF] Saga started: PaymentId="e5374d8c-35fd-4836-8652-8993b221f62e", Status=Processing {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"9d9b693d-ea83-4678-8bd0-8c46cd2436e8","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPUGTS48DO:00000006","RequestPath":"/api/payments","ConnectionId":"0HNKPUGTS48DO"}
+2026-04-14 12:47:46.953 +05:30 [INF] Saga success: PaymentId="e5374d8c-35fd-4836-8652-8993b221f62e", Status=Completed {"SourceContext":"PaymentService.Application.Commands.MakePayment.MakePaymentCommandHandler","ActionId":"9d9b693d-ea83-4678-8bd0-8c46cd2436e8","ActionName":"PaymentService.API.Controllers.PaymentsController.MakePayment (PaymentService.API)","RequestId":"0HNKPUGTS48DO:00000006","RequestPath":"/api/payments","ConnectionId":"0HNKPUGTS48DO"}
+2026-04-14 12:47:47.006 +05:30 [INF] HTTP POST /api/payments responded 200 in 603.9920 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DO:00000006","ConnectionId":"0HNKPUGTS48DO"}
+2026-04-14 12:47:48.652 +05:30 [INF] HTTP GET /api/payments responded 200 in 13.3251 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DO:00000007","ConnectionId":"0HNKPUGTS48DO"}
+2026-04-14 12:47:52.210 +05:30 [INF] HTTP GET /api/payments responded 200 in 13.0736 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKPUGTS48DO:00000008","ConnectionId":"0HNKPUGTS48DO"}
+2026-04-14 14:48:20.760 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 14:48:27.908 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 534.3559 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ0R12JDBT:00000001","ConnectionId":"0HNKQ0R12JDBT"}
+2026-04-14 14:48:28.418 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 14.1924 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ0R12JDBV:00000001","ConnectionId":"0HNKQ0R12JDBV"}
+2026-04-14 14:48:31.005 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 231.1040 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ0R12JDBV:00000003","ConnectionId":"0HNKQ0R12JDBV"}
+2026-04-14 14:51:35.951 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license. {"SourceContext":"LuckyPennySoftware.MediatR.License","ActionId":"db796a10-5acd-429b-8787-9551d18a8557","ActionName":"PaymentService.API.Controllers.PaymentsController.GetPayments (PaymentService.API)","RequestId":"0HNKQ0R12JDC0:00000001","RequestPath":"/api/payments","ConnectionId":"0HNKQ0R12JDC0"}
+2026-04-14 14:51:47.471 +05:30 [INF] HTTP GET /api/payments responded 200 in 13658.0986 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ0R12JDC0:00000001","ConnectionId":"0HNKQ0R12JDC0"}
+2026-04-14 14:52:11.469 +05:30 [INF] HTTP GET /api/payments responded 200 in 797.7791 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ0R12JDC0:00000002","ConnectionId":"0HNKQ0R12JDC0"}
+2026-04-14 14:52:43.224 +05:30 [INF] HTTP GET /api/payment-methods responded 200 in 6495.1362 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ0R12JDC1:00000001","ConnectionId":"0HNKQ0R12JDC1"}
+2026-04-14 14:53:41.412 +05:30 [INF] HTTP GET /api/payments responded 200 in 2449.5402 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ0R12JDC2:00000001","ConnectionId":"0HNKQ0R12JDC2"}
+2026-04-14 14:54:50.829 +05:30 [INF] HTTP GET /api/payments responded 200 in 2384.5023 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ0R12JDC2:00000002","ConnectionId":"0HNKQ0R12JDC2"}
+2026-04-14 15:24:26.259 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 3293.9751 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ1F1F0HTN:00000001","ConnectionId":"0HNKQ1F1F0HTN"}
+2026-04-14 15:24:28.503 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 154.3418 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ1F1F0HTP:00000001","ConnectionId":"0HNKQ1F1F0HTP"}
+2026-04-14 15:24:35.228 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 1216.7964 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ1F1F0HTN:00000002","ConnectionId":"0HNKQ1F1F0HTN"}
+2026-04-14 15:24:48.127 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 15:27:30.620 +05:30 [INF] Bus started: "rabbitmq://localhost/" {"SourceContext":"MassTransit"}
+2026-04-14 15:27:49.461 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 5596.1737 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ1GT1Q5CT:00000001","ConnectionId":"0HNKQ1GT1Q5CT"}
+2026-04-14 15:27:56.916 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 180.0929 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ1GT1Q5CU:00000001","ConnectionId":"0HNKQ1GT1Q5CU"}
+2026-04-14 15:28:01.831 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 1760.5419 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNKQ1GT1Q5CV:00000002","ConnectionId":"0HNKQ1GT1Q5CV"}

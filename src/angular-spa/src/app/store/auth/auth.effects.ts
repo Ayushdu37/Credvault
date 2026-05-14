@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
-import { catchError, exhaustMap, map, switchMap, tap } from 'rxjs/operators';
+import { catchError, exhaustMap, map, switchMap, take, tap } from 'rxjs/operators';
 import { AuthService } from '../../core/services/auth.service';
 import { TokenService } from '../../core/services/token.service';
 import { ToastService } from '../../core/services/toast.service';
@@ -86,12 +86,17 @@ export const loadProfile$ = createEffect(
   { functional: true }
 );
 
-// ─── After Profile Loaded → Navigate to Dashboard ───────
-export const redirectAfterProfile$ = createEffect(
+// ─── After Login Success → Navigate to Dashboard ─────────
+export const redirectAfterLogin$ = createEffect(
   (actions$ = inject(Actions), router = inject(Router)) =>
     actions$.pipe(
-      ofType(AuthActions.loadProfileSuccess),
-      tap(() => router.navigateByUrl('/dashboard'))
+      ofType(AuthActions.loginSuccess),
+      // Wait for profile to load before navigating, then complete
+      switchMap(() => actions$.pipe(
+        ofType(AuthActions.loadProfileSuccess),
+        take(1),
+        tap(() => router.navigateByUrl('/dashboard'))
+      ))
     ),
   { functional: true, dispatch: false }
 );

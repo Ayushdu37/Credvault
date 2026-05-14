@@ -1,0 +1,114 @@
+<mxfile host="65bd7114-4fc7-475a-8356-91e840d16453" modified="2026-04-14T09:55:00.000Z" agent="Antigravity AI" version="21.0.0" type="device">
+  <diagram id="credvault-arch" name="CredVault Architecture">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Frontend -->
+        <mxCell id="fe" value="Angular SPA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="340" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Gateway -->
+        <mxCell id="gw" value="Ocelot Gateway" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="340" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Services Container -->
+        <mxCell id="svc_box" value="Microservices" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="740" height="200" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="id_svc" value="Identity Service" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="svc_box">
+          <mxGeometry x="20" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="card_svc" value="Card Service" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="svc_box">
+          <mxGeometry x="160" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="pay_svc" value="Payment Service" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="svc_box">
+          <mxGeometry x="300" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="bill_svc" value="Billing Service" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="svc_box">
+          <mxGeometry x="440" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="notif_svc" value="Notification Service" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="svc_box">
+          <mxGeometry x="580" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Persistence -->
+        <mxCell id="id_db" value="Identity DB&lt;br&gt;(SQL Server)" style="shape=cylinder3;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="480" width="80" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="card_db" value="Card DB&lt;br&gt;(SQL Server)" style="shape=cylinder3;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="480" width="80" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="pay_db" value="Payment DB&lt;br&gt;(SQL Server)" style="shape=cylinder3;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="480" width="80" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="bill_db" value="Billing DB&lt;br&gt;(SQL Server)" style="shape=cylinder3;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="480" width="80" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Event Bus -->
+        <mxCell id="mq" value="RabbitMQ&lt;br&gt;(MassTransit)" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="600" y="480" width="140" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Redis -->
+        <mxCell id="redis" value="Redis Cache" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="60" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrows -->
+        <mxCell id="e1" value="REST/HTTPS" edge="1" parent="1" source="fe" target="gw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e2" value="Proxy" edge="1" parent="1" source="gw" target="svc_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e3" edge="1" parent="1" source="id_svc" target="id_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e4" edge="1" parent="1" source="card_svc" target="card_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e5" edge="1" parent="1" source="pay_svc" target="pay_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e6" edge="1" parent="1" source="bill_svc" target="bill_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e7" value="Pub/Sub" edge="1" parent="1" source="svc_box" target="mq">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="670" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="e8" value="Cache" edge="1" parent="1" source="id_svc" target="redis">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="90" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

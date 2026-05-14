@@ -90,13 +90,6 @@
               </div>
 
               <div class="card-actions" (click)="$event.stopPropagation()">
-                <app-button 
-                  [variant]="card.status === 'Locked' ? 'primary' : 'secondary'" 
-                  (click)="toggleLock(card)"
-                  [disabled]="(actionLoading$ | async) === true">
-                  <lucide-icon [name]="card.status === 'Locked' ? 'lock-open' : 'lock'" [size]="16"></lucide-icon>
-                  {{ card.status === 'Locked' ? 'Unlock Card' : 'Lock Card' }}
-                </app-button>
                 <app-button variant="ghost" (click)="viewCard(card)">
                   View Details
                   <lucide-icon name="arrow-right" [size]="16"></lucide-icon>

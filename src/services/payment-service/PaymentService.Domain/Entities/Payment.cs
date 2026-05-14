@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -20,9 +20,6 @@ namespace PaymentService.Domain.Entities
 
         private Payment() { }
 
-        /// <summary>
-        /// Saga Step 1: Create payment in "Processing" state
-        /// </summary>
         public static Payment Create(
         Guid userId, Guid billId, Guid cardId, decimal amount,
         string paymentMethod, string? transactionReference = null)
@@ -44,10 +41,14 @@ namespace PaymentService.Domain.Entities
         /// <summary>
         /// Saga Step 2 (success): Mark as Completed
         /// </summary>
-        public void MarkCompleted()
+        public void MarkCompleted(string? finalReference = null)
         {
             Status = "Completed";
             CompletedAt = DateTime.UtcNow;
+            if (!string.IsNullOrEmpty(finalReference))
+            {
+                TransactionReference = finalReference;
+            }
         }
 
         /// <summary>

@@ -46,17 +46,28 @@ namespace NotificationService.Infrastructure.Messaging.Consumers
                     => ("🔑 Password Reset — CredVault", "Password Reset"),
                 CredVault.Shared.Contracts.Enums.OTPPurpose.Login
                     => ("🔓 Login Verification — CredVault", "Login Verification"),
+                CredVault.Shared.Contracts.Enums.OTPPurpose.PaymentVerification
+                    => ("💳 Payment Verification — CredVault", "Payment Verification"),
                 _ => ("🔐 Your OTP Code — CredVault", "Verification")
             };
 
-            // Create in-app notification
-            var notification = Notification.Create(
-                evt.UserId,
-                "OTPRequested",
-                purposeLabel,
-                $"Your OTP code for {purposeLabel.ToLower()} is: {evt.OTPCode}");
+            // Only create in-app notification if it's NOT a payment or password reset verification
+            if (evt.Purpose != CredVault.Shared.Contracts.Enums.OTPPurpose.PaymentVerification && 
+                evt.Purpose != CredVault.Shared.Contracts.Enums.OTPPurpose.PasswordReset)
+            {
+                var notification = Notification.Create(
+                    evt.UserId,
+                    "OTPRequested",
+                    purposeLabel,
+                    $"Your OTP code for {purposeLabel.ToLower()} is: {evt.OTPCode}");
 
-            await _notifRepo.AddAsync(notification);
+                await _notifRepo.AddAsync(notification);
+                _logger.LogInformation("In-app notification created for {Purpose}", evt.Purpose);
+            }
+            else
+            {
+                _logger.LogInformation("Skipping in-app notification for {Purpose} as per privacy requirements", evt.Purpose);
+            }
 
             // Send styled email
             try

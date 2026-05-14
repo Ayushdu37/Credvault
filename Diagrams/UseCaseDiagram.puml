@@ -1,0 +1,97 @@
+@startuml UseCaseDiagram
+skinparam actorStyle awesome
+left to right direction
+
+actor "Guest" as G
+actor "Authenticated User" as U
+actor "System" as S <<System>>
+
+package Identity {
+    usecase "Register" as UC_Reg
+    usecase "Login" as UC_Login
+    usecase "Verify Email (OTP)" as UC_Verify
+    usecase "Reset Password" as UC_Reset
+}
+
+package Dashboard {
+    usecase "View Account Overview" as UC_Dash
+    usecase "View Recent Activity" as UC_Activity
+    usecase "View Notifications" as UC_Notif
+}
+
+package "Card Management" {
+    usecase "Add Credit Card" as UC_AddCard
+    usecase "View Card Details" as UC_CardDetails
+    usecase "Lock/Unlock Card" as UC_LockCard <<Planned>>
+    usecase "Remove Card" as UC_RemoveCard
+    usecase "View Credit Utilization" as UC_Utilization
+}
+
+package Payments {
+    usecase "Manage Payment Methods" as UC_PayMethods
+    
+    package "Specialized Payments (UI)" {
+        usecase "UPI Transfer" as UC_UPI
+        usecase "Mobile Recharge" as UC_Recharge
+        usecase "Credit Card Bill" as UC_CCBill
+        usecase "Electricity Bill" as UC_Elec
+        usecase "Water Bill" as UC_Water
+        usecase "DTH Recharge" as UC_DTH
+        usecase "Rent Payment" as UC_Rent
+    }
+}
+
+package "Billing & Rewards" {
+    usecase "View Statements" as UC_Statements
+    usecase "View Rewards" as UC_Rewards
+    usecase "Generate Monthly Bill" as UC_GenBill <<Automated>>
+    usecase "Process Scheduled Payment" as UC_ProcSched <<Automated>>
+}
+
+' Relationships - Guest
+G --> UC_Reg
+G --> UC_Login
+G --> UC_Reset
+
+' Relationships - Auth User
+U --> UC_Dash
+U --> UC_Activity
+U --> UC_Notif
+U --> UC_AddCard
+U --> UC_CardDetails
+U --> UC_LockCard
+U --> UC_RemoveCard
+U --> UC_Utilization
+U --> UC_PayMethods
+U --> UC_Rewards
+U --> UC_Statements
+
+' Payment Specialized
+U --> UC_UPI
+U --> UC_Recharge
+U --> UC_CCBill
+U --> UC_Elec
+U --> UC_Water
+U --> UC_DTH
+U --> UC_Rent
+
+' Relationships - System
+S --> UC_GenBill
+S --> UC_ProcSched
+S --> UC_Notif : Sends Alerts
+
+' Includes / Extends
+UC_Login <.. UC_Verify : <<include>>
+UC_AddCard <.. UC_Verify : <<include>>
+
+note right of UC_LockCard
+  Functionality planned 
+  for next iteration.
+end note
+
+note bottom of Payments
+  Payment categories are 
+  specialized at the UI layer.
+end note
+
+@enduml

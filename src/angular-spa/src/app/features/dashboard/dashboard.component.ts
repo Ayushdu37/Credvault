@@ -56,12 +56,30 @@ export class DashboardComponent implements OnInit {
 
     this.summary$.subscribe(summary => {
       if (summary) {
-        const months = ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'];
-        const utilData = summary.recentBills.map(b =>
-          b.totalAmount > 0 ? Math.round((b.amountPaid / b.totalAmount) * 100) : 0
-        );
-        const balanceData = summary.recentBills.map(b => b.remaining);
-        this.initCharts(months, utilData, balanceData);
+        // Create 6 months of data natively.
+        // Sort bills chronological (oldest to newest)
+        const sortedBills = [...summary.recentBills].sort((a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime());
+        
+        const utilData = [];
+        const balanceData = [];
+        const monthNames = [];
+
+        // Add historical data points (up to 5)
+        for (const b of sortedBills.slice(-5)) {
+            utilData.push(b.totalAmount > 0 ? Math.round((b.amountPaid / b.totalAmount) * 100) : 0);
+            balanceData.push(b.remaining);
+            
+            // Format "Oct", "Nov" etc.
+            const dStr = new Date(b.billingMonth + '-01').toLocaleString('en-US', { month: 'short' });
+            monthNames.push(dStr);
+        }
+
+        // Add the CURRENT live data point as the final entry
+        utilData.push(summary.cardSummary.utilizationPercentage);
+        balanceData.push(summary.totalBalance);
+        monthNames.push('Now');
+
+        this.initCharts(monthNames, utilData, balanceData);
       }
     });
   }
@@ -137,7 +155,11 @@ export class DashboardComponent implements OnInit {
         backgroundColor: bgCard,
         borderColor: borderColor,
         textStyle: { color: textPrimary, fontSize: 13 },
-        extraCssText: 'border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.1);'
+        extraCssText: 'border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.1);',
+        formatter: (params: any) => {
+          const p = params[0];
+          return `${p.name}<br/>${p.marker} ${p.seriesName}: <b>₹${p.value.toLocaleString('en-IN')}</b>`;
+        }
       },
       grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
       xAxis: {
@@ -149,7 +171,11 @@ export class DashboardComponent implements OnInit {
       },
       yAxis: {
         type: 'value',
-        axisLabel: { color: textMuted, fontSize: 12 },
+        axisLabel: { 
+          color: textMuted, 
+          fontSize: 12,
+          formatter: (value: number) => `₹${value >= 1000 ? (value / 1000) + 'k' : value}`
+        },
         splitLine: { lineStyle: gridLineStyle },
         axisLine: { show: false },
         axisTick: { show: false }

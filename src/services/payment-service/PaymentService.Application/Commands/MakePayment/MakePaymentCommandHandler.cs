@@ -1,4 +1,4 @@
-﻿using PaymentService.Application.Abstractions;
+using PaymentService.Application.Abstractions;
 using PaymentService.Domain.Entities;
 using PaymentService.Domain.Interfaces;
 using CredVault.Shared.Contracts.Common;
@@ -15,15 +15,16 @@ namespace PaymentService.Application.Commands.MakePayment
     : IRequestHandler<MakePaymentCommand, ApiResponse<Guid>>
     {
         private readonly IPaymentRepository _paymentRepo;
-        private readonly IEventPublisher _events;
+        private readonly IEventPublisher _eventPublisher;
         private readonly ILogger<MakePaymentCommandHandler> _logger;
+
         public MakePaymentCommandHandler(
             IPaymentRepository paymentRepo,
-            IEventPublisher events,
+            IEventPublisher eventPublisher,
             ILogger<MakePaymentCommandHandler> logger)
         {
             _paymentRepo = paymentRepo;
-            _events = events;
+            _eventPublisher = eventPublisher;
             _logger = logger;
         }
 
@@ -35,73 +36,48 @@ namespace PaymentService.Application.Commands.MakePayment
                 request.UserId, request.BillId, request.CardId,
                 request.Amount, request.PaymentMethod,
                 request.TransactionReference);
+            
             await _paymentRepo.AddAsync(payment, ct);
             _logger.LogInformation(
                 "Saga started: PaymentId={PaymentId}, Status=Processing",
                 payment.Id);
 
-            try
-            {
-                // --- SAGA STEP 2: Simulate payment processing ---
-                // In production: call Stripe/Razorpay API here
-                await SimulatePaymentProcessing(payment, ct);
+            // --- SAGA STEP 2 (SIMULATED): Immediate success ---
+            // In a real app, this would be an async response from a payment gateway
+            await SimulatePaymentProcessing(payment, ct);
 
-                // --- SAGA STEP 3: Success → mark Completed ---
-                payment.MarkCompleted();
-                await _paymentRepo.UpdateAsync(payment, ct);
-
-                _logger.LogInformation(
-                    "Saga success: PaymentId={PaymentId}, Status=Completed",
-                    payment.Id);
-                // Publish PaymentCompletedEvent
-                // → Billing Service consumes → updates bill + earns rewards
-                await _events.PublishAsync(new PaymentCompletedEvent
-                {
-                    PaymentId = payment.Id,
-                    UserId = payment.UserId,
-                    CardId = payment.CardId,
-                    BillId = payment.BillId,
-                    Amount = payment.Amount
-                }, ct);
-
-                return ApiResponse<Guid>.SuccessResponse(
-                    payment.Id, "Payment completed successfully.");
-            }
-            catch (Exception ex)
-            {
-                // --- SAGA COMPENSATION: Mark as Failed ---
-                payment.MarkFailed(ex.Message);
-                await _paymentRepo.UpdateAsync(payment, ct);
-                _logger.LogWarning(ex,
-                    "Saga compensation: PaymentId={PaymentId}, Status=Failed",
-                    payment.Id);
-                // Publish PaymentFailedEvent → other services can react
-                await _events.PublishAsync(new PaymentFailedEvent
-                {
-                    PaymentId = payment.Id,
-                    UserId = payment.UserId,
-                    BillId = payment.BillId,
-                    Amount = payment.Amount,
-                    Reason = ex.Message
-                }, ct);
-                return ApiResponse<Guid>.FailureResponse(
-                    $"Payment failed: {ex.Message}");
-            }
+            return ApiResponse<Guid>.SuccessResponse(
+                payment.Id, "Payment processed successfully (Simulated)");
         }
 
-        /// <summary>
-        /// Simulates external payment gateway processing.
-        /// In production, replace with actual Stripe/Razorpay call.
-        /// </summary>
-        private static async Task SimulatePaymentProcessing(
-            Payment payment, CancellationToken ct)
+        private async Task SimulatePaymentProcessing(Payment payment, CancellationToken ct)
         {
-            // Simulate API latency
-            await Task.Delay(500, ct);
-            // Simulate failure for amounts exactly ₹99,999 (for testing)
-            if (payment.Amount == 99999)
-                throw new InvalidOperationException(
-                    "Payment gateway declined the transaction.");
+            _logger.LogInformation("Simulating external payment gateway call for PaymentId={PaymentId}...", payment.Id);
+            
+            // Simulate 1 second delay
+            await Task.Delay(1000, ct);
+
+            // --- SAGA STEP 3: Complete the payment ---
+            payment.MarkCompleted();
+            await _paymentRepo.UpdateAsync(payment, ct);
+
+            // --- SAGA STEP 4: Publish integration event for other services ---
+            var @event = new PaymentCompletedEvent
+            {
+                PaymentId = payment.Id,
+                UserId = payment.UserId,
+                BillId = payment.BillId,
+                CardId = payment.CardId,
+                Amount = payment.Amount,
+                PaymentMethod = payment.PaymentMethod,
+                Timestamp = DateTime.UtcNow
+            };
+
+            await _eventPublisher.PublishAsync(@event, ct);
+            
+            _logger.LogInformation(
+                "Saga completed: PaymentId={PaymentId}, Status=Completed, EventPublished=true",
+                payment.Id);
         }
     }
 }

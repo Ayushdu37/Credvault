@@ -29,5 +29,8 @@ export const CardsActions = createActionGroup({
     'Update Card Limit Failure': props<{ error: string }>(),
 
     'Select Card': props<{ id: string }>(),
+    'Load Card By Id': props<{ id: string }>(),
+    'Load Card By Id Success': props<{ card: CreditCard }>(),
+    'Load Card By Id Failure': props<{ error: string }>(),
   },
 });
